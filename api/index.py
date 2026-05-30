@@ -372,7 +372,7 @@ def chat():
             return cors_response({"error": "No message provided"}, 400)
 
         # Build OpenAI messages array
-        oai_messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+        oai_messages = [{"role": "system", "content": get_system_prompt()}]
         if customer_name or customer_email:
             oai_messages.append({
                 "role": "system",
