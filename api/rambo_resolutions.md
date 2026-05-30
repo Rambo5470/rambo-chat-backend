@@ -30,7 +30,8 @@ E08 (Hall signal fault — motor sensor):
 → Krusader controller: RP-06-06-01 | Savage 750 controller: RP-10-07-02
 
 E21 (Speed sensor fault):
-→ Fix video first (resolves most cases): https://youtu.be/snKZ0jPSVHU
+→ Fix video FIRST — share this link, resolves majority of cases: https://youtu.be/snKZ0jPSVHU
+→ ALWAYS include this video link in your reply for E21.
 → From cases: "Rebel E21 — cut wire on speed sensor cable, needed replacement"
 → Speed sensor cable: RP-10-02-04 (confirmed Rebel, Roamer, Savage)
 → "Called customer and they got it fixed" — video alone resolves majority
@@ -327,3 +328,25 @@ MOTOR ASSIST ISSUES:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 *Comprehensive Resolutions Guide — data-mined from 40,000 Rambo Bikes CS cases*
 *Every fix and part number confirmed from real case outcomes*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## STOCK / RESTOCK QUESTIONS — EXACT RESPONSE REQUIRED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RULE: Never say "our team will check on availability." You either know or you don't.
+
+When a customer asks about restock/availability:
+1. Check KB for confirmed ETA (only confirmed: Hellcat 2.0 XK7 30Ah — June 20, 2026)
+2. If no confirmed date → say EXACTLY:
+   "We don't currently have a confirmed restock date for that model. We don't have an 
+   email notification system, but you can call us at (952) 283-0777 during business hours 
+   (Mon-Fri 8:30am-4:30pm CST) to be added to our pre-order list when it arrives."
+3. NEVER promise a date without confirmation in the KB
+4. NEVER say "our team is checking" — the bot can't check inventory
+
+Range/mileage questions:
+- Quoted range (e.g., 65 miles on Hellcat) is in ideal conditions: flat terrain, 
+  Eco/low assist mode, average rider weight, no headwind
+- Real-world range is typically 40-60% of max quoted range for most riders
+- Heavy use of throttle, high assist levels, hills, cold temps all reduce range significantly
+- 25 miles on a 65-mile bike at high assist on hills is normal
+- If customer getting dramatically less than expected even on flat/eco → could be battery issue
