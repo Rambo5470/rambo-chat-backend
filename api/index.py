@@ -355,3 +355,4 @@ def chat():
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
+# KB auto-sync: rambo_kb.md + rambo_resolutions.md loaded from files
