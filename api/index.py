@@ -150,8 +150,10 @@ def check_restock(query):
         r = requests.post(SQL_URL, auth=auth, headers=sql_h, json={"q": q}, params={"limit": 200}, timeout=15)
         items = r.json().get("items", [])
         q_lower = query.lower()
-        keywords = [w for w in q_lower.split() if len(w) > 3 and w not in
-                    ("when","will","they","back","stock","want","order","have","please","need","get")]
+        # Strip trailing punctuation so "20ah." matches "20ah"
+        keywords = [w.strip(".,?!;:") for w in q_lower.split()
+                    if len(w.strip(".,?!;:")) > 2 and w.strip(".,?!;:") not in
+                    ("when","will","they","back","stock","want","order","have","please","need","get","model","bike","the")]
         matches, seen = [], set()
         for item in items:
             name = (item.get("displayname") or item.get("itemid") or "").lower()
@@ -311,7 +313,12 @@ def chat():
         dealer_kws = ["dealer", "store near", "shop near", "nearest dealer",
                       "closest dealer", "near me", "local dealer", "find a dealer"]
         if any(k in msg_lower for k in dealer_kws):
-            dealers = lookup_dealers(message)
+            # Extract city/state from message for Nominatim geocoding
+            import re as _re
+            # Try to find "City ST" or "City, ST" pattern in message
+            _loc = _re.search(r"\b([A-Z][a-zA-Z]+(?: [A-Z][a-zA-Z]+)*)(?:,? )([A-Z]{2})\b", message)
+            _location_q = (_loc.group(0) if _loc else None) or message
+            dealers = lookup_dealers(_location_q)
             if dealers:
                 injected_data = ("DEALER LOOKUP RESULTS — use these in your response:\n"
                                  + "\n".join(dealers)
