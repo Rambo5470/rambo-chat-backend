@@ -154,15 +154,24 @@ def check_restock(query):
         keywords = [w.strip(".,?!;:") for w in q_lower.split()
                     if len(w.strip(".,?!;:")) > 2 and w.strip(".,?!;:") not in
                     ("when","will","they","back","stock","want","order","have","please","need","get","model","bike","the")]
-        matches, seen = [], set()
+        matches_with_score = []
+        seen = set()
         for item in items:
             name = (item.get("displayname") or item.get("itemid") or "").lower()
-            if any(kw in name for kw in keywords):
+            # Count how many keywords match (more matches = more relevant)
+            score = sum(1 for kw in keywords if kw in name)
+            if score > 0:
                 key = (item.get("itemid"), item.get("expectedreceiptdate"))
                 if key not in seen:
                     seen.add(key)
-                    matches.append({"date": item.get("expectedreceiptdate"),
-                                   "desc": item.get("displayname") or item.get("itemid")})
+                    matches_with_score.append({
+                        "score": score,
+                        "date":  item.get("expectedreceiptdate"),
+                        "desc":  item.get("displayname") or item.get("itemid")
+                    })
+        # Sort by score (most relevant first), then by date
+        matches_with_score.sort(key=lambda x: (-x["score"], x["date"] or ""))
+        matches = [{"date": m["date"], "desc": m["desc"]} for m in matches_with_score]
         return matches if matches else None
     except Exception:
         return None
