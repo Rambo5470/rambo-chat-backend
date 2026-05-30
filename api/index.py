@@ -21,7 +21,9 @@ NS_CONSUMER_KEY  = os.environ.get("NS_CONSUMER_KEY",  "")
 NS_CONSUMER_SEC  = os.environ.get("NS_CONSUMER_SEC",  "")
 NS_TOKEN_ID      = os.environ.get("NS_TOKEN_ID",      "")
 NS_TOKEN_SEC     = os.environ.get("NS_TOKEN_SEC",     "")
-ALLOWED_ORIGINS  = ["https://www.rambobikes.com", "https://rambobikes.com"]
+ALLOWED_ORIGINS      = ["https://www.rambobikes.com", "https://rambobikes.com"]
+LOCALLY_API_KEY      = os.environ.get("LOCALLY_API_KEY",    "8796b2920585811cf6a758a9f53ebf963bae0531")
+LOCALLY_COMPANY_ID   = os.environ.get("LOCALLY_COMPANY_ID", "188714")
 
 RESEND_API_KEY  = os.environ.get("RESEND_API_KEY", "")
 FROM_EMAIL      = "Rambo Bikes Support <cs@rambobikes.com>"
@@ -39,6 +41,93 @@ def cors_response(data, status=200):
     return resp
 
 # ─── System Prompt ────────────────────────────────────────────────────────────
+
+# ─── Dealer Lookup (Locally.com) ──────────────────────────────────────────────
+def lookup_dealers(location):
+    """Find 3 nearest Rambo dealers for a given location string."""
+    try:
+        # Geocode the location first
+        geo = requests.get(
+            "https://nominatim.openstreetmap.org/search",
+            params={"q": location, "format": "json", "limit": 1},
+            headers={"User-Agent": "RamboBikesChat/1.0"},
+            timeout=8
+        )
+        geo_data = geo.json()
+        if not geo_data:
+            return None
+        lat = float(geo_data[0]["lat"])
+        lon = float(geo_data[0]["lon"])
+
+        # Query Locally.com for nearby dealers
+        r = requests.get(
+            "https://api.locally.com/stores/near",
+            params={
+                "api_key":    LOCALLY_API_KEY,
+                "company_id": LOCALLY_COMPANY_ID,
+                "lat":        lat,
+                "lng":        lon,
+                "limit":      3,
+                "miles":      150,
+            },
+            timeout=10
+        )
+        stores = r.json().get("stores", [])
+        if not stores:
+            return None
+
+        dealers = []
+        for s in stores[:3]:
+            name    = s.get("name", "")
+            addr    = s.get("address", "")
+            city    = s.get("city", "")
+            state   = s.get("state", "")
+            phone   = s.get("phone", "")
+            miles   = round(float(s.get("distance", 0)), 1)
+            dealers.append(f"• **{name}** ({miles} mi away)
+  {addr}, {city}, {state}
+  📞 {phone}")
+        return dealers
+    except Exception as e:
+        return None
+
+
+# ─── Container Tracker (NetSuite TORBs) ───────────────────────────────────────
+def check_restock(model_query):
+    """Check NetSuite Transfer Orders for upcoming restock of a model."""
+    try:
+        auth = OAuth1(NS_CONSUMER_KEY, NS_CONSUMER_SEC, NS_TOKEN_ID, NS_TOKEN_SEC,
+                      signature_method="HMAC-SHA256", realm=NS_ACCOUNT_ID)
+        SQL_URL = f"https://{NS_ACCOUNT_ID}.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql"
+        sql_h   = {"Content-Type": "application/json", "Prefer": "transient"}
+
+        q = """
+        SELECT t.tranid, t.memo, tl.expectedreceiptdate, i.itemid, i.displayname
+        FROM transaction t
+        JOIN transactionline tl ON t.id = tl.transaction
+        JOIN item i ON tl.item = i.id
+        WHERE t.type = 'TrnfrOrd'
+        AND tl.expectedreceiptdate >= SYSDATE
+        ORDER BY tl.expectedreceiptdate ASC
+        """
+        r = requests.post(SQL_URL, auth=auth, headers=sql_h, json={"q": q}, params={"limit": 200}, timeout=15)
+        items = r.json().get("items", [])
+
+        # Search for model in item names
+        query_lower = model_query.lower()
+        matches = []
+        for item in items:
+            name = (item.get("displayname") or item.get("itemid") or "").lower()
+            if any(kw in name for kw in query_lower.split()):
+                date = item.get("expectedreceiptdate", "")
+                desc = item.get("displayname") or item.get("itemid")
+                if {"date": date, "desc": desc} not in matches:
+                    matches.append({"date": date, "desc": desc})
+
+        return matches if matches else None
+    except Exception:
+        return None
+
 def load_system_prompt():
     """Load KB + resolutions from files — auto-updates when files are pushed to GitHub."""
     import os
@@ -57,8 +146,20 @@ RESPONSE FORMAT — always return valid JSON only, no other text:
   "escalate_reason": null,
   "create_case": false,
   "case_title": null,
-  "case_summary": null
+  "case_summary": null,
+  "action": null,
+  "action_data": {}
 }
+
+SPECIAL ACTIONS — set "action" when:
+- Customer asks for a dealer near a specific location:
+  Set "action": "lookup_dealers", "action_data": {"location": "their city/state/zip"}
+  Write message as "Let me find the nearest dealers to you..." (backend will append results)
+
+- Customer asks about restock/availability of a specific model:
+  Set "action": "check_restock", "action_data": {"model": "exact model name they asked about"}
+  Write message as "Let me check our upcoming shipments..." (backend will append results or escalate)
+  ONLY use this action for out-of-stock items. If the item is available on the website, just link to it.
 
 ESCALATION RULES — set escalate=true when:
 - Customer mentions lawyer/lawsuit/attorney/legal action → escalate_to: "misti"
@@ -96,6 +197,12 @@ Sign off: Rambo Bikes CS | cs@rambobikes.com | (952) 283-0777 | Mon-Fri 8:30am-4
     if os.path.exists(res_path):
         with open(res_path, "r") as f:
             parts.append("\n\n" + f.read())
+
+    # Load product knowledge base (model specs, recommendations, pricing)
+    prod_path = os.path.join(base, "rambo_product_kb.md")
+    if os.path.exists(prod_path):
+        with open(prod_path, "r") as f:
+            parts.append("\n\n# PRODUCT SPECIFICATIONS & RECOMMENDATIONS\n" + f.read())
 
     return "\n".join(parts)
 
@@ -289,10 +396,40 @@ def chat():
 
         ai_message     = result.get("message", "Please call us at (952) 283-0777 for assistance.")
         escalate       = bool(result.get("escalate", False))
-        escalate_to    = result.get("escalate_to")      # "misti" | "jenna" | None
+        escalate_to    = result.get("escalate_to")
         create_case    = bool(result.get("create_case", False))
         case_title     = result.get("case_title") or f"Chat - {customer_name or 'Customer'} - General"
         case_summary   = result.get("case_summary") or "Chat widget inquiry"
+        action         = result.get("action")           # "lookup_dealers" | "check_restock" | None
+        action_data    = result.get("action_data") or {}
+
+        # ── Process special actions ──────────────────────────────────────────
+        if action == "lookup_dealers" and LOCALLY_API_KEY:
+            location = action_data.get("location", "")
+            dealers  = lookup_dealers(location) if location else None
+            if dealers:
+                dealer_list = "\n".join(dealers)
+                ai_message += f"\n\nHere are the 3 nearest Rambo dealers to you:\n\n{dealer_list}\n\n🗺️ rambobikes.com/pages/store-locator"
+            else:
+                ai_message += "\n\n🗺️ Use our dealer locator to find your nearest dealer: rambobikes.com/pages/store-locator"
+
+        elif action == "check_restock":
+            model_q  = action_data.get("model", message)
+            matches  = check_restock(model_q) if NS_CONSUMER_KEY else None
+            if matches:
+                lines = [f"• {m['desc']} — arriving **{m['date']}**" for m in matches[:3]]
+                ai_message += f"\n\nHere's what I found on our upcoming shipments:\n\n" + "\n".join(lines)
+                ai_message += "\n\nCall (952) 283-0777 Mon-Fri 8:30am-4:30pm CST to pre-order."
+            else:
+                # Not in containers — escalate to Misti and create case
+                ai_message  = (f"We don't have a confirmed restock date for that model right now. "
+                               f"I've flagged this for our team and someone will be in touch to give "
+                               f"you the most current availability. You can also call us at "
+                               f"(952) 283-0777 Mon-Fri 8:30am-4:30pm CST.")
+                escalate    = True
+                escalate_to = "misti"
+                create_case = True
+                case_title  = f"Chat - Restock Inquiry - {model_q}"
 
         # Update history
         updated_history = list(history) + [
@@ -355,4 +492,3 @@ def chat():
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
-# KB auto-sync: rambo_kb.md + rambo_resolutions.md loaded from files
