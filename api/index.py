@@ -215,6 +215,26 @@ def health():
     return cors_response({"status": "ok", "service": "Rambo Bikes Chat API v2",
                           "features": ["dealer_lookup", "container_tracker", "github_kb"]})
 
+@app.route("/debug", methods=["GET"])
+def debug():
+    """Test external API calls."""
+    results = {}
+    # Test Nominatim geocode
+    try:
+        r = requests.get("https://nominatim.openstreetmap.org/search",
+            params={"q": "Springfield MO", "format": "json", "limit": 1},
+            headers={"User-Agent": "RamboBikesChat/1.0"}, timeout=6)
+        geo = r.json()
+        results["geocode"] = {"status": r.status_code, "lat": geo[0]["lat"] if geo else None}
+    except Exception as e:
+        results["geocode"] = {"error": str(e)}
+    # Test NS credentials
+    results["ns_key_set"] = bool(NS_CONSUMER_KEY)
+    results["ns_key_len"] = len(NS_CONSUMER_KEY)
+    # Test dealer embed
+    results["dealers_embedded"] = len(_DEALERS)
+    return cors_response(results)
+
 @app.route("/widget.js", methods=["GET"])
 def widget():
     import os as _os
