@@ -3021,6 +3021,47 @@ def chat():
         if not message:
             return cors_response({"error": "No message provided"}, 400)
 
+        # ── Pre-fetch: dealer lookup or container tracker before AI call ────────
+        msg_lower      = message.lower()
+        injected_data  = ""
+
+        # Dealer lookup: detect location-based dealer query
+        dealer_keywords = ["dealer", "store", "shop near", "closest dealer",
+                           "nearest dealer", "near me", "in my area", "local dealer"]
+        if any(k in msg_lower for k in dealer_keywords) and LOCALLY_API_KEY:
+            dealers = lookup_dealers(message)
+            if dealers:
+                injected_data = ("DEALER LOOKUP RESULTS (use these in your response):\n"
+                                 + "\n".join(dealers)
+                                 + "\n\n🗺️ rambobikes.com/pages/store-locator")
+            else:
+                injected_data = "DEALER LOOKUP: No dealers found nearby. Direct to rambobikes.com/pages/store-locator"
+
+        # Container tracker: detect restock query
+        restock_keywords = ["when will", "back in stock", "restock", "available",
+                            "out of stock", "when can i order", "when will you have"]
+        if any(k in msg_lower for k in restock_keywords) and NS_CONSUMER_KEY:
+            # Extract model from message (use full message as query)
+            matches = check_restock(message)
+            if matches:
+                lines = [f"• {m['desc']} — arriving {m['date']}" for m in matches[:3]]
+                injected_data = ("CONTAINER TRACKER RESULTS (use these in your response):\n"
+                                 + "\n".join(lines)
+                                 + "\nTell customer the ETA and they can call (952) 283-0777 to pre-order.")
+            else:
+                injected_data = ("CONTAINER TRACKER: No upcoming shipments found for this model. "
+                                 "Tell customer no confirmed date, they should call (952) 283-0777 to be "
+                                 "added to pre-order list. Set escalate=true, escalate_to=misti, create_case=true.")
+
+        # Krusader / AWD light question → rocker switch context
+        if any(w in msg_lower for w in ["green", "white light", "light won", "light doesn"]) and            any(m in msg_lower for m in ["krusader", "megatron", "hellcat", "awd"]):
+            injected_data += ("\n\nROCKER SWITCH CONTEXT: The customer is asking about the "
+                              "headlight/taillight rocker switch on their AWD bike. "
+                              "Step 1: confirm bike is powered ON. "
+                              "Step 2: locate rocker switch near handlebars — positions are OFF | WHITE | GREEN. "
+                              "Step 3: move from OFF to WHITE or GREEN. "
+                              "If still not working after bike is ON and switch moved → check cable connection.")
+
         # Build OpenAI messages array
         oai_messages = [{"role": "system", "content": get_system_prompt()}]
         if customer_name or customer_email:
@@ -3028,7 +3069,12 @@ def chat():
                 "role": "system",
                 "content": f"Customer info — Name: {customer_name or 'unknown'}, Email: {customer_email or 'not provided'}"
             })
-        oai_messages.extend(history[-20:])   # keep last 20 turns max
+        if injected_data:
+            oai_messages.append({
+                "role": "system",
+                "content": f"LIVE DATA FOR THIS QUERY:\n{injected_data}"
+            })
+        oai_messages.extend(history[-20:])
         oai_messages.append({"role": "user", "content": message})
 
         # Call OpenAI
