@@ -20,7 +20,7 @@
   let customerEmail = '';
   let isOpen        = false;
   let hasGreeted    = false;
-  let infoCollected = false;
+  let infoCollected = true;   // skip pre-chat form — collect info conversationally if needed
 
   // ── INJECT CSS ─────────────────────────────────────────────────────────────
   const css = `
@@ -110,20 +110,8 @@
     #rb-typing span:nth-child(2) { animation-delay: 0.2s; }
     #rb-typing span:nth-child(3) { animation-delay: 0.4s; }
 
-    /* Info form */
-    #rb-info-form { padding: 14px 16px; flex-shrink: 0; border-top: 1px solid #eee; background: #fafafa; }
-    #rb-info-form p { font-size: 13px; color: #555; margin: 0 0 10px; }
-    #rb-info-form input {
-      width: 100%; border: 1px solid #ddd; border-radius: 8px;
-      padding: 9px 12px; font-size: 14px; margin-bottom: 8px; outline: none;
-    }
-    #rb-info-form input:focus { border-color: ${BRAND_DARK}; }
-    #rb-info-submit {
-      width: 100%; background: ${BRAND_DARK}; color: #fff; border: none;
-      border-radius: 8px; padding: 10px; font-size: 14px; cursor: pointer;
-      transition: background 0.2s;
-    }
-    #rb-info-submit:hover { background: ${BRAND_RED}; }
+    /* Info form — hidden, info collected conversationally */
+    #rb-info-form { display: none !important; }
 
     /* Input bar */
     #rb-input-bar {
@@ -246,15 +234,9 @@
       addMessage("👋 Hey there! I'm the Rambo Bikes virtual assistant. I can help with troubleshooting, parts, order status, registration, and more. What can I help you with today?", 'bot');
     }
 
-    if (!infoCollected) {
-      infoForm.style.display = 'block';
-      inputBar.style.display = 'none';
-      setTimeout(() => nameInput.focus(), 100);
-    } else {
-      infoForm.style.display = 'none';
-      inputBar.style.display = 'flex';
-      setTimeout(() => textInput.focus(), 100);
-    }
+    infoForm.style.display = 'none';
+    inputBar.style.display = 'flex';
+    setTimeout(() => textInput.focus(), 100);
   }
 
   function closeChat() {
