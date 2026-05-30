@@ -194,7 +194,66 @@ def health():
     return cors_response({"status": "ok", "service": "Rambo Bikes Chat API v1"})
 
 
-@app.route("/widget.js", methods=["GET"])
+@app.route("/preview", methods=["GET"])
+def preview():
+    """Live preview page — open in browser to see the chat widget working."""
+    import os
+    widget_path = os.path.join(os.path.dirname(__file__), "rambo-chat-widget.js")
+    try:
+        with open(widget_path, "r") as f:
+            js = f.read()
+    except FileNotFoundError:
+        js = "console.error('Widget not found');"
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rambo Bikes Chat — Live Preview</title>
+  <style>
+    *{{margin:0;padding:0;box-sizing:border-box;}}
+    body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;}}
+    .banner{{background:#cc0000;color:#fff;padding:10px 24px;text-align:center;font-size:13px;font-weight:600;position:sticky;top:0;z-index:99998;}}
+    .header{{background:#1b1b1b;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;}}
+    .logo{{color:#fff;font-size:22px;font-weight:800;letter-spacing:1px;}}
+    .logo span{{color:#cc0000;}}
+    .nav{{display:flex;gap:24px;font-size:13px;color:#aaa;}}
+    .hero{{background:linear-gradient(135deg,#1b1b1b,#2a2a2a);color:#fff;padding:80px 40px;text-align:center;}}
+    .hero h1{{font-size:48px;font-weight:800;margin-bottom:12px;}}
+    .hero h1 span{{color:#cc0000;}}
+    .hero p{{font-size:18px;opacity:.7;max-width:500px;margin:0 auto;}}
+    .products{{max-width:1100px;margin:60px auto;padding:0 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}}
+    .card{{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);}}
+    .card-img{{height:140px;background:linear-gradient(135deg,#e8e8e8,#f5f5f5);border-radius:8px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-size:48px;}}
+    .card h3{{font-size:16px;font-weight:700;margin-bottom:6px;}}
+    .card p{{font-size:13px;color:#888;margin-bottom:10px;}}
+    .price{{font-size:20px;font-weight:700;color:#1b1b1b;}}
+  </style>
+</head>
+<body>
+  <div class="banner">⚡ LIVE PREVIEW — Rambo Bikes Chat Widget · Real AI · Wait 5 seconds for the greeting to appear</div>
+  <div class="header">
+    <div class="logo">RAMBO<span>•</span>BIKES</div>
+    <div class="nav"><span>Shop</span><span>Electric Bikes</span><span>Parts</span><span>Support</span></div>
+  </div>
+  <div class="hero">
+    <h1>Ride <span>Rambo.</span> Ride Electric.</h1>
+    <p>Premium electric fat-tire bikes built for any terrain.</p>
+  </div>
+  <div class="products">
+    <div class="card"><div class="card-img">⚡</div><h3>Hellcat 2.0 XK7</h3><p>2x1000W AWD Full Suspension</p><div class="price">$4,999</div></div>
+    <div class="card"><div class="card-img">&#x1F3D4;</div><h3>Megatron 4.0</h3><p>2x1000W AWD 26" Tires</p><div class="price">$3,899</div></div>
+    <div class="card"><div class="card-img">&#x1F6B5;</div><h3>Dominator HD</h3><p>Mid-Drive BBS02B Premium Build</p><div class="price">$2,999</div></div>
+  </div>
+  <script>{js}</script>
+</body>
+</html>"""
+
+    from flask import Response
+    resp = Response(html, mimetype="text/html")
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
 def widget():
     """Serve the chat widget JavaScript — embed in Shopify with one script tag."""
     import os
