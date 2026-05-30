@@ -68,9 +68,11 @@ CASE CREATION — set create_case=true when:
 
 COLLECTING CUSTOMER INFO:
 - Do NOT ask for name/email upfront — jump straight into helping
-- If escalation is needed (you set escalate=true), ask: "So I can have our team follow up with you directly, could I get your name and email address?"
-- If the customer provides their name during conversation, use it going forward
-- If the customer provides their email, include it in case_title and case_summary
+- ONLY set create_case=true or escalate=true when you ALREADY HAVE the customer's email in the conversation
+- If the issue needs escalation but you don't have their email yet, ask FIRST: "So our team can follow up, could I get your name and email address?" — then wait for their reply before escalating
+- Never set create_case=true or escalate=true if customer_email is empty
+- If customer provides email mid-conversation, capture it and THEN you can escalate if still needed
+- One case per conversation — if a case was already created (case_already_created=true in context), do NOT set create_case=true again
 
 HARD RULES — NEVER BREAK:
 - NEVER mention warranty, warranty coverage, or warranty periods
@@ -322,8 +324,11 @@ def chat():
         ]
 
         # Create NetSuite case if needed
+        # Rules: (1) AI requested it, (2) not already created this session,
+        #        (3) customer email must be provided — never create with blank email
+        case_already_created = data.get("case_already_created", False)
         case_result = None
-        if (escalate or create_case) and NS_CONSUMER_KEY:
+        if (escalate or create_case) and not case_already_created and customer_email and NS_CONSUMER_KEY:
             assigned_id = JENNA_ID if escalate_to == "jenna" else MISTI_ID
             status_id   = "3" if escalate else "2"
 
