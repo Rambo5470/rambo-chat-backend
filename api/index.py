@@ -15,10 +15,10 @@ app = Flask(__name__)
 # ── Env Vars ───────────────────────────────────────────────────────────────────
 OPENAI_API_KEY      = os.environ.get("OPENAI_API_KEY",    "")
 NS_ACCOUNT_ID       = os.environ.get("NS_ACCOUNT_ID",     "5108296")
-NS_CONSUMER_KEY     = os.environ.get("NS_CONSUMER_KEY",   "")
-NS_CONSUMER_SEC     = os.environ.get("NS_CONSUMER_SEC",   "")
-NS_TOKEN_ID         = os.environ.get("NS_TOKEN_ID",       "")
-NS_TOKEN_SEC        = os.environ.get("NS_TOKEN_SEC",      "")
+NS_CONSUMER_KEY     = os.environ.get("NS_CONSUMER_KEY",   "62dcb9b1151f4ce47301b73765b8438874992d57d0ca57fa05f78aa994e14ba0")
+NS_CONSUMER_SEC     = os.environ.get("NS_CONSUMER_SEC",   "35f728cf6037c3b422df23233765e2418441f82cba98e90d4bc18ac4b9197cb7")
+NS_TOKEN_ID         = os.environ.get("NS_TOKEN_ID",       "19d53555407d9ef6b531720869dd543602fe157e823672a1b368e93215b19223")
+NS_TOKEN_SEC        = os.environ.get("NS_TOKEN_SEC",      "89f33464075517f514ccfa2ed30e69afd14acc005efeac595ad235cbbd26e7eb")
 LOCALLY_API_KEY     = os.environ.get("LOCALLY_API_KEY",   "8796b2920585811cf6a758a9f53ebf963bae0531")
 LOCALLY_COMPANY_ID  = os.environ.get("LOCALLY_COMPANY_ID","188714")
 ALLOWED_ORIGINS     = ["https://www.rambobikes.com", "https://rambobikes.com"]
@@ -107,26 +107,48 @@ def get_system_prompt():
 
 # ── Dealer Lookup ────────────────────────────────────────────────────────────────
 def lookup_dealers(location):
+    """Find 3 nearest Rambo dealers using Nominatim geocoding + dealer data."""
+    import math
     try:
+        # Geocode the customer location
         geo = requests.get("https://nominatim.openstreetmap.org/search",
             params={"q": location, "format": "json", "limit": 1},
             headers={"User-Agent": "RamboBikesChat/1.0"}, timeout=8)
         geo_data = geo.json()
         if not geo_data:
             return None
-        lat, lon = float(geo_data[0]["lat"]), float(geo_data[0]["lon"])
-        r = requests.get("https://api.locally.com/stores/near",
-            params={"api_key": LOCALLY_API_KEY, "company_id": LOCALLY_COMPANY_ID,
-                    "lat": lat, "lng": lon, "limit": 3, "miles": 200},
-            timeout=10)
-        stores = r.json().get("stores", [])
-        if not stores:
+        cust_lat = float(geo_data[0]["lat"])
+        cust_lon = float(geo_data[0]["lon"])
+
+        # Load dealer list from GitHub
+        r = requests.get(
+            "https://raw.githubusercontent.com/Rambo5470/rambo-chat-backend/main/api/dealers.json",
+            timeout=8)
+        if r.status_code != 200:
             return None
-        dealers = []
-        for s in stores[:3]:
-            mi = round(float(s.get("distance", 0)), 1)
-            dealers.append(f"* **{s.get('name')}** ({mi} mi) — {s.get('address')}, {s.get('city')}, {s.get('state')}   Phone: {s.get('phone','N/A')}")
-        return dealers
+        dealers_data = r.json()
+
+        # Calculate distances
+        def dist(lat1, lon1, lat2, lon2):
+            R = 3958.8
+            d = math.radians
+            a = math.sin(d(lat2-lat1)/2)**2 + math.cos(d(lat1))*math.cos(d(lat2))*math.sin(d(lon2-lon1)/2)**2
+            return R * 2 * math.asin(math.sqrt(a))
+
+        nearby = []
+        for d in dealers_data:
+            if d.get("lat") and d.get("lon"):
+                miles = dist(cust_lat, cust_lon, d["lat"], d["lon"])
+                nearby.append((miles, d))
+        nearby.sort(key=lambda x: x[0])
+
+        if not nearby:
+            return None
+
+        result = []
+        for miles, d in nearby[:3]:
+            result.append(f"* **{d['name']}** ({round(miles,1)} mi) — {d['address']}, {d['city']}, {d['state']} {d['zip']}   📞 {d['phone']}")
+        return result
     except Exception:
         return None
 
