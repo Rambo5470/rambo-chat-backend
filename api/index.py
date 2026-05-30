@@ -194,6 +194,23 @@ def health():
     return cors_response({"status": "ok", "service": "Rambo Bikes Chat API v1"})
 
 
+@app.route("/widget.js", methods=["GET"])
+def widget():
+    """Serve the chat widget JavaScript — embed in Shopify with one script tag."""
+    import os
+    widget_path = os.path.join(os.path.dirname(__file__), "rambo-chat-widget.js")
+    try:
+        with open(widget_path, "r") as f:
+            js = f.read()
+    except FileNotFoundError:
+        js = "console.error('Rambo chat widget not found');"
+    from flask import Response
+    resp = Response(js, mimetype="application/javascript")
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    resp.headers["Cache-Control"] = "public, max-age=300"
+    return resp
+
+
 @app.route("/api/chat", methods=["POST", "OPTIONS"])
 def chat():
     if request.method == "OPTIONS":
