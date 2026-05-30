@@ -23,7 +23,8 @@ NS_TOKEN_ID      = os.environ.get("NS_TOKEN_ID",      "")
 NS_TOKEN_SEC     = os.environ.get("NS_TOKEN_SEC",     "")
 ALLOWED_ORIGINS  = ["https://www.rambobikes.com", "https://rambobikes.com"]
 
-MISTI_ID = "1717307"
+RESEND_API_KEY  = os.environ.get("RESEND_API_KEY", "")
+FROM_EMAIL      = "Rambo Bikes Support <cs@rambobikes.com>"
 JENNA_ID = "2144573"
 AI_ID    = "2718778"
 
@@ -348,6 +349,14 @@ def chat():
                 assigned_id=assigned_id,
                 status_id=status_id
             )
+            # Send confirmation email to customer if case created successfully
+            if case_result and case_result.get("success"):
+                send_confirmation_email(
+                    customer_name=customer_name,
+                    customer_email=customer_email,
+                    case_id=case_result.get("case_id", ""),
+                    escalate_to=escalate_to
+                )
 
         return cors_response({
             "message":      ai_message,
@@ -370,5 +379,3 @@ def chat():
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
-
-# redeploy trigger
