@@ -329,9 +329,9 @@ def chat():
             _location_q = (_loc.group(0) if _loc else None) or message
             dealers = lookup_dealers(_location_q)
             if dealers:
-                injected_data = ("DEALER LOOKUP RESULTS — use these in your response:\n"
+                injected_data = ("DEALER LOOKUP RESULTS — list ALL 3 dealers in your response:\n"
                                  + "\n".join(dealers)
-                                 + "\n\nAlso provide: rambobikes.com/pages/store-locator")
+                                 + "\n\nAlso tell customer: rambobikes.com/pages/store-locator for the full list")
             else:
                 injected_data = "DEALER LOOKUP: No dealers found. Direct to rambobikes.com/pages/store-locator"
 
