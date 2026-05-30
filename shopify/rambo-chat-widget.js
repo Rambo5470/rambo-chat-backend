@@ -16,6 +16,7 @@
 
   // ── STATE ──────────────────────────────────────────────────────────────────
   let history       = [];
+  let caseSent      = false;   // one case per session max
   let customerName  = '';
   let customerEmail = '';
   let isOpen        = false;
@@ -258,10 +259,11 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          message:        text,
-          history:        history,
-          customer_name:  customerName,
-          customer_email: customerEmail
+          message:              text,
+          history:              history,
+          customer_name:        customerName,
+          customer_email:       customerEmail,
+          case_already_created: caseSent
         })
       });
 
@@ -273,9 +275,11 @@
         history = data.history || history;
       }
 
-      // If escalated and case created, show confirmation
-      if (data.escalate && data.case_created?.success) {
-        addMessage(`✅ I've created a support case for you. Our team will follow up at ${customerEmail}. You can also call (952) 283-0777 Mon-Fri 8:30am-4:30pm CST.`, 'bot');
+      // Show case confirmation only once per session
+      if (data.case_created?.success && !caseSent) {
+        caseSent = true;
+        const followUp = customerEmail ? ` Our team will follow up at ${customerEmail}.` : "";
+        addMessage(`✅ I've created a support case for you.${followUp} You can also call (952) 283-0777 Mon-Fri 8:30am-4:30pm CST.`, 'bot');
       }
 
     } catch (err) {
