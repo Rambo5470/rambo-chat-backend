@@ -197,32 +197,6 @@ def create_netsuite_case(customer_name, customer_email, case_title, transcript, 
         r          = requests.post(url, auth=auth, headers=headers_ns, json=payload, timeout=15)
         location   = r.headers.get("Location", "")
         case_id    = location.split("/")[-1] if location else "unknown"
-
-        # Step 2: Send confirmation email to customer via outgoingMessage
-        if case_id and case_id.isdigit() and customer_email:
-            first_name = customer_name.split()[0] if customer_name else "there"
-            team_note  = " Our CS manager will personally review your case." if assigned_id == MISTI_ID else ""
-            confirm_msg = (
-                f"Hi {first_name}, thank you for contacting Rambo Bikes support. "
-                f"We have received your message and created a support case for you.{team_note} "
-                f"Our team will follow up with you shortly. "
-                f"You can also reach us at (952) 283-0777, Monday through Friday, 8:30am to 4:30pm CST. "
-                f"Thank you for being a Rambo Bikes customer! — Rambo Bikes Customer Service Team"
-            )
-            requests.patch(
-                f"https://{NS_ACCOUNT_ID}.suitetalk.api.netsuite.com/services/rest/record/v1/supportCase/{case_id}",
-                auth=auth,
-                headers={"Content-Type": "application/json"},
-                json={
-                    "outgoingMessage": confirm_msg,
-                    "htmlMessage":     True,
-                    "emailForm":       True,
-                    "messageNew":      False,
-                    "custevent2":      False,
-                },
-                timeout=15
-            )
-
         return {"success": r.status_code in [200, 201, 204], "case_id": case_id, "status": r.status_code}
     except Exception as e:
         return {"success": False, "error": str(e)}
