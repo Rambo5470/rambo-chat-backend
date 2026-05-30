@@ -8,7 +8,7 @@
   'use strict';
 
   // ── CONFIG ─────────────────────────────────────────────────────────────────
-  const CHAT_API_URL   = 'https://rambo-chat.vercel.app/api/chat'; // UPDATE after Vercel deploy
+  const CHAT_API_URL   = 'https://rambo-chat-backend.vercel.app/api/chat';
   const BRAND_DARK     = '#1b1b1b';
   const BRAND_RED      = '#cc0000';
   const GREETING_DELAY = 5000;   // ms before greeting appears
