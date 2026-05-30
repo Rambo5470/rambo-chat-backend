@@ -143,6 +143,14 @@
     @keyframes rb-bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-5px); } }
   `;
 
+  // Suppress existing Contivio chat widget
+  const contivioSuppressor = document.createElement('style');
+  contivioSuppressor.textContent = `/* Hide Contivio chat widget when Rambo AI chat is active */
+    #ContivioChatWidget, .contivio-chat-widget, 
+    iframe[src*="contivio"], div[class*="contivio"],
+    #contivio-chat-container { display: none !important; }`;
+  document.head.appendChild(contivioSuppressor);
+
   const style = document.createElement('style');
   style.textContent = css;
   document.head.appendChild(style);
@@ -322,6 +330,18 @@
 
   nameInput.addEventListener('input',  () => nameInput.style.borderColor  = '');
   emailInput.addEventListener('input', () => emailInput.style.borderColor = '');
+
+  // ── Hide Contivio chat if it loads after our widget ──────────────────
+  const hideContivio = () => {
+    const selectors = ['#ContivioChatWidget','#contivio-chat-container',
+                       '.contivio-chat-widget','iframe[src*="contivio"]'];
+    selectors.forEach(s => {
+      document.querySelectorAll(s).forEach(el => el.style.display = 'none');
+    });
+  };
+  hideContivio();
+  new MutationObserver(hideContivio).observe(document.body,
+    {childList: true, subtree: true});
 
   // ── GREETING SEQUENCE (5s → show → 3s → hide to icon) ────────────────────
   setTimeout(() => {
