@@ -79,6 +79,18 @@ E30 (Communication fault — display/controller):
 → Wiring harness fix confirmed in some cases before full replacement needed.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## KRUSADER LIGHT / ROCKER SWITCH — COMMON QUESTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Customer says "green and white light won't turn on" or "light doesn't work":
+→ This is the ROCKER SWITCH for the headlight. Three positions: OFF | WHITE | GREEN
+→ Step 1: Make sure bike is fully powered on first (power button on BOTTOM of display)
+→ Step 2: Locate the rocker switch (small toggle near handlebars/display area)
+→ Step 3: Move rocker switch from OFF to WHITE (white light) or GREEN (green light)
+→ If bike is ON and rocker switch doesn't activate the light → check cable connection
+→ If light still doesn't work after above → replacement light or wiring issue
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ## KRUSADER — CONFIRMED PARTS & FIXES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
