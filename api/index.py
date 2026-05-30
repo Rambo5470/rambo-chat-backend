@@ -2927,7 +2927,7 @@ def create_netsuite_case(customer_name, customer_email, case_title, transcript, 
 # ─── Routes ──────────────────────────────────────────────────────────────────
 @app.route("/", methods=["GET"])
 def health():
-    return cors_response({"status": "ok", "service": "Rambo Bikes Chat API v1"})
+    return cors_response({"status": "ok", "service": "Rambo Bikes Chat API v2", "features": ["dealer_lookup","container_tracker","inline_kb"]})
 
 
 @app.route("/preview", methods=["GET"])
