@@ -19,6 +19,8 @@ NS_CONSUMER_KEY     = os.environ.get("NS_CONSUMER_KEY",   "62dcb9b1151f4ce47301b
 NS_CONSUMER_SEC     = os.environ.get("NS_CONSUMER_SEC",   "35f728cf6037c3b422df23233765e2418441f82cba98e90d4bc18ac4b9197cb7")
 NS_TOKEN_ID         = os.environ.get("NS_TOKEN_ID",       "19d53555407d9ef6b531720869dd543602fe157e823672a1b368e93215b19223")
 NS_TOKEN_SEC        = os.environ.get("NS_TOKEN_SEC",      "89f33464075517f514ccfa2ed30e69afd14acc005efeac595ad235cbbd26e7eb")
+SHOPIFY_SHOP        = os.environ.get("SHOPIFY_SHOP",    "788af8-3.myshopify.com")
+SHOPIFY_TOKEN       = os.environ.get("SHOPIFY_TOKEN",   "")  # set in Vercel env vars
 LOCALLY_API_KEY     = os.environ.get("LOCALLY_API_KEY",   "8796b2920585811cf6a758a9f53ebf963bae0531")
 LOCALLY_COMPANY_ID  = os.environ.get("LOCALLY_COMPANY_ID","188714")
 ALLOWED_ORIGINS     = ["https://www.rambobikes.com", "https://rambobikes.com"]
@@ -60,6 +62,49 @@ def cors_response(data, status=200):
     return resp
 
 # ── System Prompt ────────────────────────────────────────────────────────────────
+# ─── Parts Ordering ──────────────────────────────────────────────────────────
+def get_part_msrp(part_number):
+    """Look up MSRP (price level 5) for a part number in NetSuite."""
+    try:
+        auth = OAuth1(NS_CONSUMER_KEY, NS_CONSUMER_SEC, NS_TOKEN_ID, NS_TOKEN_SEC,
+                      signature_method="HMAC-SHA256", realm=NS_ACCOUNT_ID)
+        SQL_URL = f"https://{NS_ACCOUNT_ID}.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql"
+        r = requests.post(SQL_URL, auth=auth,
+            headers={"Content-Type": "application/json", "Prefer": "transient"},
+            json={"q": (f"SELECT i.id, i.itemid, i.displayname, p.unitprice "
+                        f"FROM item i JOIN pricing p ON p.item = i.id "
+                        f"WHERE i.itemid = '{part_number.upper()}' AND p.pricelevel = 5")},
+            params={"limit": 1}, timeout=10)
+        items = r.json().get("items", [])
+        return items[0] if items else None
+    except Exception:
+        return None
+
+
+def create_parts_draft_order(part_number, part_name, price, customer_email=None):
+    """Create a Shopify draft order for a replacement part at MSRP."""
+    try:
+        url  = f"https://{SHOPIFY_SHOP}/admin/api/2024-01/draft_orders.json"
+        hdrs = {"X-Shopify-Access-Token": SHOPIFY_TOKEN, "Content-Type": "application/json"}
+        body = {"draft_order": {
+            "line_items": [{"title": f"{part_name} — Part# {part_number}",
+                            "price": str(price), "quantity": 1,
+                            "requires_shipping": True}],
+            "shipping_line": {"title": "Shipping & Handling", "price": "15.00"},
+            "note": f"Replacement part — {part_number}. Created via Rambo Bikes chat assistant."
+        }}
+        if customer_email:
+            body["draft_order"]["email"] = customer_email
+        r = requests.post(url, headers=hdrs, json=body, timeout=12)
+        if r.status_code in [200, 201]:
+            do = r.json().get("draft_order", {})
+            return {"success": True, "invoice_url": do.get("invoice_url"),
+                    "order_name": do.get("name"), "total": do.get("total_price")}
+        return None
+    except Exception:
+        return None
+
+
 CORE_PROMPT = """You are the Rambo Bikes chat assistant on rambobikes.com.
 Rambo Bikes makes premium electric fat-tire bikes sold in the USA and Canada.
 
@@ -349,6 +394,28 @@ def chat():
                 injected_data += ("\n\nCONTAINER TRACKER: No upcoming shipments found for this model. "
                                   "Tell customer no confirmed date, they can call (952) 283-0777 to pre-order. "
                                   "Set create_case=true, escalate=true, escalate_to=misti.")
+
+        # ── Pre-fetch: parts purchase intent → create draft order ──────────────
+        part_kws   = ["want to buy", "want to order", "how do i order", "can i order",
+                      "can i buy", "how to purchase", "i need to order", "i would like to order",
+                      "how do i purchase", "place an order", "i would like to buy"]
+        part_match = re.search(r'RP-[\d\-]+[A-Z\d]*', message, re.I)
+        if any(k in msg_lower for k in part_kws) and part_match and NS_CONSUMER_KEY:
+            pn      = part_match.group(0).upper()
+            item    = get_part_msrp(pn)
+            if item and item.get("unitprice"):
+                draft = create_parts_draft_order(
+                    part_number=pn,
+                    part_name=item.get("displayname", pn),
+                    price=item.get("unitprice"),
+                    customer_email=customer_email or None)
+                if draft and draft.get("invoice_url"):
+                    injected_data += (f"\n\nPARTS DRAFT ORDER CREATED:\n"
+                                     f"Part: {item.get('displayname')} (#{pn})\n"
+                                     f"Price: ${item.get('unitprice')} + $15.00 shipping\n"
+                                     f"Order link: {draft['invoice_url']}\n"
+                                     f"Tell customer: 'I've created a secure order link for you. "
+                                     f"Click the link to review and complete your purchase.'")
 
         # ── Pre-fetch: Krusader/AWD light = rocker switch ─────────────────────
         if (any(w in msg_lower for w in ["green", "white light", "light won", "light does", "light not"])
