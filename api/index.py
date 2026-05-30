@@ -128,32 +128,55 @@ TONE: Warm, concise, helpful. Use customer's first name when known.
 Always end with: Rambo Bikes CS | cs@rambobikes.com | (952) 283-0777 | Mon-Fri 8:30am-4:30pm CST"""
 
 
+# ─── NetSuite Helpers ─────────────────────────────────────────────────────────
+FALLBACK_COMPANY_ID = "202230"   # cs@rambobikes.com — used when customer not found
+SUPPORT_PROFILE_ID  = "2"
+
+def ns_auth():
+    return OAuth1(NS_CONSUMER_KEY, NS_CONSUMER_SEC, NS_TOKEN_ID, NS_TOKEN_SEC,
+                  signature_method="HMAC-SHA256", realm=NS_ACCOUNT_ID)
+
+def lookup_customer_by_email(email):
+    """Return NetSuite customer ID for the given email, or fallback ID."""
+    try:
+        auth = ns_auth()
+        url  = f"https://{NS_ACCOUNT_ID}.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql"
+        q    = f"SELECT id FROM customer WHERE email = '{email}'"
+        r    = requests.post(url, auth=auth,
+                             headers={"Content-Type": "application/json", "Prefer": "transient"},
+                             json={"q": q}, params={"limit": 1}, timeout=10)
+        items = r.json().get("items", [])
+        if items:
+            return items[0]["id"]
+    except Exception:
+        pass
+    return FALLBACK_COMPANY_ID
+
 # ─── NetSuite Case Creation ───────────────────────────────────────────────────
 def create_netsuite_case(customer_name, customer_email, case_title, transcript, assigned_id, status_id="2"):
     try:
-        auth = OAuth1(
-            NS_CONSUMER_KEY, NS_CONSUMER_SEC,
-            NS_TOKEN_ID, NS_TOKEN_SEC,
-            signature_method="HMAC-SHA256", realm=NS_ACCOUNT_ID
-        )
-        url = f"https://{NS_ACCOUNT_ID}.suitetalk.api.netsuite.com/services/rest/record/v1/supportCase"
-        summary = (
+        auth       = ns_auth()
+        company_id = lookup_customer_by_email(customer_email) if customer_email else FALLBACK_COMPANY_ID
+        url        = f"https://{NS_ACCOUNT_ID}.suitetalk.api.netsuite.com/services/rest/record/v1/supportCase"
+        summary    = (
             f"Chat widget case.\n"
             f"Customer: {customer_name} | {customer_email}\n\n"
             f"Transcript:\n{transcript[:2800]}"
         )
         payload = {
-            "title": case_title,
-            "status": {"id": status_id},
-            "assigned": {"id": assigned_id},
+            "title":                case_title,
+            "status":               {"id": status_id},
+            "assigned":             {"id": assigned_id},
+            "company":              {"id": company_id},
+            "profile":              {"id": SUPPORT_PROFILE_ID},
             "custevent_casesummary": summary,
-            "custevent2": False,
-            "messageNew": False,
+            "custevent2":           False,
+            "messageNew":           False,
         }
-        headers = {"Content-Type": "application/json", "Prefer": "return=representation"}
-        r = requests.post(url, auth=auth, headers=headers, json=payload, timeout=15)
-        location = r.headers.get("Location", "")
-        case_id = location.split("/")[-1] if location else "unknown"
+        headers_ns = {"Content-Type": "application/json", "Prefer": "return=representation"}
+        r          = requests.post(url, auth=auth, headers=headers_ns, json=payload, timeout=15)
+        location   = r.headers.get("Location", "")
+        case_id    = location.split("/")[-1] if location else "unknown"
         return {"success": r.status_code in [200, 201, 204], "case_id": case_id, "status": r.status_code}
     except Exception as e:
         return {"success": False, "error": str(e)}
