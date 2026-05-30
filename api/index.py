@@ -137,17 +137,19 @@ def create_netsuite_case(customer_name, customer_email, case_title, transcript, 
             signature_method="HMAC-SHA256", realm=NS_ACCOUNT_ID
         )
         url = f"https://{NS_ACCOUNT_ID}.suitetalk.api.netsuite.com/services/rest/record/v1/supportCase"
+        summary = (
+            f"Chat widget case.\n"
+            f"Customer: {customer_name} | {customer_email}\n\n"
+            f"Transcript:\n{transcript[:2800]}"
+        )
         payload = {
             "title": case_title,
             "status": {"id": status_id},
             "assigned": {"id": assigned_id},
-            "custevent_casesummary": f"Chat widget case. Transcript:\n{transcript[:3000]}",
-            "incomingmessage": transcript[:5000],
-            "messageNew": False,
+            "custevent_casesummary": summary,
             "custevent2": False,
+            "messageNew": False,
         }
-        if customer_email:
-            payload["email"] = customer_email
         headers = {"Content-Type": "application/json", "Prefer": "return=representation"}
         r = requests.post(url, auth=auth, headers=headers, json=payload, timeout=15)
         location = r.headers.get("Location", "")
