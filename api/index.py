@@ -238,13 +238,13 @@ def preview():
     html = f"""<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Rambo Bikes Chat Preview</title>
-<style>*{{margin:0;padding:0;box-sizing:border-box;}}body{{font-family:sans-serif;background:#f5f5f5;}}
-.banner{{background:#cc0000;color:#fff;padding:10px 24px;text-align:center;font-size:13px;font-weight:600;}}
-.header{{background:#1b1b1b;padding:16px 40px;display:flex;align-items:center;}}
-.logo{{color:#fff;font-size:22px;font-weight:800;}}
-.hero{{background:#1b1b1b;color:#fff;padding:80px 40px;text-align:center;}}
-.hero h1{{font-size:48px;font-weight:800;}}
-.hero h1 span{{color:#cc0000;}}
+<style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:sans-serif;background:#f5f5f5;}
+.banner{background:#cc0000;color:#fff;padding:10px 24px;text-align:center;font-size:13px;font-weight:600;}
+.header{background:#1b1b1b;padding:16px 40px;display:flex;align-items:center;}
+.logo{color:#fff;font-size:22px;font-weight:800;}
+.hero{background:#1b1b1b;color:#fff;padding:80px 40px;text-align:center;}
+.hero h1{font-size:48px;font-weight:800;}
+.hero h1 span{color:#cc0000;}
 </style></head><body>
 <div class="banner">LIVE PREVIEW — Real AI, Real API. Wait 5s for greeting.</div>
 <div class="header"><div class="logo">RAMBO BIKES</div></div>
@@ -258,7 +258,7 @@ def chat():
     if request.method == "OPTIONS":
         return cors_response({})
     try:
-        data             = request.get_json(force=True) or {{}}
+        data             = request.get_json(force=True) or {}
         message          = (data.get("message") or "").strip()
         history          = data.get("history", [])
         customer_name    = (data.get("customer_name") or "").strip()
@@ -266,7 +266,7 @@ def chat():
         case_already_created = data.get("case_already_created", False)
 
         if not message:
-            return cors_response({{"error": "No message provided"}}, 400)
+            return cors_response({"error": "No message provided"}, 400)
 
         msg_lower     = message.lower()
         injected_data = ""
@@ -289,7 +289,7 @@ def chat():
         if any(k in msg_lower for k in restock_kws) and NS_CONSUMER_KEY:
             matches = check_restock(message)
             if matches:
-                lines = [f"* {{m['desc']}} — arriving {{m['date']}}" for m in matches[:3]]
+                lines = [f"* {m['desc']} — arriving {m['date']}" for m in matches[:3]]
                 injected_data += ("\n\nCONTAINER TRACKER — use this data:\n"
                                   + "\n".join(lines)
                                   + "\nTell customer the ETA and they can call (952) 283-0777 to pre-order.")
@@ -310,20 +310,20 @@ def chat():
                               "Do NOT mention the power button location for this question.")
 
         # ── Build OpenAI messages ─────────────────────────────────────────────
-        oai_msgs = [{{"role": "system", "content": get_system_prompt()}}]
+        oai_msgs = [{"role": "system", "content": get_system_prompt()}]
         if customer_name or customer_email:
-            oai_msgs.append({{"role": "system",
-                              "content": f"Customer: {{customer_name or 'unknown'}} / {{customer_email or 'not provided'}}"}})
+            oai_msgs.append({"role": "system",
+                              "content": f"Customer: {customer_name or 'unknown'} / {customer_email or 'not provided'}"})
         if injected_data:
-            oai_msgs.append({{"role": "system",
-                              "content": f"LIVE DATA FOR THIS QUERY:\n{{injected_data}}"}})
+            oai_msgs.append({"role": "system",
+                              "content": f"LIVE DATA FOR THIS QUERY:\n{injected_data}"})
         oai_msgs.extend(history[-20:])
-        oai_msgs.append({{"role": "user", "content": message}})
+        oai_msgs.append({"role": "user", "content": message})
 
         client   = OpenAI(api_key=OPENAI_API_KEY)
         response = client.chat.completions.create(
             model="gpt-4o-mini", messages=oai_msgs,
-            temperature=0.25, response_format={{"type": "json_object"}}, max_tokens=600)
+            temperature=0.25, response_format={"type": "json_object"}, max_tokens=600)
 
         raw    = response.choices[0].message.content
         result = json.loads(raw)
@@ -332,11 +332,11 @@ def chat():
         escalate     = bool(result.get("escalate", False))
         escalate_to  = result.get("escalate_to")
         create_case  = bool(result.get("create_case", False))
-        case_title   = result.get("case_title") or f"Chat - {{customer_name or 'Customer'}} - General"
+        case_title   = result.get("case_title") or f"Chat - {customer_name or 'Customer'} - General"
 
         updated_history = list(history) + [
-            {{"role": "user",      "content": message}},
-            {{"role": "assistant", "content": ai_message}}
+            {"role": "user",      "content": message},
+            {"role": "assistant", "content": ai_message}
         ]
 
         case_result = None
@@ -345,19 +345,19 @@ def chat():
             status_id   = "3" if escalate else "2"
             lines = []
             for h in history:
-                lines.append(f"{{'Customer' if h['role']=='user' else 'Bot'}}: {{h['content']}}")
-            lines += [f"Customer: {{message}}", f"Bot: {{ai_message}}"]
+                lines.append(f"{'Customer' if h['role']=='user' else 'Bot'}: {h['content']}")
+            lines += [f"Customer: {message}", f"Bot: {ai_message}"]
             case_result = create_netsuite_case(customer_name, customer_email, case_title,
                                               "\n".join(lines), assigned_id, status_id)
 
-        return cors_response({{"message": ai_message, "escalate": escalate,
+        return cors_response({"message": ai_message, "escalate": escalate,
                                "escalate_to": escalate_to, "history": updated_history,
-                               "case_created": case_result}})
+                               "case_created": case_result})
     except json.JSONDecodeError:
-        return cors_response({{"message": "Trouble connecting. Call (952) 283-0777 or email cs@rambobikes.com."}})
+        return cors_response({"message": "Trouble connecting. Call (952) 283-0777 or email cs@rambobikes.com."})
     except Exception as e:
-        return cors_response({{"message": "Something went wrong. Call (952) 283-0777 or email cs@rambobikes.com.",
-                               "error": str(e)}}, 500)
+        return cors_response({"message": "Something went wrong. Call (952) 283-0777 or email cs@rambobikes.com.",
+                               "error": str(e)}, 500)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
