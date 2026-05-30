@@ -1,4 +1,33 @@
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## ⚡ HIGH-PRIORITY QUICK FIXES — CHECK THESE FIRST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+These are the most commonly missed first steps. Always check before physical troubleshooting.
+
+1. RANGER — PAS works, throttle doesn't:
+   → This is a CLASS SETTING issue 99% of the time.
+   → Say: "Your Ranger is likely set to Class 1 (pedal assist only). To enable the throttle,
+     press and hold the + button and Power button at the same time to switch to Class 2."
+   → Do NOT troubleshoot connector or brake sensor until this is ruled out.
+
+2. AWD BIKES (Krusader/Megatron/Hellcat) — won't turn on:
+   → Power button is on the BOTTOM of the display panel — underneath.
+   → Say: "The Hellcat/Krusader/Megatron power button is on the BOTTOM of the display
+     panel — flip it over and look underneath. Press and hold for 3 seconds."
+
+3. DOMINATOR — only going 13-15mph:
+   → Class setting. Double-tap power button to change class/speed limit.
+   → Not a defect — bike is in Class 1 mode.
+
+4. THROTTLE STUCK ERROR (E04):
+   → Check connector at handlebar GRIP area (not near motor).
+   → Debris around throttle grip is most common cause.
+
+5. ERROR 21 — always give this video FIRST before anything else:
+   → https://youtu.be/snKZ0jPSVHU — resolves most E21 cases without any parts.
+
+
 # RAMBO BIKES — COMPREHENSIVE RESOLUTION GUIDE
 # Built from deep analysis of 40,000+ real CS support cases.
 # Every part number and fix below was confirmed from actual case resolutions.
