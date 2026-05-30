@@ -72,8 +72,8 @@
     }
     #rb-header-avatar {
       width: 36px; height: 36px; border-radius: 50%;
-      background: transparent; display: flex; align-items: center; justify-content: center;
-      font-size: 16px; flex-shrink: 0;
+      background: #ffffff; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0; padding: 3px;
     }
     #rb-header-text { flex: 1; }
     #rb-header-title { font-size: 15px; font-weight: 600; margin: 0; }
@@ -232,7 +232,7 @@
     launcher.innerHTML = `<svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`;
 
     if (messages.children.length === 0) {
-      addMessage("👋 Hey there! I'm the Rambo Bikes assistant. I can help with troubleshooting, parts, order status, registration, and more. What can I help you with today?", 'bot');
+      addMessage("👋 Hey there! I'm your personal Rambo Bikes assistant. I can help with troubleshooting, parts, order status, registration, and more. What can I help you with today?", 'bot');
     }
 
     infoForm.style.display = 'none';
