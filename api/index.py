@@ -233,6 +233,18 @@ def debug():
     results["ns_key_len"] = len(NS_CONSUMER_KEY)
     # Test dealer embed
     results["dealers_embedded"] = len(_DEALERS)
+    # Test dealer lookup for Springfield MO
+    try:
+        dealers = lookup_dealers("Springfield MO")
+        results["dealers_springfield"] = dealers
+    except Exception as e:
+        results["dealers_error"] = str(e)
+    # Test NS container check
+    try:
+        items = check_restock("krusader bottomland camo")
+        results["container_krusader"] = items[:2] if items else []
+    except Exception as e:
+        results["container_error"] = str(e)
     return cors_response(results)
 
 @app.route("/widget.js", methods=["GET"])
