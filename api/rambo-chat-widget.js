@@ -146,6 +146,38 @@
     @keyframes rb-bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-5px); } }
   `;
 
+  // === BLOCK CONTIVIO CHAT COMPLETELY ===
+  // Override Contivio's startup functions so their chat never initializes
+  window.ContivioInitChatTimer = function() {};
+  window.ContivioSlidePopup    = function() {};
+  window.ContivioStartChat     = function() {};
+  window.ContivioInit          = function() {};
+
+  // Also nuke any existing elements immediately and via interval
+  const killContivio = () => {
+    ['livechatbutton','ContivioCustomData','ContivioForm'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    document.querySelectorAll('iframe, div').forEach(el => {
+      const src  = el.src || '';
+      const id   = el.id  || '';
+      if (src.includes('contivio') || src.includes('uschat4') ||
+          id.includes('Contivio')  || id.includes('livechat')) {
+        el.remove();
+      }
+    });
+  };
+  killContivio();
+  // Run for 30 seconds every 500ms — catches any delayed Contivio load
+  let _ck = 0;
+  const _ci = setInterval(() => {
+    killContivio();
+    if (++_ck > 60) clearInterval(_ci);
+  }, 500);
+  new MutationObserver(killContivio).observe(document.documentElement,
+    {childList: true, subtree: true});
+
   // Suppress existing Contivio chat widget
   const contivioSuppressor = document.createElement('style');
   contivioSuppressor.textContent = `/* Hide Contivio chat widget when Rambo AI chat is active */
