@@ -23,7 +23,12 @@ SHOPIFY_SHOP        = os.environ.get("SHOPIFY_SHOP",    "788af8-3.myshopify.com"
 SHOPIFY_TOKEN       = os.environ.get("SHOPIFY_TOKEN",   "")  # set in Vercel env vars
 LOCALLY_API_KEY     = os.environ.get("LOCALLY_API_KEY",   "8796b2920585811cf6a758a9f53ebf963bae0531")
 LOCALLY_COMPANY_ID  = os.environ.get("LOCALLY_COMPANY_ID","188714")
-ALLOWED_ORIGINS     = ["https://www.rambobikes.com", "https://rambobikes.com"]
+ALLOWED_ORIGINS  = [
+    "https://www.rambobikes.com",
+    "https://rambobikes.com",
+    "https://rambo-chat-backend.vercel.app",   # preview page
+    "null",                                     # local file opens
+]
 
 MISTI_ID = "1717307"
 JENNA_ID = "2144573"
