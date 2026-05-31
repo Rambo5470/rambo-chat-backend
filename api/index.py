@@ -79,7 +79,7 @@ def get_part_msrp(part_number):
             json={"q": (f"SELECT i.id, i.itemid, i.displayname, p.unitprice "
                         f"FROM item i JOIN pricing p ON p.item = i.id "
                         f"WHERE i.itemid = '{part_number.upper()}' AND p.pricelevel = 5")},
-            params={"limit": 1}, timeout=10)
+            params={"limit": 1}, timeout=4)
         items = r.json().get("items", [])
         return items[0] if items else None
     except Exception:
@@ -100,7 +100,7 @@ def create_parts_draft_order(part_number, part_name, price, customer_email=None)
         }}
         if customer_email:
             body["draft_order"]["email"] = customer_email
-        r = requests.post(url, headers=hdrs, json=body, timeout=12)
+        r = requests.post(url, headers=hdrs, json=body, timeout=4)
         if r.status_code in [200, 201, 202]:
             do = r.json().get("draft_order", {})
             return {"success": True, "invoice_url": do.get("invoice_url"),
@@ -176,6 +176,11 @@ For all other models in table above: Give part number directly, offer order link
 CRITICAL PARTS RESPONSE RULE — NO EXCEPTIONS:
 When giving a part number, NEVER include a product URL in your response.
 ALWAYS end with: "Just say 'order it' and I'll create a direct secure checkout link for you."
+
+ORDERING TIMING RULE:
+When creating an order, NEVER say "working on it", "please hold on", or "give me a moment".
+Either give the checkout link immediately in your response, or give the phone number.
+Never leave the customer waiting for a follow-up. One response = complete answer.
 Example: "The Savage 2.0 derailleur is RP-16-09 at $59.99. Just say 'order it' and I'll create a direct secure checkout link for you."
 The only exception: tubes and chargers have known working links (in URL RULES below).
 
