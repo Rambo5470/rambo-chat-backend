@@ -101,7 +101,10 @@
       align-self: flex-end; background: ${BRAND_DARK}; color: #fff;
       padding: 10px 13px; border-radius: 16px 4px 16px 16px;
     }
-    .rb-msg a { color: ${BRAND_RED}; }
+    .rb-msg a { color: ${BRAND_RED}; pointer-events: auto !important;
+                 cursor: pointer !important; text-decoration: underline; }
+    .rb-msg.bot a { color: ${BRAND_RED}; pointer-events: auto !important; cursor: pointer !important; }
+    .rb-msg.user a { color: #fff; pointer-events: auto !important; cursor: pointer !important; }
     .rb-msg.bot a { color: ${BRAND_RED}; }
     .rb-msg.user a { color: #fff; text-decoration: underline; }
 
@@ -224,7 +227,12 @@
     const div = document.createElement('div');
     div.className = `rb-msg ${role}`;
     // linkify URLs
-    div.innerHTML = text.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    // Linkify URLs into clickable links
+    const linkified = text.replace(/(https?:\/\/[^\s<)]+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer" ' +
+      'onclick="window.open(this.href,\'_blank\');return false;" ' +
+      'style="color:#cc0000;text-decoration:underline;cursor:pointer;">$1</a>');
+    div.innerHTML = linkified;
     messages.appendChild(div);
     messages.scrollTop = messages.scrollHeight;
     return div;
@@ -331,21 +339,26 @@
   nameInput.addEventListener('input',  () => nameInput.style.borderColor  = '');
   emailInput.addEventListener('input', () => emailInput.style.borderColor = '');
 
-  // ── Hide Contivio chat if it loads after our widget ──────────────────
-  const hideContivio = () => {
-    // Confirmed Contivio element IDs from their plugin source
-    const selectors = [
-      '#livechatbutton', '#ContivioCustomData', '#ContivioForm',
-      'iframe[src*="contivio"]', 'iframe[src*="uschat4"]',
-      'div[id*="Contivio"]'
-    ];
-    selectors.forEach(s => {
-      document.querySelectorAll(s).forEach(el => { el.style.display = 'none'; });
+  // ── Nuclear Contivio removal — removes elements entirely ────────────
+  const killContivio = () => {
+    // IDs confirmed from Contivio plugin source
+    ['livechatbutton','ContivioCustomData','ContivioForm'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+    });
+    // Remove Contivio iframes
+    document.querySelectorAll('iframe, script').forEach(el => {
+      const src = el.src || el.getAttribute('src') || '';
+      if (src.includes('contivio') || src.includes('uschat4')) {
+        if (el.parentNode) el.parentNode.removeChild(el);
+      }
     });
   };
-  hideContivio();
-  new MutationObserver(hideContivio).observe(document.body,
-    {childList: true, subtree: true});
+  killContivio();
+  // Run every 200ms for 15 seconds to catch late-loading Contivio
+  let _ck = 0;
+  const _ci = setInterval(() => { killContivio(); if(++_ck > 75) clearInterval(_ci); }, 200);
+  new MutationObserver(killContivio).observe(document.body, {childList:true, subtree:true});
 
   // ── GREETING SEQUENCE (5s → show → 3s → hide to icon) ────────────────────
   setTimeout(() => {
