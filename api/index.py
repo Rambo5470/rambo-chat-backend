@@ -531,7 +531,7 @@ def chat():
 
         client   = OpenAI(api_key=OPENAI_API_KEY)
         response = client.chat.completions.create(
-            model="gpt-4o", messages=oai_msgs,
+            model="gpt-4o-mini", messages=oai_msgs,
             temperature=0.25, response_format={"type": "json_object"}, max_tokens=600)
 
         raw    = response.choices[0].message.content
