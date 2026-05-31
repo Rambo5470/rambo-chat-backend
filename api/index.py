@@ -416,8 +416,16 @@ def chat():
                       "can i buy", "how to purchase", "i need to order", "i would like to order",
                       "how do i purchase", "place an order", "i would like to buy",
                       "order it", "buy it", "purchase it", "get one", "get it",
-                      "i need one", "need to get", "how much", "how do i get"]
+                      "i need one", "need to get", "how much", "how do i get", "yes order",
+                      "yes please", "go ahead", "do it", "create the order"]
+
+        # Look for part number in current message OR in recent conversation history
         part_match = re.search(r'RP-[\d\-]+[A-Z\d]*', message, re.I)
+        if not part_match:
+            # Search the last 4 messages in history for a part number
+            recent = " ".join(h.get("content","") for h in history[-4:])
+            part_match = re.search(r'RP-[\d\-]+[A-Z\d]*', recent, re.I)
+
         if any(k in msg_lower for k in part_kws) and part_match and NS_CONSUMER_KEY:
             pn      = part_match.group(0).upper()
             item    = get_part_msrp(pn)
