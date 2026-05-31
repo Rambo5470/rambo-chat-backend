@@ -333,10 +333,14 @@
 
   // ── Hide Contivio chat if it loads after our widget ──────────────────
   const hideContivio = () => {
-    const selectors = ['#ContivioChatWidget','#contivio-chat-container',
-                       '.contivio-chat-widget','iframe[src*="contivio"]'];
+    // Confirmed Contivio element IDs from their plugin source
+    const selectors = [
+      '#livechatbutton', '#ContivioCustomData', '#ContivioForm',
+      'iframe[src*="contivio"]', 'iframe[src*="uschat4"]',
+      'div[id*="Contivio"]'
+    ];
     selectors.forEach(s => {
-      document.querySelectorAll(s).forEach(el => el.style.display = 'none');
+      document.querySelectorAll(s).forEach(el => { el.style.display = 'none'; });
     });
   };
   hideContivio();
