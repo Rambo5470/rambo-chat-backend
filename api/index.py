@@ -411,9 +411,12 @@ def chat():
                                   "Set create_case=true, escalate=true, escalate_to=misti.")
 
         # ── Pre-fetch: parts purchase intent → create draft order ──────────────
+        # Detect part order intent — explicit OR when part number mentioned with buying context
         part_kws   = ["want to buy", "want to order", "how do i order", "can i order",
                       "can i buy", "how to purchase", "i need to order", "i would like to order",
-                      "how do i purchase", "place an order", "i would like to buy"]
+                      "how do i purchase", "place an order", "i would like to buy",
+                      "order it", "buy it", "purchase it", "get one", "get it",
+                      "i need one", "need to get", "how much", "how do i get"]
         part_match = re.search(r'RP-[\d\-]+[A-Z\d]*', message, re.I)
         if any(k in msg_lower for k in part_kws) and part_match and NS_CONSUMER_KEY:
             pn      = part_match.group(0).upper()
