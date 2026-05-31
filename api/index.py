@@ -301,6 +301,16 @@ def debug():
         results["container_krusader"] = items[:2] if items else []
     except Exception as e:
         results["container_error"] = str(e)
+    # Check Shopify token
+    results["shopify_token_set"] = bool(SHOPIFY_TOKEN)
+    results["shopify_token_len"] = len(SHOPIFY_TOKEN)
+    # Test draft order creation
+    try:
+        draft = create_parts_draft_order("RP-23-02", "Frame Chip Right Thru Axle", "29.99")
+        results["draft_order_test"] = {"success": draft.get("success") if draft else False,
+                                        "invoice_url": draft.get("invoice_url") if draft else None}
+    except Exception as e:
+        results["draft_order_error"] = str(e)
     return cors_response(results)
 
 @app.route("/widget.js", methods=["GET"])
