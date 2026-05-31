@@ -498,3 +498,4 @@ def chat():
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
+# KB updated: Savage 2.0 derailleur rule
