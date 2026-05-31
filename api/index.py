@@ -492,7 +492,9 @@ def chat():
                       "how do i purchase", "place an order", "i would like to buy",
                       "order it", "buy it", "purchase it", "get one", "get it",
                       "i need one", "need to get", "how much", "how do i get", "yes order",
-                      "yes please", "go ahead", "do it", "create the order"]
+                      "yes please", "go ahead", "do it", "create the order",
+                      "yes", "yeah", "yep", "confirm", "correct", "that's right", "sounds good",
+                      "please do", "proceed"]
 
         # Look for part number in current message OR in recent conversation history
         part_match = re.search(r'RP-[\d\-]+[A-Z\d]*', message, re.I)
