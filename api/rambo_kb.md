@@ -1406,6 +1406,7 @@ Use the NetSuite pricing table: `SELECT unitprice FROM pricing WHERE item = {id}
 ### Class Setting Methods (LOCKED — confirmed by Nathan)
 - Krusader, Megatron, Hellcat (AWD): Hold M + Up Arrow → Basic Settings → Ride Mode
 - Ranger: + button + Power button simultaneously
+  → If throttle not working but PAS works = almost always Class 1 mode. Change class FIRST.
 - Dominator HD / UltraDrive: Double tap Power button
 - Other models: Ask CS team — NEVER guess
 
@@ -1506,7 +1507,7 @@ Use the NetSuite pricing table: `SELECT unitprice FROM pricing WHERE item = {id}
 
 ### Shopify Draft Orders
 - $15 Shipping & Handling on EVERY draft order — no exceptions
-- Use Shopify Admin Token: [SHOPIFY_TOKEN_REDACTED]
+- Use Shopify Admin Token: [SHOPIFY_TOKEN]
 - Store: 788af8-3.myshopify.com
 - Always create 2 options when there are 2 choices — include both payment links
 - Tag orders with: ["CS-generated", case_number, "option-1/2"]
