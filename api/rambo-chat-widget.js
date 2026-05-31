@@ -259,11 +259,19 @@
     const div = document.createElement('div');
     div.className = `rb-msg ${role}`;
     // linkify URLs
-    // Linkify URLs into clickable links
-    const linkified = text.replace(/(https?:\/\/[^\s<)]+)/g,
+    // Linkify URLs — handles both https:// and bare rambobikes.com links
+    let linkified = text;
+    // Full URLs with https://
+    linkified = linkified.replace(/(https?:\/\/[^\s<)\],]+)/g,
       '<a href="$1" target="_blank" rel="noopener noreferrer" ' +
-      'onclick="window.open(this.href,\'_blank\');return false;" ' +
-      'style="color:#cc0000;text-decoration:underline;cursor:pointer;">$1</a>');
+      'onclick="event.stopPropagation();window.open(this.href,\'_blank\');return false;" ' +
+      'style="color:#cc0000;text-decoration:underline;cursor:pointer;pointer-events:auto;">$1</a>');
+    // Bare rambobikes.com URLs (no https://)
+    linkified = linkified.replace(/(?<!["\'=])(rambobikes\.com\/[^\s<)\],]*)/g,
+      '<a href="https://$1" target="_blank" rel="noopener noreferrer" ' +
+      'onclick="event.stopPropagation();window.open(\'https://\'+ this.getAttribute(\'data-href\'),\'_blank\');return false;" ' +
+      'data-href="$1" ' +
+      'style="color:#cc0000;text-decoration:underline;cursor:pointer;pointer-events:auto;">rambobikes.com/$1</a>');
     div.innerHTML = linkified;
     messages.appendChild(div);
     messages.scrollTop = messages.scrollHeight;
