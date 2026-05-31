@@ -96,7 +96,7 @@ def create_parts_draft_order(part_number, part_name, price, customer_email=None)
         if customer_email:
             body["draft_order"]["email"] = customer_email
         r = requests.post(url, headers=hdrs, json=body, timeout=12)
-        if r.status_code in [200, 201]:
+        if r.status_code in [200, 201, 202]:
             do = r.json().get("draft_order", {})
             return {"success": True, "invoice_url": do.get("invoice_url"),
                     "order_name": do.get("name"), "total": do.get("total_price")}
