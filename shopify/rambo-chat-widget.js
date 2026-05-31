@@ -372,26 +372,7 @@
   nameInput.addEventListener('input',  () => nameInput.style.borderColor  = '');
   emailInput.addEventListener('input', () => emailInput.style.borderColor = '');
 
-  // ── Nuclear Contivio removal — removes elements entirely ────────────
-  const killContivio = () => {
-    // IDs confirmed from Contivio plugin source
-    ['livechatbutton','ContivioCustomData','ContivioForm'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el && el.parentNode) el.parentNode.removeChild(el);
-    });
-    // Remove Contivio iframes
-    document.querySelectorAll('iframe, script').forEach(el => {
-      const src = el.src || el.getAttribute('src') || '';
-      if (src.includes('contivio') || src.includes('uschat4')) {
-        if (el.parentNode) el.parentNode.removeChild(el);
-      }
-    });
-  };
-  killContivio();
-  // Run every 200ms for 15 seconds to catch late-loading Contivio
-  let _ck = 0;
-  const _ci = setInterval(() => { killContivio(); if(++_ck > 75) clearInterval(_ci); }, 200);
-  new MutationObserver(killContivio).observe(document.body, {childList:true, subtree:true});
+  // Contivio removal handled below
 
   // ── GREETING SEQUENCE (5s → show → 3s → hide to icon) ────────────────────
   setTimeout(() => {
