@@ -12,7 +12,7 @@
   const BRAND_DARK     = '#1b1b1b';
   const BRAND_RED      = '#cc0000';
   const GREETING_DELAY = 5000;   // ms before greeting appears
-  const GREETING_TTL   = 3000;   // ms greeting stays before collapsing to icon
+  const GREETING_TTL   = 6000;   // ms greeting stays before collapsing to icon
 
   // ── STATE ──────────────────────────────────────────────────────────────────
   let history       = [];
@@ -33,7 +33,7 @@
       position: absolute; bottom: 68px; right: 0;
       background: #fff; color: ${BRAND_DARK};
       padding: 10px 16px; border-radius: 20px 20px 4px 20px;
-      font-size: 14px; font-weight: 500; white-space: nowrap;
+      font-size: 13px; font-weight: 600; white-space: normal; max-width: 230px; line-height: 1.45;
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
       animation: rb-fadein 0.3s ease;
       cursor: pointer;
@@ -195,7 +195,7 @@
   wrapper.id = 'rb-chat-wrapper';
   wrapper.innerHTML = `
     <!-- Greeting bubble -->
-    <div id="rb-greeting" style="display:none">How can we help? 💬</div>
+    <div id="rb-greeting" style="display:none">I'm your personal Rambo assistant! Click on me for instant chat support.</div>
 
     <!-- Chat window -->
     <div id="rb-window" style="display:none">
