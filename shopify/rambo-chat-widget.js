@@ -33,7 +33,7 @@
       position: absolute; bottom: 68px; right: 0;
       background: #fff; color: ${BRAND_DARK};
       padding: 10px 16px; border-radius: 20px 20px 4px 20px;
-      font-size: 13px; font-weight: 600; white-space: normal; max-width: 230px; line-height: 1.45;
+      font-size: 13px; font-weight: 600; white-space: normal; width: 280px; max-width: calc(100vw - 76px); line-height: 1.45;
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
       animation: rb-fadein 0.3s ease;
       cursor: pointer;
