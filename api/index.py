@@ -408,6 +408,19 @@ def widget():
     resp.headers["Cache-Control"] = "public, max-age=300"
     return resp
 
+@app.route("/dashboard", methods=["GET"])
+def dashboard():
+    """Live CS Dashboard — pulls fresh data from embedded HTML."""
+    import os as _os
+    dp = _os.path.join(_os.path.dirname(__file__), "dashboard.html")
+    try:
+        with open(dp) as f:
+            html = f.read()
+    except FileNotFoundError:
+        html = "<h1>Dashboard not found</h1>"
+    from flask import Response
+    return Response(html, mimetype="text/html")
+
 @app.route("/preview", methods=["GET"])
 def preview():
     import os as _os
