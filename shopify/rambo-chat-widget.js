@@ -374,9 +374,26 @@
 
   // Contivio removal handled below
 
-  // ── GREETING SEQUENCE (5s → show → 3s → hide to icon) ────────────────────
+  // ── PAGE-AWARE GREETING — different message per page ───────────────────────
+  function getPageGreeting() {
+    const path = window.location.pathname.toLowerCase();
+    const search = window.location.search.toLowerCase();
+    if (path.includes('/products/') && !path.includes('replacement') && !path.includes('charger') && !path.includes('tube') && !path.includes('chain')) {
+      return "Questions about this bike? I can help! 🚵";
+    } else if (path.includes('/cart') || path.includes('checkout')) {
+      return "Questions before you buy? I\'m here to help!";
+    } else if (path.includes('/pages/support') || path.includes('/pages/contact') || path.includes('/pages/faq')) {
+      return "Need help? I can answer most questions instantly!";
+    } else if (path.includes('/collections/') || path.includes('/products/')) {
+      return "Need help finding the right part? Ask me!";
+    } else {
+      return "I\'m your personal Rambo assistant! Click on me for instant chat support.";
+    }
+  }
+
   setTimeout(() => {
     if (!isOpen && !hasGreeted) {
+      greeting.textContent = getPageGreeting();
       greeting.style.display = 'block';
       hasGreeted = true;
       setTimeout(() => {
