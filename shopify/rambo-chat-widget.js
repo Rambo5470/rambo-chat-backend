@@ -15,10 +15,13 @@
   const GREETING_TTL   = 6000;   // ms greeting stays before collapsing to icon
 
   // ── STATE ──────────────────────────────────────────────────────────────────
-  let history       = [];
-  let caseSent      = false;   // one case per session max
-  let customerName  = '';
-  let customerEmail = '';
+  let history           = [];
+  let caseSent          = false;   // one case per session max
+  let customerName      = '';
+  let customerEmail     = '';
+  let pendingEscalation = false;   // retry case creation next turn if email was missing
+  let pendingEscalateTo = null;
+  let pendingCaseTitle  = null;
   let isOpen        = false;
   let hasGreeted    = false;
   let infoCollected = true;   // skip pre-chat form — collect info conversationally if needed
@@ -312,7 +315,10 @@
           history:              history,
           customer_name:        customerName,
           customer_email:       customerEmail,
-          case_already_created: caseSent
+          case_already_created: caseSent,
+          pending_escalation:   pendingEscalation,
+          pending_escalate_to:  pendingEscalateTo,
+          pending_case_title:   pendingCaseTitle
         })
       });
 
@@ -324,9 +330,19 @@
         history = data.history || history;
       }
 
+      // Track pending escalation for retry on next turn
+      if (data.pending_escalation) {
+        pendingEscalation = true;
+        pendingEscalateTo = data.pending_escalate_to || null;
+        pendingCaseTitle  = data.pending_case_title  || null;
+      }
+
       // Show case confirmation only once per session
       if (data.case_created?.success && !caseSent) {
-        caseSent = true;
+        caseSent          = true;
+        pendingEscalation = false;
+        pendingEscalateTo = null;
+        pendingCaseTitle  = null;
         const followUp = customerEmail ? ` Our team will follow up at ${customerEmail}.` : "";
         addMessage(`✅ I've created a support case for you.${followUp} You can also call (952) 283-0777 Mon-Fri 8:30am-4:30pm CST.`, 'bot');
       }
