@@ -211,6 +211,7 @@ ESCALATION RULES:
 → Jenna: Canada customer, dealer/wholesale inquiry
 → One case per session — if case_already_created=true, never create another
 → CRITICAL: Only set escalate=true or create_case=true when customer_info_available=YES
+→ CRITICAL: If escalation is needed but customer_info_available=NO — do NOT set escalate=true yet. Ask the customer: "To open a support case I'll need your email address — what is it?" Set escalate=false until they reply with their email. Once you have their email (customer_info_available=YES), THEN set escalate=true and create_case=true.
 → CRITICAL: NEVER say "I've created a case", "I'm creating a case", or promise follow-up emails — the system handles that. Say "I'm connecting you with our team now." instead.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -550,10 +551,10 @@ def chat():
 
         # ── Build OpenAI messages ─────────────────────────────────────────────
         oai_msgs = [{"role": "system", "content": get_system_prompt()}]
-        if customer_name or customer_email:
-            email_flag = "YES" if customer_email else "NO"
-            oai_msgs.append({"role": "system",
-                              "content": f"Customer: {customer_name or 'unknown'} / {customer_email or 'not provided'} | customer_info_available={email_flag}"})
+        # Always inject — bot must know whether it can escalate this turn
+        email_flag = "YES" if customer_email else "NO"
+        oai_msgs.append({"role": "system",
+                          "content": f"Customer: {customer_name or 'unknown'} / {customer_email or 'not provided'} | customer_info_available={email_flag}"})
         if injected_data:
             oai_msgs.append({"role": "system",
                               "content": f"LIVE DATA FOR THIS QUERY:\n{injected_data}"})
