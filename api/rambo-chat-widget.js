@@ -287,15 +287,9 @@
       addMessage("👋 Hey there! I'm your personal Rambo Bikes assistant. I can help with troubleshooting, parts, order status, registration, and more. What can I help you with today?", 'bot');
     }
 
-    if (infoCollected) {
-      infoForm.style.display = 'none';
-      inputBar.style.display = 'flex';
-      setTimeout(() => textInput.focus(), 100);
-    } else {
-      infoForm.style.display = 'block';
-      inputBar.style.display = 'none';
-      setTimeout(() => nameInput.focus(), 100);
-    }
+    infoForm.style.display = 'none';
+    inputBar.style.display = 'flex';
+    setTimeout(() => textInput.focus(), 100);
   }
 
   function closeChat() {
