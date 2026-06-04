@@ -24,7 +24,7 @@
   let pendingCaseTitle  = null;
   let isOpen        = false;
   let hasGreeted    = false;
-  let infoCollected = true;   // skip pre-chat form — collect info conversationally if needed
+  let infoCollected = false;  // show name/email form before chat — required for case creation
 
   // ── INJECT CSS ─────────────────────────────────────────────────────────────
   const css = `
