@@ -209,8 +209,9 @@ ESCALATION RULES:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 → Misti: legal/lawyer/lawsuit, safety/injury, video shared, 3rd contact same issue, inventory questions
 → Jenna: Canada customer, dealer/wholesale inquiry
-→ Always ask for email BEFORE escalating (to create the NetSuite case)
 → One case per session — if case_already_created=true, never create another
+→ CRITICAL: Only set escalate=true or create_case=true when customer_info_available=YES
+→ CRITICAL: NEVER say "I've created a case", "I'm creating a case", or promise follow-up emails — the system handles that. Say "I'm connecting you with our team now." instead.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 HARD RULES:
@@ -459,6 +460,9 @@ def chat():
         customer_name    = (data.get("customer_name") or "").strip()
         customer_email   = (data.get("customer_email") or "").strip()
         case_already_created = data.get("case_already_created", False)
+        pending_escalation   = data.get("pending_escalation", False)
+        pending_escalate_to  = data.get("pending_escalate_to", None)
+        pending_case_title   = data.get("pending_case_title", None)
 
         if not message:
             return cors_response({"error": "No message provided"}, 400)
@@ -547,8 +551,9 @@ def chat():
         # ── Build OpenAI messages ─────────────────────────────────────────────
         oai_msgs = [{"role": "system", "content": get_system_prompt()}]
         if customer_name or customer_email:
+            email_flag = "YES" if customer_email else "NO"
             oai_msgs.append({"role": "system",
-                              "content": f"Customer: {customer_name or 'unknown'} / {customer_email or 'not provided'}"})
+                              "content": f"Customer: {customer_name or 'unknown'} / {customer_email or 'not provided'} | customer_info_available={email_flag}"})
         if injected_data:
             oai_msgs.append({"role": "system",
                               "content": f"LIVE DATA FOR THIS QUERY:\n{injected_data}"})
@@ -576,20 +581,41 @@ def chat():
             {"role": "assistant", "content": ai_message}
         ]
 
-        case_result = None
-        if (escalate or create_case) and not case_already_created and customer_email and NS_CONSUMER_KEY:
+        case_result     = None
+        should_escalate = escalate or create_case
+
+        # Build transcript
+        tlines = [f"{'Customer' if h['role']=='user' else 'Bot'}: {h['content']}" for h in history]
+        tlines += [f"Customer: {message}", f"Bot: {ai_message}"]
+        transcript = "\n".join(tlines)
+
+        # Retry guard: pending escalation from previous turn (email was missing then)
+        if pending_escalation and not case_already_created and customer_email and NS_CONSUMER_KEY:
+            retry_assigned = JENNA_ID if pending_escalate_to == "jenna" else MISTI_ID
+            case_result = create_netsuite_case(
+                customer_name, customer_email,
+                pending_case_title or f"Chat - {customer_name or 'Customer'} - Follow-up",
+                transcript, retry_assigned, "3")
+            should_escalate = True
+
+        # Normal case creation
+        elif should_escalate and not case_already_created and NS_CONSUMER_KEY and customer_email:
             assigned_id = JENNA_ID if escalate_to == "jenna" else MISTI_ID
             status_id   = "3" if escalate else "2"
-            lines = []
-            for h in history:
-                lines.append(f"{'Customer' if h['role']=='user' else 'Bot'}: {h['content']}")
-            lines += [f"Customer: {message}", f"Bot: {ai_message}"]
             case_result = create_netsuite_case(customer_name, customer_email, case_title,
-                                              "\n".join(lines), assigned_id, status_id)
+                                               transcript, assigned_id, status_id)
 
-        return cors_response({"message": ai_message, "escalate": escalate,
+        # Queue pending escalation if email missing this turn
+        needs_pending = bool(should_escalate and not customer_email
+                             and not case_already_created
+                             and not (case_result or {}).get("success"))
+
+        return cors_response({"message": ai_message, "escalate": should_escalate,
                                "escalate_to": escalate_to, "history": updated_history,
-                               "case_created": case_result})
+                               "case_created": case_result,
+                               "pending_escalation":  needs_pending,
+                               "pending_escalate_to": escalate_to if needs_pending else None,
+                               "pending_case_title":  case_title  if needs_pending else None})
     except json.JSONDecodeError:
         return cors_response({"message": "Trouble connecting. Call (952) 283-0777 or email cs@rambobikes.com."})
     except Exception as e:
