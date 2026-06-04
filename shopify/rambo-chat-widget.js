@@ -318,6 +318,9 @@
           case_already_created: caseSent,
           pending_escalation:   pendingEscalation,
           pending_escalate_to:  pendingEscalateTo,
+          pending_case_title:   pendingCaseTitle,
+          pending_escalation:   pendingEscalation,
+          pending_escalate_to:  pendingEscalateTo,
           pending_case_title:   pendingCaseTitle
         })
       });
