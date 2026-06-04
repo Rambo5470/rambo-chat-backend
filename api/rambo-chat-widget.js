@@ -24,7 +24,7 @@
   let pendingCaseTitle  = null;
   let isOpen        = false;
   let hasGreeted    = false;
-  let infoCollected = false;  // show name/email form before chat — required for case creation
+  let infoCollected = true;   // info collected conversationally during escalation
 
   // ── INJECT CSS ─────────────────────────────────────────────────────────────
   const css = `
@@ -117,8 +117,8 @@
     #rb-typing span:nth-child(2) { animation-delay: 0.2s; }
     #rb-typing span:nth-child(3) { animation-delay: 0.4s; }
 
-    /* Info form — shown before first message so we can capture email for NetSuite */
-    #rb-info-form { display: none; }
+    /* Info form — hidden, info collected conversationally during escalation */
+    #rb-info-form { display: none !important; }
 
     /* Input bar */
     #rb-input-bar {
@@ -287,15 +287,9 @@
       addMessage("👋 Hey there! I'm your personal Rambo Bikes assistant. I can help with troubleshooting, parts, order status, registration, and more. What can I help you with today?", 'bot');
     }
 
-    if (!infoCollected) {
-      // Show name/email form — required before chat so we have email for NetSuite case creation
-      infoForm.style.display = 'flex';
-      inputBar.style.display = 'none';
-    } else {
-      infoForm.style.display = 'none';
-      inputBar.style.display = 'flex';
-      setTimeout(() => textInput.focus(), 100);
-    }
+    infoForm.style.display = 'none';
+    inputBar.style.display = 'flex';
+    setTimeout(() => textInput.focus(), 100);
   }
 
   function closeChat() {
