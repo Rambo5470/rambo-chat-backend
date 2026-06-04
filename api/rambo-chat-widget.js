@@ -307,6 +307,19 @@
     showTyping();
 
     try {
+      // If awaiting customer info for a pending escalation, scan the message for email/name
+      if (pendingEscalation && !customerEmail) {
+        const emailMatch = text.match(/[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/i);
+        if (emailMatch) customerEmail = emailMatch[0];
+      }
+      if (pendingEscalation && !customerName) {
+        // Accept plain name responses (no @ symbol, short, not a sentence)
+        const trimmed = text.trim();
+        if (trimmed.length > 0 && trimmed.length < 50 && !trimmed.includes('@') && trimmed.split(' ').length <= 4) {
+          customerName = trimmed;
+        }
+      }
+
       const res = await fetch(CHAT_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
