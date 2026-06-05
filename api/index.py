@@ -394,6 +394,38 @@ def debug():
         results["draft_order_error"] = str(e)
     return cors_response(results)
 
+
+# ── Chat session logger ────────────────────────────────────────────────────────
+import uuid as _uuid
+
+def log_chat_session(session_id, event, escalated=False, resolved=False):
+    """Write a tiny JSON log file per event to logs/YYYY-MM-DD/ in GitHub."""
+    try:
+        import datetime as _dt, json as _json
+        today = _dt.datetime.utcnow().strftime("%Y-%m-%d")
+        ts    = _dt.datetime.utcnow().strftime("%H%M%S")
+        fname = f"logs/{today}/{event}_{ts}_{session_id[:8]}.json"
+        payload = _json.dumps({"session_id": session_id, "event": event,
+                               "escalated": escalated, "resolved": resolved,
+                               "ts": _dt.datetime.utcnow().isoformat() + "Z"})
+        GH_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+        if not GH_TOKEN:
+            return
+        gh_headers = {"Authorization": f"token {GH_TOKEN}",
+                      "Accept": "application/vnd.github.v3+json",
+                      "Content-Type": "application/json"}
+        import base64 as _b64
+        requests.put(
+            f"https://api.github.com/repos/Rambo5470/rambo-chat-backend/contents/{fname}",
+            headers=gh_headers,
+            json={"message": f"log: {event} {session_id[:8]}",
+                  "content": _b64.b64encode(payload.encode()).decode()},
+            timeout=5
+        )
+    except Exception:
+        pass  # never let logging break the chat
+# ───────────────────────────────────────────────────────────────────────────────
+
 @app.route("/widget.js", methods=["GET"])
 def widget():
     import os as _os
@@ -428,7 +460,29 @@ def stats():
         total_30d  = int(sq("SELECT COUNT(id) as n FROM supportCase WHERE datecreated >= SYSDATE - 30")[0]["n"])
         open_cases = int(sq("SELECT COUNT(id) as n FROM supportCase WHERE status NOT IN ('3','5') AND datecreated >= SYSDATE - 30")[0]["n"])
         closed_n   = int(sq("SELECT COUNT(id) as n FROM supportCase WHERE status IN ('3','5') AND datecreated >= SYSDATE - 30")[0]["n"])
-        chat_n     = int(sq("SELECT COUNT(id) as n FROM supportCase WHERE title LIKE 'Chat -%' AND datecreated >= SYSDATE - 30")[0]["n"])
+        # Count real chat sessions from GitHub log files (last 30 days)
+        chat_n = 0
+        chat_daily = {}
+        try:
+            GH_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+            if GH_TOKEN:
+                import datetime as _dt2
+                gh_h = {"Authorization": f"token {GH_TOKEN}", "Accept": "application/vnd.github.v3+json"}
+                for days_back in range(30):
+                    day = (_dt2.datetime.utcnow() - _dt2.timedelta(days=days_back)).strftime("%Y-%m-%d")
+                    lr = requests.get(
+                        f"https://api.github.com/repos/Rambo5470/rambo-chat-backend/contents/logs/{day}",
+                        headers=gh_h, timeout=5)
+                    if lr.status_code == 200:
+                        starts = [f for f in lr.json() if isinstance(f, dict) and f.get("name","").startswith("start_")]
+                        chat_daily[day] = len(starts)
+                        chat_n += len(starts)
+        except Exception:
+            pass
+        ns_chat_n = int(sq("SELECT COUNT(id) as n FROM supportCase WHERE title LIKE 'Chat -%' AND datecreated >= SYSDATE - 30")[0]["n"])
+        if chat_n == 0:
+            chat_n = ns_chat_n  # fallback to NS count until log data accumulates
+        escalation_pct = round(ns_chat_n / chat_n * 100, 1) if chat_n > 0 else 0
         resolution_pct = round(closed_n / total_30d * 100, 1) if total_30d else 0
 
         # Daily volume — last 14 days
@@ -465,10 +519,16 @@ def stats():
         categories = sorted([{"label": k, "n": v} for k, v in cats.items() if v > 0], key=lambda x: -x["n"])
 
         from flask import Response as _Resp
+        # Chat escalation rate
+        ns_chat_n = int(sq("SELECT COUNT(id) as n FROM supportCase WHERE title LIKE \'Chat -%\' AND datecreated >= SYSDATE - 30")[0]["n"])
+        escalation_pct = round(ns_chat_n / chat_n * 100, 1) if chat_n > 0 else 0
+
         return _Resp(_json.dumps({
             "total_30d": total_30d, "open_cases": open_cases, "closed_cases": closed_n,
-            "chat_cases": chat_n, "resolution_pct": resolution_pct,
-            "daily": daily, "statuses": statuses, "reps": reps, "categories": categories,
+            "chat_sessions": chat_n, "chat_escalations": ns_chat_n,
+            "chat_escalation_pct": escalation_pct, "resolution_pct": resolution_pct,
+            "daily": daily, "chat_daily": chat_daily,
+            "statuses": statuses, "reps": reps, "categories": categories,
             "generated_at": __import__("datetime").datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
         }), mimetype="application/json", headers={"Access-Control-Allow-Origin": "*", "Cache-Control": "no-cache"})
     except Exception as e:
@@ -533,6 +593,12 @@ def chat():
 
         if not message:
             return cors_response({"error": "No message provided"}, 400)
+
+        # ── Session tracking ──────────────────────────────────────────
+        session_id = data.get("session_id") or str(_uuid.uuid4())
+        if not history:  # new conversation
+            log_chat_session(session_id, "start")
+        # ─────────────────────────────────────────────────────────────
 
         msg_lower     = message.lower()
         injected_data = ""
@@ -677,9 +743,13 @@ def chat():
                              and not case_already_created
                              and not (case_result or {}).get("success"))
 
+        # Log escalation if case was just created
+        if (case_result or {}).get("success"):
+            log_chat_session(session_id, "escalated", escalated=True)
+
         return cors_response({"message": ai_message, "escalate": should_escalate,
                                "escalate_to": escalate_to, "history": updated_history,
-                               "case_created": case_result,
+                               "case_created": case_result, "session_id": session_id,
                                "pending_escalation":  needs_pending,
                                "pending_escalate_to": escalate_to if needs_pending else None,
                                "pending_case_title":  case_title  if needs_pending else None})
