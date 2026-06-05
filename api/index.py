@@ -385,6 +385,7 @@ def debug():
     # Check Shopify token
     results["shopify_token_set"] = bool(SHOPIFY_TOKEN)
     results["shopify_token_len"] = len(SHOPIFY_TOKEN)
+    results["github_token_set"] = bool(os.environ.get("GITHUB_TOKEN"))
     # Test draft order creation
     try:
         draft = create_parts_draft_order("RP-23-02", "Frame Chip Right Thru Axle", "29.99")
@@ -535,6 +536,31 @@ def stats():
         from flask import Response as _Resp
         return _Resp(_json.dumps({"error": str(e)}), status=500, mimetype="application/json")
 
+
+
+@app.route("/test-log", methods=["GET"])
+def test_log():
+    import uuid as _u
+    sid = str(_u.uuid4())
+    try:
+        GH_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+        if not GH_TOKEN:
+            return cors_response({"status": "error", "reason": "GITHUB_TOKEN not set"})
+        import datetime as _dt, json as _json, base64 as _b64
+        today = _dt.datetime.utcnow().strftime("%Y-%m-%d")
+        ts    = _dt.datetime.utcnow().strftime("%H%M%S")
+        fname = f"logs/{today}/test_{ts}_{sid[:8]}.json"
+        payload = _json.dumps({"test": True, "ts": _dt.datetime.utcnow().isoformat()+"Z"})
+        gh_headers = {"Authorization": f"token {GH_TOKEN}", "Accept": "application/vnd.github.v3+json", "Content-Type": "application/json"}
+        gr = requests.put(
+            f"https://api.github.com/repos/Rambo5470/rambo-chat-backend/contents/{fname}",
+            headers=gh_headers,
+            json={"message": f"test log {sid[:8]}", "content": _b64.b64encode(payload.encode()).decode()},
+            timeout=8
+        )
+        return cors_response({"status": gr.status_code, "file": fname, "gh_response": gr.json().get("content", {}).get("name", gr.text[:200])})
+    except Exception as e:
+        return cors_response({"status": "exception", "error": str(e)})
 
 @app.route("/dashboard", methods=["GET"])
 def dashboard():
