@@ -211,7 +211,6 @@ ESCALATION RULES:
 → Jenna: Canada customer, dealer/wholesale inquiry
 → One case per session — if case_already_created=true, never create another
 → CRITICAL: Only set escalate=true or create_case=true when customer_info_available=YES
-→ CRITICAL: If escalation is needed but customer_info_available=NO — do NOT set escalate=true yet. Ask the customer: "To open a support case I'll need your email address — what is it?" Set escalate=false until they reply with their email. Once you have their email (customer_info_available=YES), THEN set escalate=true and create_case=true.
 → CRITICAL: NEVER say "I've created a case", "I'm creating a case", or promise follow-up emails — the system handles that. Say "I'm connecting you with our team now." instead.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -410,6 +409,73 @@ def widget():
     resp.headers["Cache-Control"] = "public, max-age=300"
     return resp
 
+
+@app.route("/stats", methods=["GET"])
+def stats():
+    """Live CS stats — queried fresh from NetSuite on every request."""
+    import json as _json
+    try:
+        auth = ns_auth()
+        sql_url = f"https://{NS_ACCOUNT_ID}.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql"
+
+        def sq(q, limit=1000):
+            r = requests.post(sql_url, auth=auth,
+                headers={"Content-Type": "application/json", "Prefer": "transient"},
+                json={"q": q}, params={"limit": limit}, timeout=15)
+            return r.json().get("items", [])
+
+        # Totals
+        total_30d  = int(sq("SELECT COUNT(id) as n FROM supportCase WHERE datecreated >= SYSDATE - 30")[0]["n"])
+        open_cases = int(sq("SELECT COUNT(id) as n FROM supportCase WHERE status NOT IN ('3','5') AND datecreated >= SYSDATE - 30")[0]["n"])
+        closed_n   = int(sq("SELECT COUNT(id) as n FROM supportCase WHERE status IN ('3','5') AND datecreated >= SYSDATE - 30")[0]["n"])
+        chat_n     = int(sq("SELECT COUNT(id) as n FROM supportCase WHERE title LIKE 'Chat -%' AND datecreated >= SYSDATE - 30")[0]["n"])
+        resolution_pct = round(closed_n / total_30d * 100, 1) if total_30d else 0
+
+        # Daily volume — last 14 days
+        daily_rows = sq("SELECT TRUNC(datecreated) as day, COUNT(id) as n FROM supportCase WHERE datecreated >= SYSDATE - 14 GROUP BY TRUNC(datecreated) ORDER BY day ASC")
+        daily = [{"day": r["day"], "n": int(r["n"])} for r in daily_rows]
+
+        # Status breakdown
+        status_labels = {"1": "Not Started", "2": "In Progress", "3": "Closed",
+                         "4": "Escalated", "5": "Resolved", "6": "Re-Opened"}
+        status_rows = sq("SELECT status, COUNT(id) as n FROM supportCase WHERE datecreated >= SYSDATE - 30 GROUP BY status ORDER BY n DESC")
+        statuses = [{"label": status_labels.get(r["status"], f"Status {r['status']}"), "n": int(r["n"])} for r in status_rows]
+
+        # By rep
+        rep_names = {"2144573": "Jenna", "2718778": "AI Agent", "1717307": "Misti",
+                     "2176084": "Erin", "1738656": "Karson", "56": "House Acct", "1006657": "Heather"}
+        rep_rows = sq("SELECT assigned, COUNT(id) as n FROM supportCase WHERE datecreated >= SYSDATE - 30 GROUP BY assigned ORDER BY n DESC")
+        reps = [{"name": rep_names.get(r.get("assigned",""), r.get("assigned","Unassigned")), "n": int(r["n"])} for r in rep_rows if r.get("assigned")]
+
+        # Title-based category breakdown
+        title_rows = sq("SELECT title FROM supportCase WHERE datecreated >= SYSDATE - 30", limit=1000)
+        cats = {"Registration": 0, "Battery/Charging": 0, "Shipping/Damage": 0,
+                "Parts": 0, "Throttle": 0, "Brake": 0, "Error Code": 0, "Dealer/Wholesale": 0, "Other": 0}
+        for row in title_rows:
+            t = (row.get("title") or "").lower()
+            if "registrat" in t:        cats["Registration"] += 1
+            elif "battery" in t or "charging" in t or "charger" in t: cats["Battery/Charging"] += 1
+            elif "shipping" in t or "damage" in t or "damaged" in t:  cats["Shipping/Damage"] += 1
+            elif "part" in t or "rp-" in t or "replacement" in t:     cats["Parts"] += 1
+            elif "throttle" in t:       cats["Throttle"] += 1
+            elif "brake" in t:          cats["Brake"] += 1
+            elif "error" in t or "code" in t or "e-" in t:            cats["Error Code"] += 1
+            elif "dealer" in t or "wholesale" in t or "discount" in t: cats["Dealer/Wholesale"] += 1
+            else:                       cats["Other"] += 1
+        categories = sorted([{"label": k, "n": v} for k, v in cats.items() if v > 0], key=lambda x: -x["n"])
+
+        from flask import Response as _Resp
+        return _Resp(_json.dumps({
+            "total_30d": total_30d, "open_cases": open_cases, "closed_cases": closed_n,
+            "chat_cases": chat_n, "resolution_pct": resolution_pct,
+            "daily": daily, "statuses": statuses, "reps": reps, "categories": categories,
+            "generated_at": __import__("datetime").datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+        }), mimetype="application/json", headers={"Access-Control-Allow-Origin": "*", "Cache-Control": "no-cache"})
+    except Exception as e:
+        from flask import Response as _Resp
+        return _Resp(_json.dumps({"error": str(e)}), status=500, mimetype="application/json")
+
+
 @app.route("/dashboard", methods=["GET"])
 def dashboard():
     """Live CS Dashboard — pulls fresh data from embedded HTML."""
@@ -551,10 +617,10 @@ def chat():
 
         # ── Build OpenAI messages ─────────────────────────────────────────────
         oai_msgs = [{"role": "system", "content": get_system_prompt()}]
-        # Always inject — bot must know whether it can escalate this turn
-        email_flag = "YES" if customer_email else "NO"
-        oai_msgs.append({"role": "system",
-                          "content": f"Customer: {customer_name or 'unknown'} / {customer_email or 'not provided'} | customer_info_available={email_flag}"})
+        if customer_name or customer_email:
+            email_flag = "YES" if customer_email else "NO"
+            oai_msgs.append({"role": "system",
+                              "content": f"Customer: {customer_name or 'unknown'} / {customer_email or 'not provided'} | customer_info_available={email_flag}"})
         if injected_data:
             oai_msgs.append({"role": "system",
                               "content": f"LIVE DATA FOR THIS QUERY:\n{injected_data}"})
