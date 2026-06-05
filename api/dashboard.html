@@ -71,7 +71,7 @@ function render(d) {
       <div class="kpi"><div class="kpi-l">Total Cases (30d)</div><div class="kpi-v">${d.total_30d.toLocaleString()}</div><div class="kpi-s">~${(d.total_30d/30).toFixed(1)}/day avg</div></div>
       <div class="kpi"><div class="kpi-l">Resolution Rate</div><div class="kpi-v green">${d.resolution_pct}%</div><div class="kpi-s">${d.closed_cases.toLocaleString()} closed</div></div>
       <div class="kpi"><div class="kpi-l">Open Cases</div><div class="kpi-v red">${d.open_cases}</div><div class="kpi-s">Need attention</div></div>
-      <div class="kpi"><div class="kpi-l">Chat Cases</div><div class="kpi-v">${d.chat_cases}</div><div class="kpi-s">${d.total_30d ? (d.chat_cases/d.total_30d*100).toFixed(1) : 0}% of total</div></div>
+      <div class="kpi"><div class="kpi-l">Chat Sessions</div><div class="kpi-v">${d.chat_sessions}</div><div class="kpi-s">${d.chat_escalations} escalated (${d.chat_escalation_pct}%)</div></div>
       <div class="kpi"><div class="kpi-l">Today</div><div class="kpi-v" id="today-kpi">—</div><div class="kpi-s">cases so far</div></div>
     </div>
     <div class="row">
