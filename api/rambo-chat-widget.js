@@ -16,6 +16,7 @@
 
   // ── STATE ──────────────────────────────────────────────────────────────────
   let history           = [];
+  let sessionId         = null;    // returned by backend on first message, passed back each turn
   let caseSent          = false;   // one case per session max
   let customerName      = '';
   let customerEmail     = '';
@@ -329,6 +330,7 @@
           customer_name:        customerName,
           customer_email:       customerEmail,
           case_already_created: caseSent,
+          session_id:           sessionId,
           pending_escalation:   pendingEscalation,
           pending_escalate_to:  pendingEscalateTo,
           pending_case_title:   pendingCaseTitle
@@ -341,6 +343,7 @@
       if (data.message) {
         addMessage(data.message, 'bot');
         history = data.history || history;
+        if (data.session_id) sessionId = data.session_id;
       }
 
       // Track pending escalation for retry next turn
