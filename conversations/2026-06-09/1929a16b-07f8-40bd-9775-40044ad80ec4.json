@@ -1,0 +1,20 @@
+{
+  "session_id": "1929a16b-07f8-40bd-9775-40044ad80ec4",
+  "date": "2026-06-09",
+  "ts": "2026-06-09T23:58:58.549782Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "How can I get discount for first responder?"
+    },
+    {
+      "role": "assistant",
+      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly."
+    }
+  ]
+}
