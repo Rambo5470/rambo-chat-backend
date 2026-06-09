@@ -425,6 +425,44 @@ def log_chat_session(session_id, event, escalated=False, resolved=False):
         )
     except Exception:
         pass  # never let logging break the chat
+
+def save_conversation_transcript(session_id, history, customer_name="", customer_email="", escalated=False, case_created=False):
+    """Save full conversation transcript to conversations/YYYY-MM-DD/{session_id}.json in GitHub."""
+    try:
+        import datetime as _dt, json as _json, base64 as _b64
+        GH_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+        if not GH_TOKEN:
+            return
+        today = _dt.datetime.utcnow().strftime("%Y-%m-%d")
+        fname = f"conversations/{today}/{session_id}.json"
+        payload = _json.dumps({
+            "session_id": session_id,
+            "date": today,
+            "ts": _dt.datetime.utcnow().isoformat() + "Z",
+            "customer_name": customer_name,
+            "customer_email": customer_email,
+            "escalated": escalated,
+            "case_created": case_created,
+            "message_count": len(history),
+            "messages": history
+        }, indent=2)
+        gh_headers = {"Authorization": f"token {GH_TOKEN}",
+                      "Accept": "application/vnd.github.v3+json",
+                      "Content-Type": "application/json"}
+        # Check if file already exists (to get its SHA for update)
+        check = requests.get(
+            f"https://api.github.com/repos/Rambo5470/rambo-chat-backend/contents/{fname}",
+            headers=gh_headers, timeout=5)
+        put_body = {"message": f"transcript: {session_id[:8]}",
+                    "content": _b64.b64encode(payload.encode()).decode()}
+        if check.status_code == 200:
+            put_body["sha"] = check.json().get("sha", "")
+        requests.put(
+            f"https://api.github.com/repos/Rambo5470/rambo-chat-backend/contents/{fname}",
+            headers=gh_headers, json=put_body, timeout=8)
+    except Exception:
+        pass  # never let logging break the chat
+
 # ───────────────────────────────────────────────────────────────────────────────
 
 @app.route("/widget.js", methods=["GET"])
@@ -772,6 +810,15 @@ def chat():
         # Log escalation if case was just created
         if (case_result or {}).get("success"):
             log_chat_session(session_id, "escalated", escalated=True)
+
+        # Save full conversation transcript on every message
+        save_conversation_transcript(
+            session_id, updated_history,
+            customer_name=customer_name,
+            customer_email=customer_email,
+            escalated=should_escalate,
+            case_created=bool((case_result or {}).get("success"))
+        )
 
         return cors_response({"message": ai_message, "escalate": should_escalate,
                                "escalate_to": escalate_to, "history": updated_history,
