@@ -1,0 +1,20 @@
+{
+  "session_id": "b25dd498-f8d8-47b9-aca2-e7fbd84235c6",
+  "date": "2026-06-09",
+  "ts": "2026-06-09T20:17:59.662533Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Red a battery for my Roamer does the one I\u2019m looking at fit"
+    },
+    {
+      "role": "assistant",
+      "content": "To assist you better, could you please provide the exact model year of your Roamer? This will help me confirm the correct battery options for you."
+    }
+  ]
+}
