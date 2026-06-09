@@ -1,12 +1,12 @@
 {
   "session_id": "f4ea7425-407e-4b9e-a628-72418eb142b6",
   "date": "2026-06-09",
-  "ts": "2026-06-09T20:07:26.994968Z",
-  "customer_name": "",
+  "ts": "2026-06-09T20:07:55.303869Z",
+  "customer_name": "Okay thank you",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 10,
+  "message_count": 12,
   "messages": [
     {
       "content": "Where do I register for a first responder discount",
@@ -41,8 +41,16 @@
       "role": "assistant"
     },
     {
+      "content": "Is an agent available here?",
+      "role": "user"
+    },
+    {
+      "content": "I'm connecting you with our team now. They will be able to assist you with your first responder discount and any other questions you may have. Please hold on for a moment.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Is an agent available here?"
+      "content": "Okay thank you"
     },
     {
       "role": "assistant",
