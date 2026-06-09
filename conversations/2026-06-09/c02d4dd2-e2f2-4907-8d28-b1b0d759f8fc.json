@@ -1,12 +1,12 @@
 {
   "session_id": "c02d4dd2-e2f2-4907-8d28-b1b0d759f8fc",
   "date": "2026-06-09",
-  "ts": "2026-06-09T21:18:09.699799Z",
+  "ts": "2026-06-09T21:19:07.853136Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Mid drive motor 500w",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "Had bike for year and motor went how do I get new one",
+      "role": "user"
+    },
+    {
+      "content": "To assist you better, could you please provide the exact model name and year of your bike? Additionally, if you have the serial number, that would help in identifying the correct motor replacement.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Had bike for year and motor went how do I get new one"
+      "content": "How can I talk to"
     },
     {
       "role": "assistant",
-      "content": "To assist you better, could you please provide the exact model name and year of your bike? Additionally, if you have the serial number, that would help in identifying the correct motor replacement."
+      "content": "To speak with a customer service representative, you can call us at (952) 283-0777 during business hours, which are Monday to Friday from 8:30 AM to 4:30 PM CST. They will be able to assist you with your motor replacement issue."
     }
   ]
 }
