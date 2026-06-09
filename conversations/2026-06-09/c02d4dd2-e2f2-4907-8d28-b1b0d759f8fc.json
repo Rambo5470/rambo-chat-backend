@@ -1,20 +1,28 @@
 {
   "session_id": "c02d4dd2-e2f2-4907-8d28-b1b0d759f8fc",
   "date": "2026-06-09",
-  "ts": "2026-06-09T21:17:09.789259Z",
+  "ts": "2026-06-09T21:18:09.699799Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Mid drive motor 500w",
+      "role": "user"
+    },
+    {
+      "content": "Could you please specify which Rambo bike model you are inquiring about that has a 500W mid-drive motor? This will help me provide you with the most accurate information.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Mid drive motor 500w"
+      "content": "Had bike for year and motor went how do I get new one"
     },
     {
       "role": "assistant",
-      "content": "Could you please specify which Rambo bike model you are inquiring about that has a 500W mid-drive motor? This will help me provide you with the most accurate information."
+      "content": "To assist you better, could you please provide the exact model name and year of your bike? Additionally, if you have the serial number, that would help in identifying the correct motor replacement."
     }
   ]
 }
