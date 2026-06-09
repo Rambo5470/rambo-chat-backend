@@ -1,12 +1,12 @@
 {
   "session_id": "f4ea7425-407e-4b9e-a628-72418eb142b6",
   "date": "2026-06-09",
-  "ts": "2026-06-09T20:07:00.179488Z",
+  "ts": "2026-06-09T20:07:26.994968Z",
   "customer_name": "",
   "customer_email": "",
-  "escalated": false,
+  "escalated": true,
   "case_created": false,
-  "message_count": 8,
+  "message_count": 10,
   "messages": [
     {
       "content": "Where do I register for a first responder discount",
@@ -33,12 +33,20 @@
       "role": "assistant"
     },
     {
+      "content": "Why would I register a product I haven't purchased yet",
+      "role": "user"
+    },
+    {
+      "content": "I apologize for the confusion! You don't need to register a product before purchasing. To apply the first responder discount, please contact our customer service team directly at (952) 283-0777. They can assist you with the discount and help you find the best price for the e-bike you want for your son.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Why would I register a product I haven't purchased yet"
+      "content": "Is an agent available here?"
     },
     {
       "role": "assistant",
-      "content": "I apologize for the confusion! You don't need to register a product before purchasing. To apply the first responder discount, please contact our customer service team directly at (952) 283-0777. They can assist you with the discount and help you find the best price for the e-bike you want for your son."
+      "content": "I'm connecting you with our team now. They will be able to assist you with your first responder discount and any other questions you may have. Please hold on for a moment."
     }
   ]
 }
