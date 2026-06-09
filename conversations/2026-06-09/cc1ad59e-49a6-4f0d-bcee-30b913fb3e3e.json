@@ -1,0 +1,20 @@
+{
+  "session_id": "cc1ad59e-49a6-4f0d-bcee-30b913fb3e3e",
+  "date": "2026-06-09",
+  "ts": "2026-06-09T20:02:33.082060Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "How to get first responder discount code"
+    },
+    {
+      "role": "assistant",
+      "content": "To obtain the first responder discount code, please visit our website's promotions page or contact our customer service team directly at (952) 283-0777. They will provide you with the necessary information and code. Thank you for your service!"
+    }
+  ]
+}
