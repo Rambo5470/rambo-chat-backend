@@ -1,0 +1,20 @@
+{
+  "session_id": "f4ea7425-407e-4b9e-a628-72418eb142b6",
+  "date": "2026-06-09",
+  "ts": "2026-06-09T20:05:19.092922Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Where do I register for a first responder discount"
+    },
+    {
+      "role": "assistant",
+      "content": "To register for any discounts or promotions, please visit our product registration page: \ud83d\udd17 [Product Registration](https://rambobikes.com/pages/product-registration). If you have specific questions about the first responder discount, feel free to reach out to our customer service team directly."
+    }
+  ]
+}
