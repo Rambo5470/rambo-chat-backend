@@ -1,20 +1,28 @@
 {
   "session_id": "95aae4f5-d74d-4c87-99f0-18e1a949bd60",
   "date": "2026-06-09",
-  "ts": "2026-06-09T20:47:16.905724Z",
+  "ts": "2026-06-09T20:49:17.367006Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Where can I buy a motor for a Rambo e bike",
+      "role": "user"
+    },
+    {
+      "content": "Could you please provide me with the exact model and version of your Rambo e-bike? This will help me find the correct motor for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Where can I buy a motor for a Rambo e bike"
+      "content": "Rambo 2.0"
     },
     {
       "role": "assistant",
-      "content": "Could you please provide me with the exact model and version of your Rambo e-bike? This will help me find the correct motor for you."
+      "content": "Could you please confirm if you mean the Rebel 2.0? There are different models under the Rambo name, and I want to ensure I provide the correct information for you."
     }
   ]
 }
