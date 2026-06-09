@@ -1,12 +1,12 @@
 {
   "session_id": "f4ea7425-407e-4b9e-a628-72418eb142b6",
   "date": "2026-06-09",
-  "ts": "2026-06-09T20:05:37.475148Z",
+  "ts": "2026-06-09T20:06:25.313901Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Where do I register for a first responder discount",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "Agent",
+      "role": "user"
+    },
+    {
+      "content": "How can I assist you today? Please provide more details about what you need help with.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Agent"
+      "content": "Hi I'm a first responder and I'd like to purchase my son a ebike today but want to ensure we use that discount and get the best price"
     },
     {
       "role": "assistant",
-      "content": "How can I assist you today? Please provide more details about what you need help with."
+      "content": "Thank you for your service! To apply for the first responder discount, please visit our product registration page: \ud83d\udd17 [Product Registration](https://rambobikes.com/pages/product-registration). Once registered, you can proceed with your purchase and the discount will be applied. If you have any specific questions or need assistance with the e-bike selection, feel free to ask!"
     }
   ]
 }
