@@ -1,12 +1,12 @@
 {
   "session_id": "b25dd498-f8d8-47b9-aca2-e7fbd84235c6",
   "date": "2026-06-09",
-  "ts": "2026-06-09T20:18:55.791812Z",
+  "ts": "2026-06-09T20:19:26.371107Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "Red a battery for my Roamer does the one I\u2019m looking at fit",
@@ -25,12 +25,20 @@
       "role": "assistant"
     },
     {
+      "content": "I\u2019m not sure",
+      "role": "user"
+    },
+    {
+      "content": "To help you find the right battery, could you please check the serial number on your Roamer? It's usually located on the frame below the battery. This will help us identify the exact model and year, ensuring you get the correct battery.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "I\u2019m not sure"
+      "content": "Ok. I will ckeck"
     },
     {
       "role": "assistant",
-      "content": "To help you find the right battery, could you please check the serial number on your Roamer? It's usually located on the frame below the battery. This will help us identify the exact model and year, ensuring you get the correct battery."
+      "content": "Great! Once you have the serial number, please share it with me, and I'll help you find the right battery for your Roamer."
     }
   ]
 }
