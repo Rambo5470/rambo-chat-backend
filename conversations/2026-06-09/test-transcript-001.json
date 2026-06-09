@@ -1,0 +1,20 @@
+{
+  "session_id": "test-transcript-001",
+  "date": "2026-06-09",
+  "ts": "2026-06-09T14:19:03.835928Z",
+  "customer_name": "Test Customer",
+  "customer_email": "test@example.com",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi, I need help with my Rebel 1.0"
+    },
+    {
+      "role": "assistant",
+      "content": "Could you please provide more details about the issue you're facing with your Rebel 1.0? This will help me assist you better."
+    }
+  ]
+}
