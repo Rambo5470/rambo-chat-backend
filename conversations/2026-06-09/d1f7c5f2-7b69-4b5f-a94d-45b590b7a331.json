@@ -1,0 +1,20 @@
+{
+  "session_id": "d1f7c5f2-7b69-4b5f-a94d-45b590b7a331",
+  "date": "2026-06-09",
+  "ts": "2026-06-09T20:01:41.121975Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "I'm a first responder how do I register to verify and get our discount code?"
+    },
+    {
+      "role": "assistant",
+      "content": "To register as a first responder and verify your status for the discount code, please visit our product registration page: [Product Registration](https://rambobikes.com/pages/product-registration). Fill out the required fields, and our team will review your application. Once verified, you'll receive your discount code via email. If you have any questions, feel free to reach out!"
+    }
+  ]
+}
