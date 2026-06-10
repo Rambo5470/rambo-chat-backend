@@ -1,0 +1,28 @@
+{
+  "session_id": "de70b291-4476-420a-b435-ed8de361cba8",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T16:19:01.279337Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 4,
+  "messages": [
+    {
+      "content": "Krusader 2.0 new rear motor",
+      "role": "user"
+    },
+    {
+      "content": "The Krusader 2.0 uses the RP-06-06-08 rear motor. Just say 'order it' and I'll create a direct secure checkout link for you.",
+      "role": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Order it"
+    },
+    {
+      "role": "assistant",
+      "content": "I've created a secure order link for you. Click the link to review and complete your purchase: [Order Link](https://www.rambobikes.com/57696747655/invoices/0fba499f54154c32b83167dcaaf47901)."
+    }
+  ]
+}
