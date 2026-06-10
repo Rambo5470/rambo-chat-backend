@@ -1,0 +1,20 @@
+{
+  "session_id": "0bf9775a-ec2d-470c-a6e3-d20b8ace313a",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T19:29:59.977009Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Charles Montgomery"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello Charles! How can I assist you today? If you have any questions about Rambo Bikes, feel free to ask!"
+    }
+  ]
+}
