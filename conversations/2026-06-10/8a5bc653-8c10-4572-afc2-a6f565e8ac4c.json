@@ -1,0 +1,20 @@
+{
+  "session_id": "8a5bc653-8c10-4572-afc2-a6f565e8ac4c",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T11:52:53.421866Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "What\u2019s covered under the warranty for batteries on demo bikes?"
+    },
+    {
+      "role": "assistant",
+      "content": "The warranty for batteries on demo bikes typically follows the same guidelines as our standard warranty. Batteries are covered for 1 year from the date of purchase against defects in materials or workmanship. However, demo bikes may have specific terms that could differ, so it's best to check the warranty policy directly or contact our customer service for detailed information regarding your specific demo bike's warranty coverage."
+    }
+  ]
+}
