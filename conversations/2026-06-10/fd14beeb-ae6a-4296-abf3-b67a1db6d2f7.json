@@ -1,0 +1,20 @@
+{
+  "session_id": "fd14beeb-ae6a-4296-abf3-b67a1db6d2f7",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T14:42:15.537500Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Does rambo bikes offer a veteran discount?"
+    },
+    {
+      "role": "assistant",
+      "content": "Currently, Rambo Bikes does not have a specific veteran discount policy mentioned. For any promotional offers or discounts, it's best to check our website or contact customer service directly at (952) 283-0777 for the most accurate information."
+    }
+  ]
+}
