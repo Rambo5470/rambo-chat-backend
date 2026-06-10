@@ -1,0 +1,20 @@
+{
+  "session_id": "cb2b26f5-3ff5-445d-a6c7-a6a245f39cdb",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T16:36:19.529238Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "I need a key replacement. I don't know where to find the series of numbers"
+    },
+    {
+      "role": "assistant",
+      "content": "To order a replacement key, I need the unique 3 or 4 digit code stamped on the lock barrel (where the key inserts) or on the original key itself. If you can't find it, please let me know the model and year of your bike, and I can assist you further."
+    }
+  ]
+}
