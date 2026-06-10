@@ -1,20 +1,28 @@
 {
   "session_id": "96e34857-e96c-4217-aef8-110332c9bf72",
   "date": "2026-06-10",
-  "ts": "2026-06-10T00:28:53.589552Z",
+  "ts": "2026-06-10T00:35:39.106340Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "I need to cancel this",
+      "role": "user"
+    },
+    {
+      "content": "I'm connecting you with our team now. They'll assist you with the cancellation process shortly.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "I need to cancel this"
+      "content": "I need to stop my order the discount didn\u2019t go through"
     },
     {
       "role": "assistant",
-      "content": "I'm connecting you with our team now. They'll assist you with the cancellation process shortly."
+      "content": "I'm connecting you with our team now. They'll assist you with the cancellation and any discount issues shortly."
     }
   ]
 }
