@@ -1,0 +1,20 @@
+{
+  "session_id": "e379741e-cfd3-40c2-9fb3-37f1df3bda5e",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T10:08:04.155306Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Raca para bicicleta 20x20"
+    },
+    {
+      "role": "assistant",
+      "content": "Could you please clarify what you mean by '20x20'? Are you looking for a specific type of bike rack for a particular model of bike? Let me know so I can assist you better!"
+    }
+  ]
+}
