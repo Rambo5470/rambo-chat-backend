@@ -1,20 +1,28 @@
 {
   "session_id": "e379741e-cfd3-40c2-9fb3-37f1df3bda5e",
   "date": "2026-06-10",
-  "ts": "2026-06-10T10:08:04.155306Z",
+  "ts": "2026-06-10T10:08:47.388271Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Raca para bicicleta 20x20",
+      "role": "user"
+    },
+    {
+      "content": "Could you please clarify what you mean by '20x20'? Are you looking for a specific type of bike rack for a particular model of bike? Let me know so I can assist you better!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Raca para bicicleta 20x20"
+      "content": "Una raca tracera para entregas"
     },
     {
       "role": "assistant",
-      "content": "Could you please clarify what you mean by '20x20'? Are you looking for a specific type of bike rack for a particular model of bike? Let me know so I can assist you better!"
+      "content": "Could you please provide the exact model of your bike? This will help me find the right rear rack for you."
     }
   ]
 }
