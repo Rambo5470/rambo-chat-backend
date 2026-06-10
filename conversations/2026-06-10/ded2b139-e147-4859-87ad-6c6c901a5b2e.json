@@ -1,20 +1,28 @@
 {
   "session_id": "ded2b139-e147-4859-87ad-6c6c901a5b2e",
   "date": "2026-06-10",
-  "ts": "2026-06-10T00:22:14.876293Z",
+  "ts": "2026-06-10T00:23:48.338940Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Hi I'm looking to get a new gear replaced on my bike",
+      "role": "user"
+    },
+    {
+      "content": "Could you please provide me with the exact model of your bike and specify which gear you need to replace? This will help me find the right part for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Hi I'm looking to get a new gear replaced on my bike"
+      "content": "Roamer gear to make motor move the chain"
     },
     {
       "role": "assistant",
-      "content": "Could you please provide me with the exact model of your bike and specify which gear you need to replace? This will help me find the right part for you."
+      "content": "To assist you better, could you please provide the service code located on the back of the seat tube above the motor? This will help me identify the exact part you need for your Roamer 2.0."
     }
   ]
 }
