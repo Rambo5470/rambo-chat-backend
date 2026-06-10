@@ -1,12 +1,12 @@
 {
   "session_id": "6f9cc27e-4c43-4928-8286-ab0884bdb567",
   "date": "2026-06-10",
-  "ts": "2026-06-10T22:35:48.333356Z",
+  "ts": "2026-06-10T22:36:02.094109Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Trail breaker 3.0 which charger",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "There are single pin and triple pin and 2amp and 3amp",
+      "role": "user"
+    },
+    {
+      "content": "Could you please check your current charger or the charging port on your battery? This will help us confirm the exact replacement you need.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "There are single pin and triple pin and 2amp and 3amp"
+      "content": "Order it"
     },
     {
       "role": "assistant",
-      "content": "Could you please check your current charger or the charging port on your battery? This will help us confirm the exact replacement you need."
+      "content": "Could you confirm if you need the 2A or 3A charger, and whether it's a single pin or triple pin? This will ensure you get the correct charger for your Trailbreaker 3.0."
     }
   ]
 }
