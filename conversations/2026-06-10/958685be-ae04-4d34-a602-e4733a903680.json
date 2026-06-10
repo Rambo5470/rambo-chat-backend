@@ -1,0 +1,20 @@
+{
+  "session_id": "958685be-ae04-4d34-a602-e4733a903680",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T17:14:59.180342Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "I need a controller for the 2021 megatron 1000 watt dual motor bike"
+    },
+    {
+      "role": "assistant",
+      "content": "For the 2021 Megatron 1000 watt dual motor bike, the controller part number is RP-06-07-01. Just say 'order it' and I'll create a direct secure checkout link for you."
+    }
+  ]
+}
