@@ -1,12 +1,12 @@
 {
   "session_id": "578679f7-7dd4-4f14-a19c-03eb0da6d223",
   "date": "2026-06-10",
-  "ts": "2026-06-10T03:48:56.360620Z",
+  "ts": "2026-06-10T03:49:35.113073Z",
   "customer_name": "can discounts be stacked?",
   "customer_email": "",
-  "escalated": true,
+  "escalated": false,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "when will there be a sale on the megatron or the krusader?",
@@ -25,12 +25,20 @@
       "role": "assistant"
     },
     {
+      "content": "can discounts be stacked?",
+      "role": "user"
+    },
+    {
+      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "can discounts be stacked?"
+      "content": "thank you for your time talk soon"
     },
     {
       "role": "assistant",
-      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly."
+      "content": "You're welcome! If you have any more questions in the future, feel free to reach out. Talk to you soon!"
     }
   ]
 }
