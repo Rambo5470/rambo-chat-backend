@@ -1,0 +1,20 @@
+{
+  "session_id": "ded2b139-e147-4859-87ad-6c6c901a5b2e",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T00:22:14.876293Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi I'm looking to get a new gear replaced on my bike"
+    },
+    {
+      "role": "assistant",
+      "content": "Could you please provide me with the exact model of your bike and specify which gear you need to replace? This will help me find the right part for you."
+    }
+  ]
+}
