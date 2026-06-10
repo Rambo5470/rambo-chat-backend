@@ -1,0 +1,20 @@
+{
+  "session_id": "f3e6bb51-4b8e-4592-85fd-30e0c1f788b1",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T12:28:03.541452Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "I need to cancel my order"
+    },
+    {
+      "role": "assistant",
+      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly."
+    }
+  ]
+}
