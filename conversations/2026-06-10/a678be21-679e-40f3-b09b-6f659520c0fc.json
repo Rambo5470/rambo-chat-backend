@@ -1,0 +1,20 @@
+{
+  "session_id": "a678be21-679e-40f3-b09b-6f659520c0fc",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T10:41:28.156943Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Nesesito cancelar una orden"
+    },
+    {
+      "role": "assistant",
+      "content": "Eso es algo que nuestro equipo necesitar\u00e1 revisar. Estoy conect\u00e1ndote con nuestro equipo ahora, y ellos se encargar\u00e1n de tu solicitud de cancelaci\u00f3n."
+    }
+  ]
+}
