@@ -1,12 +1,12 @@
 {
   "session_id": "6f9cc27e-4c43-4928-8286-ab0884bdb567",
   "date": "2026-06-10",
-  "ts": "2026-06-10T22:37:51.827009Z",
+  "ts": "2026-06-10T22:38:01.543157Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 12,
+  "message_count": 14,
   "messages": [
     {
       "content": "Trail breaker 3.0 which charger",
@@ -49,12 +49,20 @@
       "role": "assistant"
     },
     {
+      "content": "So do I go 3amp or amp",
+      "role": "user"
+    },
+    {
+      "content": "For your Trailbreaker 3.0, you should use the 2A charger (RP-11-12-01). Just say 'order it' and I'll create a direct secure checkout link for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "So do I go 3amp or amp"
+      "content": "Order it"
     },
     {
       "role": "assistant",
-      "content": "For your Trailbreaker 3.0, you should use the 2A charger (RP-11-12-01). Just say 'order it' and I'll create a direct secure checkout link for you."
+      "content": "I've created a secure order link for you. Click the link to review and complete your purchase: https://www.rambobikes.com/57696747655/invoices/b81e4bf7a8dbdd8ccb582bd25ba2b614"
     }
   ]
 }
