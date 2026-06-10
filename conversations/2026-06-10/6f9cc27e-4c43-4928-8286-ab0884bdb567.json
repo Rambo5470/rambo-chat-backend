@@ -1,12 +1,12 @@
 {
   "session_id": "6f9cc27e-4c43-4928-8286-ab0884bdb567",
   "date": "2026-06-10",
-  "ts": "2026-06-10T22:37:33.455517Z",
+  "ts": "2026-06-10T22:37:51.827009Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 10,
+  "message_count": 12,
   "messages": [
     {
       "content": "Trail breaker 3.0 which charger",
@@ -41,12 +41,20 @@
       "role": "assistant"
     },
     {
+      "content": "Single pin",
+      "role": "user"
+    },
+    {
+      "content": "The Trailbreaker 3.0 uses a single pin 2A charger, part number RP-11-12-01. Just say 'order it' and I'll create a direct secure checkout link for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Single pin"
+      "content": "So do I go 3amp or amp"
     },
     {
       "role": "assistant",
-      "content": "The Trailbreaker 3.0 uses a single pin 2A charger, part number RP-11-12-01. Just say 'order it' and I'll create a direct secure checkout link for you."
+      "content": "For your Trailbreaker 3.0, you should use the 2A charger (RP-11-12-01). Just say 'order it' and I'll create a direct secure checkout link for you."
     }
   ]
 }
