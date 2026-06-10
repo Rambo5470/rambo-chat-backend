@@ -1,0 +1,20 @@
+{
+  "session_id": "1fc1bb1f-0b33-4174-a968-2d3e8d858bf8",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T15:21:43.960428Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "I would like to talk to sales"
+    },
+    {
+      "role": "assistant",
+      "content": "I'm connecting you with our team now. They will assist you with your sales inquiry shortly."
+    }
+  ]
+}
