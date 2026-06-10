@@ -1,12 +1,12 @@
 {
   "session_id": "cb2b26f5-3ff5-445d-a6c7-a6a245f39cdb",
   "date": "2026-06-10",
-  "ts": "2026-06-10T16:40:29.778480Z",
-  "customer_name": "",
+  "ts": "2026-06-10T16:40:53.460209Z",
+  "customer_name": "thank you",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "I need a key replacement. I don't know where to find the series of numbers",
@@ -25,8 +25,16 @@
       "role": "assistant"
     },
     {
+      "content": "There is no code by where the key inserts",
+      "role": "user"
+    },
+    {
+      "content": "I'm connecting you with our team now to assist you further with your key replacement issue. They'll be able to help you find a solution.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "There is no code by where the key inserts"
+      "content": "thank you"
     },
     {
       "role": "assistant",
