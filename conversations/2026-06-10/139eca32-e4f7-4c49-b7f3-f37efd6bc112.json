@@ -1,0 +1,20 @@
+{
+  "session_id": "139eca32-e4f7-4c49-b7f3-f37efd6bc112",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T19:36:19.177969Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hola nesesito  csncelar mi pedido"
+    },
+    {
+      "role": "assistant",
+      "content": "Estoy conect\u00e1ndote con nuestro equipo ahora. Ellos se encargar\u00e1n de la cancelaci\u00f3n de tu pedido y te seguir\u00e1n con m\u00e1s detalles."
+    }
+  ]
+}
