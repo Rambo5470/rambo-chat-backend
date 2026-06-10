@@ -1,0 +1,20 @@
+{
+  "session_id": "190be2b1-9dd3-417f-9f26-76d95af9f2f8",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T14:57:25.357495Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Does rambo bikes offer a veterans discount?"
+    },
+    {
+      "role": "assistant",
+      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly."
+    }
+  ]
+}
