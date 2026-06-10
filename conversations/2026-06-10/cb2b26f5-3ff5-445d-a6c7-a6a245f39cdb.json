@@ -1,12 +1,12 @@
 {
   "session_id": "cb2b26f5-3ff5-445d-a6c7-a6a245f39cdb",
   "date": "2026-06-10",
-  "ts": "2026-06-10T16:36:55.022705Z",
+  "ts": "2026-06-10T16:40:29.778480Z",
   "customer_name": "",
   "customer_email": "",
-  "escalated": false,
+  "escalated": true,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "I need a key replacement. I don't know where to find the series of numbers",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "It is a Savage 2.0",
+      "role": "user"
+    },
+    {
+      "content": "Please check the lock barrel where the key inserts for a 3 or 4 digit code. If you find it, I can help you order the exact replacement key. If you can't find the code, I recommend contacting our customer service team for further assistance.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "It is a Savage 2.0"
+      "content": "There is no code by where the key inserts"
     },
     {
       "role": "assistant",
-      "content": "Please check the lock barrel where the key inserts for a 3 or 4 digit code. If you find it, I can help you order the exact replacement key. If you can't find the code, I recommend contacting our customer service team for further assistance."
+      "content": "I'm connecting you with our team now to assist you further with your key replacement issue. They'll be able to help you find a solution."
     }
   ]
 }
