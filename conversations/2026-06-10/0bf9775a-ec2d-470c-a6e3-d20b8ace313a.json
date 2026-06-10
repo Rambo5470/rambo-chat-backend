@@ -1,20 +1,28 @@
 {
   "session_id": "0bf9775a-ec2d-470c-a6e3-d20b8ace313a",
   "date": "2026-06-10",
-  "ts": "2026-06-10T19:29:59.977009Z",
+  "ts": "2026-06-10T19:30:51.514007Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Charles Montgomery",
+      "role": "user"
+    },
+    {
+      "content": "Hello Charles! How can I assist you today? If you have any questions about Rambo Bikes, feel free to ask!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Charles Montgomery"
+      "content": "I bought a Rambo Rebel bike a few years ago. Can you tell me when and what I paid for it? My email address is Charles A monty@gmail.com."
     },
     {
       "role": "assistant",
-      "content": "Hello Charles! How can I assist you today? If you have any questions about Rambo Bikes, feel free to ask!"
+      "content": "I'm sorry, but I don't have access to purchase records or personal information. I recommend reaching out to our customer service team at cs@rambobikes.com or calling (952) 283-0777. They will be able to assist you with your purchase details."
     }
   ]
 }
