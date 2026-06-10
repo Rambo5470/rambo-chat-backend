@@ -1,12 +1,12 @@
 {
   "session_id": "de70b291-4476-420a-b435-ed8de361cba8",
   "date": "2026-06-10",
-  "ts": "2026-06-10T16:19:01.279337Z",
+  "ts": "2026-06-10T16:20:34.413645Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 12,
   "messages": [
     {
       "content": "Krusader 2.0 new rear motor",
@@ -17,12 +17,44 @@
       "role": "assistant"
     },
     {
+      "content": "Order it",
+      "role": "user"
+    },
+    {
+      "content": "I've created a secure order link for you. Click the link to review and complete your purchase: [Order Link](https://www.rambobikes.com/57696747655/invoices/0fba499f54154c32b83167dcaaf47901).",
+      "role": "assistant"
+    },
+    {
+      "content": "Need rear wheel motor",
+      "role": "user"
+    },
+    {
+      "content": "The rear wheel motor for the Krusader 2.0 is RP-06-06-08. Just say 'order it' and I'll create a direct secure checkout link for you.",
+      "role": "assistant"
+    },
+    {
+      "content": "Back wheel",
+      "role": "user"
+    },
+    {
+      "content": "The rear wheel for the Krusader 2.0 is RP-07-09. Just say 'order it' and I'll create a direct secure checkout link for you.",
+      "role": "assistant"
+    },
+    {
+      "content": "Order it",
+      "role": "user"
+    },
+    {
+      "content": "I'll order the rear wheel (RP-07-09) at $169.99 \u2014 correct?",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Order it"
+      "content": "Yes"
     },
     {
       "role": "assistant",
-      "content": "I've created a secure order link for you. Click the link to review and complete your purchase: [Order Link](https://www.rambobikes.com/57696747655/invoices/0fba499f54154c32b83167dcaaf47901)."
+      "content": "I've created a secure order link for you. Click the link to review and complete your purchase: https://www.rambobikes.com/57696747655/invoices/c452edeff3deac8c3e329ddf0c03bae2"
     }
   ]
 }
