@@ -1,0 +1,20 @@
+{
+  "session_id": "45326522-06cb-4246-aa2b-70492845ce1a",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T22:49:21.117898Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "can you take the ranger off road"
+    },
+    {
+      "role": "assistant",
+      "content": "The Ranger is designed primarily for flat terrain and casual riding, making it suitable for light off-road use. However, it may not perform well in extreme off-road conditions or steep hills due to its hub drive and lack of suspension. If you're looking for a bike specifically for rugged off-road trails, you might want to consider models like the Krusader or Hellcat, which are better equipped for that purpose."
+    }
+  ]
+}
