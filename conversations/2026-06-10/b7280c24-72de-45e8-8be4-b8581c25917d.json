@@ -1,0 +1,20 @@
+{
+  "session_id": "b7280c24-72de-45e8-8be4-b8581c25917d",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T20:23:40.356151Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "My controller has a glitch on a savage ebike"
+    },
+    {
+      "role": "assistant",
+      "content": "Could you please specify which version of the Savage e-bike you have? Is it the Savage 2.0, Savage G3, or another model? Additionally, if you could provide any details about the glitch you're experiencing, that would help me assist you better."
+    }
+  ]
+}
