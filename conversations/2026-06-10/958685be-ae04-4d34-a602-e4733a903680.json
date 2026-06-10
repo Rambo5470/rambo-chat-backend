@@ -1,20 +1,28 @@
 {
   "session_id": "958685be-ae04-4d34-a602-e4733a903680",
   "date": "2026-06-10",
-  "ts": "2026-06-10T17:14:59.180342Z",
+  "ts": "2026-06-10T17:15:23.258296Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "I need a controller for the 2021 megatron 1000 watt dual motor bike",
+      "role": "user"
+    },
+    {
+      "content": "For the 2021 Megatron 1000 watt dual motor bike, the controller part number is RP-06-07-01. Just say 'order it' and I'll create a direct secure checkout link for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "I need a controller for the 2021 megatron 1000 watt dual motor bike"
+      "content": "Order it"
     },
     {
       "role": "assistant",
-      "content": "For the 2021 Megatron 1000 watt dual motor bike, the controller part number is RP-06-07-01. Just say 'order it' and I'll create a direct secure checkout link for you."
+      "content": "I've created a secure order link for you. Click the link to review and complete your purchase: https://www.rambobikes.com/57696747655/invoices/7f8b7d2ca39555f972d2e05accbf14df"
     }
   ]
 }
