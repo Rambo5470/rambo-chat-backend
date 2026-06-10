@@ -1,0 +1,20 @@
+{
+  "session_id": "578679f7-7dd4-4f14-a19c-03eb0da6d223",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T03:44:19.873590Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "when will there be a sale on the megatron or the krusader?"
+    },
+    {
+      "role": "assistant",
+      "content": "Our team is checking on availability for you and will follow up shortly."
+    }
+  ]
+}
