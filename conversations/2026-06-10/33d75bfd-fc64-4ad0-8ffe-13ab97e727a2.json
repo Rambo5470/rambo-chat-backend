@@ -1,0 +1,20 @@
+{
+  "session_id": "33d75bfd-fc64-4ad0-8ffe-13ab97e727a2",
+  "date": "2026-06-10",
+  "ts": "2026-06-10T16:24:24.474244Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Is there a contact phone number"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, you can reach Rambo Bikes customer service at (952) 283-0777. We're available Monday through Friday from 8:30 AM to 4:30 PM CST."
+    }
+  ]
+}
