@@ -1,12 +1,12 @@
 {
   "session_id": "71c70d9a-cd23-492c-810a-84786f127e76",
   "date": "2026-06-11",
-  "ts": "2026-06-11T16:31:56.574761Z",
+  "ts": "2026-06-11T16:33:35.447012Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 8,
+  "message_count": 10,
   "messages": [
     {
       "content": "Want to send aspicture",
@@ -33,12 +33,20 @@
       "role": "assistant"
     },
     {
+      "content": "That was the price for the 20aH , not 15aH",
+      "role": "user"
+    },
+    {
+      "content": "The Savage 2.0 with the 20Ah battery was originally priced at $2,799.99 and is now available for $2,199.99. The 15Ah version remains at its standard pricing. If you need further details or assistance with ordering, let me know!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "That was the price for the 20aH , not 15aH"
+      "content": "Are there taxes or shipping costs?"
     },
     {
       "role": "assistant",
-      "content": "The Savage 2.0 with the 20Ah battery was originally priced at $2,799.99 and is now available for $2,199.99. The 15Ah version remains at its standard pricing. If you need further details or assistance with ordering, let me know!"
+      "content": "Yes, there are additional costs to consider. Shipping charges apply to all orders, and taxes may vary based on your location. The exact amount will be calculated at checkout. If you have any more questions or need assistance with your order, feel free to ask!"
     }
   ]
 }
