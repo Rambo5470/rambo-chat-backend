@@ -1,12 +1,12 @@
 {
   "session_id": "71c70d9a-cd23-492c-810a-84786f127e76",
   "date": "2026-06-11",
-  "ts": "2026-06-11T16:29:00.764388Z",
+  "ts": "2026-06-11T16:31:03.381033Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Want to send aspicture",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "Not giving me an option to do so",
+      "role": "user"
+    },
+    {
+      "content": "I apologize for the inconvenience. If you're unable to send a picture here, you can describe the issue in detail, and I'll do my best to assist you. Alternatively, you can email the picture to cs@rambobikes.com, and our team will help you from there.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Not giving me an option to do so"
+      "content": "Which is the Savage 2.0 that was $2799.99 and now $2199.99?"
     },
     {
       "role": "assistant",
-      "content": "I apologize for the inconvenience. If you're unable to send a picture here, you can describe the issue in detail, and I'll do my best to assist you. Alternatively, you can email the picture to cs@rambobikes.com, and our team will help you from there."
+      "content": "The Savage 2.0 is currently priced at $2,199.99, down from its previous price of $2,799.99. This model is Rambo's all-time #1 seller, known for its versatility and performance. If you have any more questions or need assistance with ordering, feel free to ask!"
     }
   ]
 }
