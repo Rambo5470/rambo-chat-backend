@@ -1,16 +1,24 @@
 {
   "session_id": "7afd6b6d-075c-4f3c-8008-8a526f9d42d9",
   "date": "2026-06-11",
-  "ts": "2026-06-11T03:23:40.262735Z",
+  "ts": "2026-06-11T03:23:48.113652Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Xxcvhbfk",
+      "role": "user"
+    },
+    {
+      "content": "It seems like your message might not have come through correctly. Could you please provide more details or clarify your question? I'm here to help!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Xxcvhbfk"
+      "content": "Zcgvnkmdm"
     },
     {
       "role": "assistant",
