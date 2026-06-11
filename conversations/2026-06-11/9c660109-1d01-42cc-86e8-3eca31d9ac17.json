@@ -1,0 +1,20 @@
+{
+  "session_id": "9c660109-1d01-42cc-86e8-3eca31d9ac17",
+  "date": "2026-06-11",
+  "ts": "2026-06-11T22:02:26.744990Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Are there any Father\u2019s Day specials coming up"
+    },
+    {
+      "role": "assistant",
+      "content": "I don't have specific details on any Father's Day specials at this time. However, you can check our website regularly for updates or call us at (952) 283-0777 during business hours for the latest promotions."
+    }
+  ]
+}
