@@ -1,12 +1,12 @@
 {
   "session_id": "16b38ee8-b0a5-4ffe-998a-3c0f3c7f56e4",
   "date": "2026-06-11",
-  "ts": "2026-06-11T02:08:11.493852Z",
+  "ts": "2026-06-11T02:09:46.822464Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Sowju",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "Rakshitha. Vaishali Sowjanya",
+      "role": "user"
+    },
+    {
+      "content": "It seems like you've mentioned some names. Could you please clarify how I can assist you today?",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Rakshitha. Vaishali Sowjanya"
+      "content": "Xhhdkskzhxhcjj"
     },
     {
       "role": "assistant",
-      "content": "It seems like you've mentioned some names. Could you please clarify how I can assist you today?"
+      "content": "It seems like your message might not have come through clearly. If you have a question or need assistance, please try again!"
     }
   ]
 }
