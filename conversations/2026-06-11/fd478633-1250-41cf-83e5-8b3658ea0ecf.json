@@ -1,0 +1,20 @@
+{
+  "session_id": "fd478633-1250-41cf-83e5-8b3658ea0ecf",
+  "date": "2026-06-11",
+  "ts": "2026-06-11T17:45:28.629880Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Battery"
+    },
+    {
+      "role": "assistant",
+      "content": "Could you please specify which Rambo bike model you need battery information for? This will help me provide you with the correct details and options."
+    }
+  ]
+}
