@@ -1,12 +1,12 @@
 {
   "session_id": "8e7a3400-8962-4aee-b9cd-d1503fa8627c",
   "date": "2026-06-11",
-  "ts": "2026-06-11T19:57:05.990815Z",
-  "customer_name": "",
+  "ts": "2026-06-11T19:59:02.504309Z",
+  "customer_name": "CRR 10M",
   "customer_email": "",
-  "escalated": false,
+  "escalated": true,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "I put my new Rambo Dominator Ultra Drive together 2 days ago. I test drove it and after a minute of driving i can watch the battery percentage drop as I'm riding. Only road it a few minutes and it was dropping every 30 seconds. Its a 30amp battery is this normal?",
@@ -25,12 +25,20 @@
       "role": "assistant"
     },
     {
+      "content": "What does it start with,  theirs several",
+      "role": "user"
+    },
+    {
+      "content": "The serial number for Rambo bikes typically starts with a letter followed by a series of numbers. It can usually be found on a sticker on the frame below the battery. If you can provide the first few characters or the entire number, that would help us look up your bike's details more accurately.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "What does it start with,  theirs several"
+      "content": "CRR 10M"
     },
     {
       "role": "assistant",
-      "content": "The serial number for Rambo bikes typically starts with a letter followed by a series of numbers. It can usually be found on a sticker on the frame below the battery. If you can provide the first few characters or the entire number, that would help us look up your bike's details more accurately."
+      "content": "Thank you for providing the serial number, Dominic. Given the rapid drop in battery percentage you are experiencing, I recommend that we escalate this issue to our technical team for further evaluation. They will need to assess the battery and electrical system.\n\nI'm connecting you with our team now, and they will follow up with you shortly regarding this issue."
     }
   ]
 }
