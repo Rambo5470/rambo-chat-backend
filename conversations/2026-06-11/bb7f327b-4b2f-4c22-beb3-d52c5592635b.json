@@ -1,20 +1,28 @@
 {
   "session_id": "bb7f327b-4b2f-4c22-beb3-d52c5592635b",
   "date": "2026-06-11",
-  "ts": "2026-06-11T15:15:46.688483Z",
+  "ts": "2026-06-11T15:17:59.645379Z",
   "customer_name": "",
   "customer_email": "",
-  "escalated": false,
+  "escalated": true,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "My battery will not release from its position",
+      "role": "user"
+    },
+    {
+      "content": "It sounds like your battery might be stuck due to the locking mechanism or misalignment. Here are some steps you can try:\n\n1. **Check the Locking Mechanism:** Ensure that the battery lock is fully disengaged. If your bike has a key lock, make sure the key is turned to the unlock position.\n2. **Inspect for Obstructions:** Look for any debris or obstructions around the battery compartment that might be preventing it from sliding out.\n3. **Gently Wiggle the Battery:** While holding the release button (if applicable), gently wiggle the battery back and forth to see if it loosens.\n4. **Consult the Manual:** If you have the manual, refer to it for specific instructions on battery removal for your model.\n\nIf these steps do not resolve the issue, please provide your bike model and year, and I can assist you further.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "My battery will not release from its position"
+      "content": "I have tried all of that. The key does turn. But the orange colored pin doesn\u2019t seem to release. My bike is the Rambo Rebel 1.0 - I believe the year is 2024"
     },
     {
       "role": "assistant",
-      "content": "It sounds like your battery might be stuck due to the locking mechanism or misalignment. Here are some steps you can try:\n\n1. **Check the Locking Mechanism:** Ensure that the battery lock is fully disengaged. If your bike has a key lock, make sure the key is turned to the unlock position.\n2. **Inspect for Obstructions:** Look for any debris or obstructions around the battery compartment that might be preventing it from sliding out.\n3. **Gently Wiggle the Battery:** While holding the release button (if applicable), gently wiggle the battery back and forth to see if it loosens.\n4. **Consult the Manual:** If you have the manual, refer to it for specific instructions on battery removal for your model.\n\nIf these steps do not resolve the issue, please provide your bike model and year, and I can assist you further."
+      "content": "It sounds like the orange release pin on your Rebel 1.0 might be stuck or malfunctioning. Here are a few additional steps you can try:\n\n1. **Inspect the Pin:** Check if the orange pin is visibly damaged or misaligned. Sometimes, dirt or debris can cause it to stick.\n2. **Apply Gentle Pressure:** While turning the key to the unlock position, gently pull on the battery while pressing the orange pin. Sometimes a little extra pressure can help free it.\n3. **Lubricate the Mechanism:** If you have access to a silicone-based lubricant, apply a small amount around the pin area. This can help loosen any sticking points.\n4. **Contact Support:** If the pin still does not release, it may require professional assistance. I recommend contacting our customer service team for further support or to schedule a service.\n\nIf you need to escalate this issue, I can connect you with our team. Let me know how you would like to proceed!"
     }
   ]
 }
