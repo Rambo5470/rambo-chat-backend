@@ -1,12 +1,12 @@
 {
   "session_id": "8e7a3400-8962-4aee-b9cd-d1503fa8627c",
   "date": "2026-06-11",
-  "ts": "2026-06-11T20:02:52.456803Z",
+  "ts": "2026-06-11T20:03:26.052848Z",
   "customer_name": "CRR 10M",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 14,
+  "message_count": 16,
   "messages": [
     {
       "content": "I put my new Rambo Dominator Ultra Drive together 2 days ago. I test drove it and after a minute of driving i can watch the battery percentage drop as I'm riding. Only road it a few minutes and it was dropping every 30 seconds. Its a 30amp battery is this normal?",
@@ -57,12 +57,20 @@
       "role": "assistant"
     },
     {
+      "content": "The booklet does not go into detail on how to navigate through and operate the lcd display",
+      "role": "user"
+    },
+    {
+      "content": "To navigate and operate the LCD display on your Dominator Ultra Drive, follow these general steps:\n\n1. **Power On:** Press and hold the power button (usually located on the bottom of the display) for a few seconds until the display lights up.\n\n2. **Adjusting Pedal Assist Levels:** Use the '+' and '-' buttons to increase or decrease the pedal assist level. This will allow you to choose how much assistance you want from the motor while pedaling.\n\n3. **Changing Class Settings:** To change the class settings, hold the **M button** and the **Up Arrow button** simultaneously to enter Basic Settings mode. From there, navigate to the Ride Mode to adjust the class setting (Class 1, 2, or 3).\n\n4. **Viewing Battery Percentage:** The battery percentage is usually displayed prominently on the screen. Keep an eye on it to monitor your battery level while riding.\n\n5. **Checking Speed and Distance:** The display typically shows your current speed and total distance traveled. You can cycle through different metrics using the mode button (if available).\n\nIf you need more specific instructions or if your display has unique features, please let me know, and I can assist further!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "The booklet does not go into detail on how to navigate through and operate the lcd display"
+      "content": "I manage to turn it on and power up and down"
     },
     {
       "role": "assistant",
-      "content": "To navigate and operate the LCD display on your Dominator Ultra Drive, follow these general steps:\n\n1. **Power On:** Press and hold the power button (usually located on the bottom of the display) for a few seconds until the display lights up.\n\n2. **Adjusting Pedal Assist Levels:** Use the '+' and '-' buttons to increase or decrease the pedal assist level. This will allow you to choose how much assistance you want from the motor while pedaling.\n\n3. **Changing Class Settings:** To change the class settings, hold the **M button** and the **Up Arrow button** simultaneously to enter Basic Settings mode. From there, navigate to the Ride Mode to adjust the class setting (Class 1, 2, or 3).\n\n4. **Viewing Battery Percentage:** The battery percentage is usually displayed prominently on the screen. Keep an eye on it to monitor your battery level while riding.\n\n5. **Checking Speed and Distance:** The display typically shows your current speed and total distance traveled. You can cycle through different metrics using the mode button (if available).\n\nIf you need more specific instructions or if your display has unique features, please let me know, and I can assist further!"
+      "content": "Great to hear that you've powered it on! Here are some additional tips for navigating the LCD display:\n\n1. **Powering On/Off:** You can turn the display on by pressing and holding the power button. To turn it off, press and hold the power button again.\n\n2. **Adjusting Pedal Assist Levels:** Use the '+' button to increase the pedal assist level and the '-' button to decrease it. This allows you to customize how much assistance you receive from the motor while pedaling.\n\n3. **Changing Class Settings:** To change the class settings (Class 1, 2, or 3), hold the **M button** and the **Up Arrow button** simultaneously. This will take you into the Basic Settings mode where you can adjust the Ride Mode.\n\n4. **Viewing Information:** The display shows various information such as speed, distance, and battery percentage. You can cycle through these metrics using the mode button (if available).\n\nIf you have specific features or settings you're trying to access, please let me know, and I can provide more targeted assistance!"
     }
   ]
 }
