@@ -1,0 +1,20 @@
+{
+  "session_id": "71c70d9a-cd23-492c-810a-84786f127e76",
+  "date": "2026-06-11",
+  "ts": "2026-06-11T16:28:07.739214Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Want to send aspicture"
+    },
+    {
+      "role": "assistant",
+      "content": "You can send the picture directly in this chat. Please attach the image, and I'll assist you further!"
+    }
+  ]
+}
