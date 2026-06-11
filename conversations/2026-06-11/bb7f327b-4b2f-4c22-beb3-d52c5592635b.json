@@ -1,12 +1,12 @@
 {
   "session_id": "bb7f327b-4b2f-4c22-beb3-d52c5592635b",
   "date": "2026-06-11",
-  "ts": "2026-06-11T15:18:35.487373Z",
+  "ts": "2026-06-11T15:27:42.751936Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "My battery will not release from its position",
@@ -25,12 +25,20 @@
       "role": "assistant"
     },
     {
+      "content": "Please connect me with a service team member.",
+      "role": "user"
+    },
+    {
+      "content": "I'm connecting you with our team now. They will assist you further with the battery release issue on your Rebel 1.0. Thank you for your patience!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Please connect me with a service team member."
+      "content": "How long will it take?"
     },
     {
       "role": "assistant",
-      "content": "I'm connecting you with our team now. They will assist you further with the battery release issue on your Rebel 1.0. Thank you for your patience!"
+      "content": "Response times can vary, but our service team typically responds within 24 hours. If you need immediate assistance, feel free to reach out to our customer service at (952) 283-0777 during business hours (Mon-Fri 8:30am-4:30pm CST). Thank you for your patience!"
     }
   ]
 }
