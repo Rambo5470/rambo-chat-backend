@@ -1,20 +1,28 @@
 {
   "session_id": "8e7a3400-8962-4aee-b9cd-d1503fa8627c",
   "date": "2026-06-11",
-  "ts": "2026-06-11T19:52:54.461668Z",
+  "ts": "2026-06-11T19:53:49.562436Z",
   "customer_name": "",
   "customer_email": "",
-  "escalated": true,
+  "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "I put my new Rambo Dominator Ultra Drive together 2 days ago. I test drove it and after a minute of driving i can watch the battery percentage drop as I'm riding. Only road it a few minutes and it was dropping every 30 seconds. Its a 30amp battery is this normal?",
+      "role": "user"
+    },
+    {
+      "content": "Thank you for reaching out. A rapid drop in battery percentage while riding is not normal, especially for a new 30Ah battery. This could indicate a battery issue or a problem with the electrical system. I recommend checking the following:\n\n1. Ensure the battery is fully charged before your ride.\n2. Check all cable connections to ensure they are secure and not damaged.\n3. If the issue persists, it may require further evaluation.\n\nCould you please provide the serial number of your bike and any additional details about the ride? This will help our team assist you better.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "I put my new Rambo Dominator Ultra Drive together 2 days ago. I test drove it and after a minute of driving i can watch the battery percentage drop as I'm riding. Only road it a few minutes and it was dropping every 30 seconds. Its a 30amp battery is this normal?"
+      "content": "You can look it up, my name is Dominic Cannizzaro"
     },
     {
       "role": "assistant",
-      "content": "Thank you for reaching out. A rapid drop in battery percentage while riding is not normal, especially for a new 30Ah battery. This could indicate a battery issue or a problem with the electrical system. I recommend checking the following:\n\n1. Ensure the battery is fully charged before your ride.\n2. Check all cable connections to ensure they are secure and not damaged.\n3. If the issue persists, it may require further evaluation.\n\nCould you please provide the serial number of your bike and any additional details about the ride? This will help our team assist you better."
+      "content": "Thank you for providing your name, Dominic. To assist you better, could you please share the serial number of your bike? This will help our team look into your specific case and determine the next steps."
     }
   ]
 }
