@@ -1,20 +1,28 @@
 {
   "session_id": "a451443b-42c6-49fd-b49e-a83eca03fd4c",
   "date": "2026-06-11",
-  "ts": "2026-06-11T15:03:26.325924Z",
+  "ts": "2026-06-11T15:03:46.131701Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Hii",
+      "role": "user"
+    },
+    {
+      "content": "Hello! How can I assist you today? If you have any questions about our bikes, parts, or anything else, feel free to ask!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Hii"
+      "content": "Blol"
     },
     {
       "role": "assistant",
-      "content": "Hello! How can I assist you today? If you have any questions about our bikes, parts, or anything else, feel free to ask!"
+      "content": "It seems like you're having a good time! If there's anything specific you'd like to know or discuss about Rambo Bikes, just let me know!"
     }
   ]
 }
