@@ -1,12 +1,12 @@
 {
   "session_id": "8e7a3400-8962-4aee-b9cd-d1503fa8627c",
   "date": "2026-06-11",
-  "ts": "2026-06-11T19:53:49.562436Z",
+  "ts": "2026-06-11T19:57:05.990815Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "I put my new Rambo Dominator Ultra Drive together 2 days ago. I test drove it and after a minute of driving i can watch the battery percentage drop as I'm riding. Only road it a few minutes and it was dropping every 30 seconds. Its a 30amp battery is this normal?",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "You can look it up, my name is Dominic Cannizzaro",
+      "role": "user"
+    },
+    {
+      "content": "Thank you for providing your name, Dominic. To assist you better, could you please share the serial number of your bike? This will help our team look into your specific case and determine the next steps.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "You can look it up, my name is Dominic Cannizzaro"
+      "content": "What does it start with,  theirs several"
     },
     {
       "role": "assistant",
-      "content": "Thank you for providing your name, Dominic. To assist you better, could you please share the serial number of your bike? This will help our team look into your specific case and determine the next steps."
+      "content": "The serial number for Rambo bikes typically starts with a letter followed by a series of numbers. It can usually be found on a sticker on the frame below the battery. If you can provide the first few characters or the entire number, that would help us look up your bike's details more accurately."
     }
   ]
 }
