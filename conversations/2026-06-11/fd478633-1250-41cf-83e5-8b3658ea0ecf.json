@@ -1,20 +1,28 @@
 {
   "session_id": "fd478633-1250-41cf-83e5-8b3658ea0ecf",
   "date": "2026-06-11",
-  "ts": "2026-06-11T17:45:28.629880Z",
+  "ts": "2026-06-11T17:49:19.287036Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Battery",
+      "role": "user"
+    },
+    {
+      "content": "Could you please specify which Rambo bike model you need battery information for? This will help me provide you with the correct details and options.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Battery"
+      "content": "My battery won\u2019t take a charge , my bike is a pursuit, SN ewrb10211843 purchased  2022."
     },
     {
       "role": "assistant",
-      "content": "Could you please specify which Rambo bike model you need battery information for? This will help me provide you with the correct details and options."
+      "content": "I'm sorry to hear that your Pursuit's battery isn't charging. Here are some troubleshooting steps you can try:\n\n1. **Check the Charger:** Ensure that the charger is plugged in and the light indicator is functioning. If the light is green, it means the battery is fully charged; if it's red, it indicates charging.\n2. **Inspect the Charging Port:** Look for any debris or damage in the battery's charging port. Clean it gently if necessary.\n3. **Test the Battery:** If you have a multimeter, check the voltage of the battery terminals. A healthy battery should read around 48V or higher.\n4. **Try a Different Charger:** If possible, test with another compatible charger to rule out charger issues.\n5. **Leave it Charging:** If the battery is completely drained, it may take a while to respond. Leave it connected for at least 30 minutes before checking again.\n\nIf these steps do not resolve the issue, it may require further evaluation. Please let me know how it goes, and if needed, I can assist you with replacement options."
     }
   ]
 }
