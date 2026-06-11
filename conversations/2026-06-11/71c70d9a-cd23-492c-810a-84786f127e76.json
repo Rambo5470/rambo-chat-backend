@@ -1,12 +1,12 @@
 {
   "session_id": "71c70d9a-cd23-492c-810a-84786f127e76",
   "date": "2026-06-11",
-  "ts": "2026-06-11T16:33:35.447012Z",
+  "ts": "2026-06-11T16:34:54.119695Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 10,
+  "message_count": 12,
   "messages": [
     {
       "content": "Want to send aspicture",
@@ -41,12 +41,20 @@
       "role": "assistant"
     },
     {
+      "content": "Are there taxes or shipping costs?",
+      "role": "user"
+    },
+    {
+      "content": "Yes, there are additional costs to consider. Shipping charges apply to all orders, and taxes may vary based on your location. The exact amount will be calculated at checkout. If you have any more questions or need assistance with your order, feel free to ask!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Are there taxes or shipping costs?"
+      "content": "I thought that there was free shipping and no taxes if shipped to 112 Saddle Ridge Drive, Dallas. PA"
     },
     {
       "role": "assistant",
-      "content": "Yes, there are additional costs to consider. Shipping charges apply to all orders, and taxes may vary based on your location. The exact amount will be calculated at checkout. If you have any more questions or need assistance with your order, feel free to ask!"
+      "content": "Shipping charges typically apply to all orders, and taxes may vary based on your location. However, if there are specific promotions or policies for your area, I recommend checking directly at checkout or contacting our customer service for confirmation. If you have any other questions or need assistance, feel free to ask!"
     }
   ]
 }
