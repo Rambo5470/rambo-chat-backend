@@ -1,12 +1,12 @@
 {
   "session_id": "3b0c2315-7dee-4715-abda-8f9c26df81e4",
   "date": "2026-06-11",
-  "ts": "2026-06-11T01:56:18.619371Z",
+  "ts": "2026-06-11T01:58:50.694050Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Wada Nayan Narpat Chaudh",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "Ambaram Chaudhari ambaram Chaudhari",
+      "role": "user"
+    },
+    {
+      "content": "It looks like you mentioned a name, but I need more information to assist you. How can I help you today? If you have questions about Rambo Bikes or need assistance, please let me know!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Ambaram Chaudhari ambaram Chaudhari"
+      "content": "Ambaram Chaudhari Vada Naya"
     },
     {
       "role": "assistant",
-      "content": "It looks like you mentioned a name, but I need more information to assist you. How can I help you today? If you have questions about Rambo Bikes or need assistance, please let me know!"
+      "content": "It seems like you are mentioning names, but I'm here to help with any questions or concerns you have about Rambo Bikes. Please let me know how I can assist you!"
     }
   ]
 }
