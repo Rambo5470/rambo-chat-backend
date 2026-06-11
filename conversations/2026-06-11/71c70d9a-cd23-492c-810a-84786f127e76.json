@@ -1,20 +1,28 @@
 {
   "session_id": "71c70d9a-cd23-492c-810a-84786f127e76",
   "date": "2026-06-11",
-  "ts": "2026-06-11T16:28:07.739214Z",
+  "ts": "2026-06-11T16:29:00.764388Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Want to send aspicture",
+      "role": "user"
+    },
+    {
+      "content": "You can send the picture directly in this chat. Please attach the image, and I'll assist you further!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Want to send aspicture"
+      "content": "Not giving me an option to do so"
     },
     {
       "role": "assistant",
-      "content": "You can send the picture directly in this chat. Please attach the image, and I'll assist you further!"
+      "content": "I apologize for the inconvenience. If you're unable to send a picture here, you can describe the issue in detail, and I'll do my best to assist you. Alternatively, you can email the picture to cs@rambobikes.com, and our team will help you from there."
     }
   ]
 }
