@@ -1,0 +1,20 @@
+{
+  "session_id": "16b38ee8-b0a5-4ffe-998a-3c0f3c7f56e4",
+  "date": "2026-06-11",
+  "ts": "2026-06-11T02:06:24.290328Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Sowju"
+    },
+    {
+      "role": "assistant",
+      "content": "It looks like your message might be incomplete. Could you please provide more details or clarify your question? I'm here to help!"
+    }
+  ]
+}
