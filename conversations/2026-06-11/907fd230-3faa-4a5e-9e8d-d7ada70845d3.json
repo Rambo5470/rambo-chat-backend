@@ -1,0 +1,20 @@
+{
+  "session_id": "907fd230-3faa-4a5e-9e8d-d7ada70845d3",
+  "date": "2026-06-11",
+  "ts": "2026-06-11T22:27:53.367365Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Does this Rambo bushwhacker 1.0 demo come with a battery and charger"
+    },
+    {
+      "role": "assistant",
+      "content": "The Rambo Bushwacker 1.0 demo typically does not come with a battery and charger included. It's best to check directly with the dealer or the specific listing for any demo units, as they may vary. You can find more information or contact a dealer through our dealer locator: \ud83d\uddfa\ufe0f [Dealer Locator](https://rambobikes.com/pages/store-locator)."
+    }
+  ]
+}
