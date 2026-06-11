@@ -1,12 +1,12 @@
 {
   "session_id": "8e7a3400-8962-4aee-b9cd-d1503fa8627c",
   "date": "2026-06-11",
-  "ts": "2026-06-11T19:59:48.714422Z",
+  "ts": "2026-06-11T20:00:20.558776Z",
   "customer_name": "CRR 10M",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 10,
+  "message_count": 12,
   "messages": [
     {
       "content": "I put my new Rambo Dominator Ultra Drive together 2 days ago. I test drove it and after a minute of driving i can watch the battery percentage drop as I'm riding. Only road it a few minutes and it was dropping every 30 seconds. Its a 30amp battery is this normal?",
@@ -41,12 +41,20 @@
       "role": "assistant"
     },
     {
+      "content": "Or A48F8Y",
+      "role": "user"
+    },
+    {
+      "content": "Thank you for providing the serial number A48F8Y, Dominic. Given the rapid drop in battery percentage you are experiencing, this is not normal behavior for a new 30Ah battery. I will escalate this issue to our technical team for further evaluation. They will assess the battery and electrical system to determine the cause of the problem.\n\nI'm connecting you with our team now, and they will follow up with you shortly regarding this issue.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Or A48F8Y"
+      "content": "Ok"
     },
     {
       "role": "assistant",
-      "content": "Thank you for providing the serial number A48F8Y, Dominic. Given the rapid drop in battery percentage you are experiencing, this is not normal behavior for a new 30Ah battery. I will escalate this issue to our technical team for further evaluation. They will assess the battery and electrical system to determine the cause of the problem.\n\nI'm connecting you with our team now, and they will follow up with you shortly regarding this issue."
+      "content": "Thank you for your patience, Dominic. I've escalated your issue to our technical team, and they will follow up with you shortly to address the battery performance concerns. If you have any other questions in the meantime, feel free to ask."
     }
   ]
 }
