@@ -1,12 +1,12 @@
 {
   "session_id": "fd478633-1250-41cf-83e5-8b3658ea0ecf",
   "date": "2026-06-11",
-  "ts": "2026-06-11T17:49:19.287036Z",
+  "ts": "2026-06-11T18:07:49.660720Z",
   "customer_name": "",
   "customer_email": "",
-  "escalated": false,
+  "escalated": true,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Battery",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "My battery won\u2019t take a charge , my bike is a pursuit, SN ewrb10211843 purchased  2022.",
+      "role": "user"
+    },
+    {
+      "content": "I'm sorry to hear that your Pursuit's battery isn't charging. Here are some troubleshooting steps you can try:\n\n1. **Check the Charger:** Ensure that the charger is plugged in and the light indicator is functioning. If the light is green, it means the battery is fully charged; if it's red, it indicates charging.\n2. **Inspect the Charging Port:** Look for any debris or damage in the battery's charging port. Clean it gently if necessary.\n3. **Test the Battery:** If you have a multimeter, check the voltage of the battery terminals. A healthy battery should read around 48V or higher.\n4. **Try a Different Charger:** If possible, test with another compatible charger to rule out charger issues.\n5. **Leave it Charging:** If the battery is completely drained, it may take a while to respond. Leave it connected for at least 30 minutes before checking again.\n\nIf these steps do not resolve the issue, it may require further evaluation. Please let me know how it goes, and if needed, I can assist you with replacement options.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "My battery won\u2019t take a charge , my bike is a pursuit, SN ewrb10211843 purchased  2022."
+      "content": "The charger is putting out 54v. Green light. Battery still dead"
     },
     {
       "role": "assistant",
-      "content": "I'm sorry to hear that your Pursuit's battery isn't charging. Here are some troubleshooting steps you can try:\n\n1. **Check the Charger:** Ensure that the charger is plugged in and the light indicator is functioning. If the light is green, it means the battery is fully charged; if it's red, it indicates charging.\n2. **Inspect the Charging Port:** Look for any debris or damage in the battery's charging port. Clean it gently if necessary.\n3. **Test the Battery:** If you have a multimeter, check the voltage of the battery terminals. A healthy battery should read around 48V or higher.\n4. **Try a Different Charger:** If possible, test with another compatible charger to rule out charger issues.\n5. **Leave it Charging:** If the battery is completely drained, it may take a while to respond. Leave it connected for at least 30 minutes before checking again.\n\nIf these steps do not resolve the issue, it may require further evaluation. Please let me know how it goes, and if needed, I can assist you with replacement options."
+      "content": "Thank you for the information. Since the charger is working and the battery is still not responding, I will connect you with our team for further assistance. They will be able to evaluate the situation and provide the next steps. Please hold on for a moment while I escalate this case."
     }
   ]
 }
