@@ -1,0 +1,20 @@
+{
+  "session_id": "c3f4d5ee-6e8d-4713-974f-c53f7d9a4766",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T17:41:21.711274Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Looking for a Roamer battery"
+    },
+    {
+      "role": "assistant",
+      "content": "The Roamer 2.0 uses a 48V 15Ah battery. You can order it directly here: \ud83d\udd17 rambobikes.com/collections/battery-upgrades. Just say 'order it' and I'll create a direct secure checkout link for you."
+    }
+  ]
+}
