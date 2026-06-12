@@ -1,12 +1,12 @@
 {
   "session_id": "01f73197-1037-46c2-aa76-992b83b394bf",
   "date": "2026-06-12",
-  "ts": "2026-06-12T22:36:44.100686Z",
+  "ts": "2026-06-12T22:37:28.458397Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Do you have any fat tire bikes in a 29\" size?",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "Okay, can I order that as an option then?",
+      "role": "user"
+    },
+    {
+      "content": "Unfortunately, we do not have any fat tire bikes available in a 29-inch size. Our current fat tire models come with 24-inch or 26-inch tires. If you're interested in those options or need assistance with something else, please let me know!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Okay, can I order that as an option then?"
+      "content": "Will your bike frames accept a 29\" tire?"
     },
     {
       "role": "assistant",
-      "content": "Unfortunately, we do not have any fat tire bikes available in a 29-inch size. Our current fat tire models come with 24-inch or 26-inch tires. If you're interested in those options or need assistance with something else, please let me know!"
+      "content": "Rambo Bikes are designed specifically for 24-inch and 26-inch fat tires, and our current models do not support 29-inch tires. If you have a specific model in mind, I can provide more details on its specifications."
     }
   ]
 }
