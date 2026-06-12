@@ -1,0 +1,20 @@
+{
+  "session_id": "a0b9879e-bb71-4845-9994-42cdbcf1243b",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T21:50:58.360287Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you confirm dominator ultra drive in true timber 20Ah is in stock?"
+    },
+    {
+      "role": "assistant",
+      "content": "We don't currently have a confirmed restock date for the Dominator UltraDrive in True Timber with a 20Ah battery. However, you can call us at (952) 283-0777 during business hours (Mon-Fri 8:30am-4:30pm CST) to be added to our pre-order list when it arrives."
+    }
+  ]
+}
