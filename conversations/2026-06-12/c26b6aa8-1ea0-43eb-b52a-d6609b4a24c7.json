@@ -1,12 +1,12 @@
 {
   "session_id": "c26b6aa8-1ea0-43eb-b52a-d6609b4a24c7",
   "date": "2026-06-12",
-  "ts": "2026-06-12T21:04:51.715942Z",
+  "ts": "2026-06-12T21:29:21.605089Z",
   "customer_name": "Ok",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "Hi I recently bought the bow/gun holder for my Ranger bike.  The bow holder does not work as advertised.  It is not meant for a compound bow.  The Clamps will not keep them in place, they just roll with a little bit of weight.  There is no way to carry your bow without hitting your sight or putting pressure on your cables and strings.  The ranger won\u2019t accept the bow holder on the handle bars either.  Any suggestions as this was marketed at a bow holder and it does not do as advertised?",
@@ -25,12 +25,20 @@
       "role": "assistant"
     },
     {
+      "content": "Ok",
+      "role": "user"
+    },
+    {
+      "content": "I'm connecting you with our team now to review your concerns about the bow/gun holder. They'll follow up with you shortly to assist with potential solutions or alternatives.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Ok"
+      "content": "Terrible customer service"
     },
     {
       "role": "assistant",
-      "content": "I'm connecting you with our team now to review your concerns about the bow/gun holder. They'll follow up with you shortly to assist with potential solutions or alternatives."
+      "content": "I apologize for your frustration. I understand how important it is for the bow holder to function as advertised. I'm escalating your case to our team for further review and assistance. They will reach out to you shortly to address your concerns directly."
     }
   ]
 }
