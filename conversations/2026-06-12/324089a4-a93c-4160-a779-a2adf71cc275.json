@@ -1,12 +1,12 @@
 {
   "session_id": "324089a4-a93c-4160-a779-a2adf71cc275",
   "date": "2026-06-12",
-  "ts": "2026-06-12T20:13:01.277513Z",
+  "ts": "2026-06-12T20:13:45.026482Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 8,
+  "message_count": 10,
   "messages": [
     {
       "content": "I\u2019ve been trying to get help finding a bike shop in the Boise area and no one has gotten back with me. The list you send out no one responds. Last night they said the we\u2019re going to get back in touch with me but never did for the second time. I\u2019ll I want is a Rambo deal to work on my bikes",
@@ -33,12 +33,20 @@
       "role": "assistant"
     },
     {
+      "content": "What the shit over you can\u2019t do nothing for me to help find a bike shop to work on my bikes. What a terrible bike company this is.",
+      "role": "user"
+    },
+    {
+      "content": "I truly apologize for the frustration you're experiencing. I understand how important it is to get your bike serviced. While I can't make calls, I can provide you with the contact information for specific dealers in the Boise area. If you\u2019d like, I can also assist you with any bike-related questions or issues you might have. Your feedback is valuable, and I appreciate your patience.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "What the shit over you can\u2019t do nothing for me to help find a bike shop to work on my bikes. What a terrible bike company this is."
+      "content": "None of your contacts work"
     },
     {
       "role": "assistant",
-      "content": "I truly apologize for the frustration you're experiencing. I understand how important it is to get your bike serviced. While I can't make calls, I can provide you with the contact information for specific dealers in the Boise area. If you\u2019d like, I can also assist you with any bike-related questions or issues you might have. Your feedback is valuable, and I appreciate your patience."
+      "content": "I apologize for the continued frustration. Let me escalate this issue to our team to ensure you get the support you need. I'm connecting you with our team now, and they will follow up shortly to assist you in finding a reliable Rambo dealer in your area."
     }
   ]
 }
