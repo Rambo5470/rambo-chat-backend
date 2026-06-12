@@ -1,12 +1,12 @@
 {
   "session_id": "3ed726b5-578b-40ff-ac0d-ece708515956",
   "date": "2026-06-12",
-  "ts": "2026-06-12T21:34:31.119292Z",
-  "customer_name": "",
+  "ts": "2026-06-12T21:42:40.926035Z",
+  "customer_name": "Thank you",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Hello. No one ever got back with me.",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "Are the prices on the demos negotiable?",
+      "role": "user"
+    },
+    {
+      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Are the prices on the demos negotiable?"
+      "content": "Thank you"
     },
     {
       "role": "assistant",
-      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly."
+      "content": "I'm connecting you with our team now. They'll follow up with you shortly regarding your question about demo prices."
     }
   ]
 }
