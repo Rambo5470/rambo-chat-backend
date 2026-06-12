@@ -1,0 +1,20 @@
+{
+  "session_id": "c26b6aa8-1ea0-43eb-b52a-d6609b4a24c7",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T21:03:36.098955Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi I recently bought the bow/gun holder for my Ranger bike.  The bow holder does not work as advertised.  It is not meant for a compound bow.  The Clamps will not keep them in place, they just roll with a little bit of weight.  There is no way to carry your bow without hitting your sight or putting pressure on your cables and strings.  The ranger won\u2019t accept the bow holder on the handle bars either.  Any suggestions as this was marketed at a bow holder and it does not do as advertised?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thank you for reaching out about the bow/gun holder for your Ranger bike. I understand your concerns regarding its functionality with a compound bow. This feedback is important, and I will connect you with our team to review this issue further. They will be able to assist you with potential solutions or alternatives. Please hold on while I escalate this to Misti for you."
+    }
+  ]
+}
