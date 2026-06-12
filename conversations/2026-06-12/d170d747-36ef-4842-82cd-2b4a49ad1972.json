@@ -1,20 +1,28 @@
 {
   "session_id": "d170d747-36ef-4842-82cd-2b4a49ad1972",
   "date": "2026-06-12",
-  "ts": "2026-06-12T23:41:27.647558Z",
+  "ts": "2026-06-12T23:41:42.607265Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "What is the wheelbase?",
+      "role": "user"
+    },
+    {
+      "content": "Could you please specify which Rambo bike model you are inquiring about? Each model has a different wheelbase measurement.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "What is the wheelbase?"
+      "content": "Hellcat 2.0"
     },
     {
       "role": "assistant",
-      "content": "Could you please specify which Rambo bike model you are inquiring about? Each model has a different wheelbase measurement."
+      "content": "The wheelbase of the Hellcat 2.0 is 48 inches (121.9 cm). If you have any more questions about the Hellcat 2.0 or need further assistance, feel free to ask!"
     }
   ]
 }
