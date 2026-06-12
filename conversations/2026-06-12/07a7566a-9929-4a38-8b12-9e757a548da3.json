@@ -1,20 +1,28 @@
 {
   "session_id": "07a7566a-9929-4a38-8b12-9e757a548da3",
   "date": "2026-06-12",
-  "ts": "2026-06-12T17:50:58.208434Z",
-  "customer_name": "",
+  "ts": "2026-06-12T17:51:49.487964Z",
+  "customer_name": "Awesome, thank you!",
   "customer_email": "",
-  "escalated": true,
+  "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Hello, Are the prices on the demos negotiable?",
+      "role": "user"
+    },
+    {
+      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Hello, Are the prices on the demos negotiable?"
+      "content": "Awesome, thank you!"
     },
     {
       "role": "assistant",
-      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly."
+      "content": "You're welcome! If you have any more questions or need assistance, feel free to ask."
     }
   ]
 }
