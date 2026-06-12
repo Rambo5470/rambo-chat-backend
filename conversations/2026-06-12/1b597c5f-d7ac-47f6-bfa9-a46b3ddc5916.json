@@ -1,12 +1,12 @@
 {
   "session_id": "1b597c5f-d7ac-47f6-bfa9-a46b3ddc5916",
   "date": "2026-06-12",
-  "ts": "2026-06-12T02:45:37.908802Z",
+  "ts": "2026-06-12T03:24:18.964135Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "This is Ken mortensen I have never heard anything back from you about finding someone in the Boise area to work on my bikes",
@@ -25,12 +25,20 @@
       "role": "assistant"
     },
     {
+      "content": "This is the exact same thing you did to me a few days ago. Why can\u2019t Rambo take care of there clients.",
+      "role": "user"
+    },
+    {
+      "content": "I understand your frustration, and I'm sorry for the inconvenience you've experienced. I'm escalating your case to ensure our team addresses your request promptly. We will follow up with you shortly to provide the assistance you need.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "This is the exact same thing you did to me a few days ago. Why can\u2019t Rambo take care of there clients."
+      "content": "Can you e mail me when you find something out"
     },
     {
       "role": "assistant",
-      "content": "I understand your frustration, and I'm sorry for the inconvenience you've experienced. I'm escalating your case to ensure our team addresses your request promptly. We will follow up with you shortly to provide the assistance you need."
+      "content": "I'm connecting you with our team now to ensure they can assist you effectively. While I can't guarantee email updates directly, they will follow up with you as soon as they have information. Thank you for your patience."
     }
   ]
 }
