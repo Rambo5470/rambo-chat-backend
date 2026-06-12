@@ -1,12 +1,12 @@
 {
   "session_id": "4758cdf6-2cc5-4188-b818-1c936a7f2119",
   "date": "2026-06-12",
-  "ts": "2026-06-12T00:08:23.134343Z",
+  "ts": "2026-06-12T00:08:36.625424Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Looking to get charger for our Rambo bikes",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "We're would that be at?",
+      "role": "user"
+    },
+    {
+      "content": "You can find the model name and serial number in two locations on your Rambo bike: \n1. On a white sticker located on the outside of the bike box it came in.\n2. On the frame of the bike, just below the battery. \nOnce you have that information, I can help you find the correct charger for your bike.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "We're would that be at?"
+      "content": "Promax"
     },
     {
       "role": "assistant",
-      "content": "You can find the model name and serial number in two locations on your Rambo bike: \n1. On a white sticker located on the outside of the bike box it came in.\n2. On the frame of the bike, just below the battery. \nOnce you have that information, I can help you find the correct charger for your bike."
+      "content": "Could you please confirm the exact model name of your Rambo bike? For example, is it a Promax model or another name? This will help me find the right charger for you."
     }
   ]
 }
