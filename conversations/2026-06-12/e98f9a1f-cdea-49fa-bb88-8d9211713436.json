@@ -1,0 +1,20 @@
+{
+  "session_id": "e98f9a1f-cdea-49fa-bb88-8d9211713436",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T14:45:27.417122Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "What kind of tires on the canoe / kayak trailer...solid or pneumatic?"
+    },
+    {
+      "role": "assistant",
+      "content": "The canoe/kayak trailer is equipped with pneumatic tires. These tires provide better cushioning and traction compared to solid tires, making them suitable for various terrains."
+    }
+  ]
+}
