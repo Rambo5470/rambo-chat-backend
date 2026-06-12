@@ -1,12 +1,12 @@
 {
   "session_id": "4758cdf6-2cc5-4188-b818-1c936a7f2119",
   "date": "2026-06-12",
-  "ts": "2026-06-12T00:08:36.625424Z",
+  "ts": "2026-06-12T00:09:26.459147Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "Looking to get charger for our Rambo bikes",
@@ -25,12 +25,20 @@
       "role": "assistant"
     },
     {
+      "content": "Promax",
+      "role": "user"
+    },
+    {
+      "content": "Could you please confirm the exact model name of your Rambo bike? For example, is it a Promax model or another name? This will help me find the right charger for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Promax"
+      "content": "Bafang"
     },
     {
       "role": "assistant",
-      "content": "Could you please confirm the exact model name of your Rambo bike? For example, is it a Promax model or another name? This will help me find the right charger for you."
+      "content": "Could you please provide the exact model name of your Rambo bike? For example, is it a Promax, Dominator, Rebel, or another model? This will help me find the right charger for you."
     }
   ]
 }
