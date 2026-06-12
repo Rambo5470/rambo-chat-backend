@@ -1,20 +1,28 @@
 {
   "session_id": "c06a3dc8-292c-4bef-9a6b-f3f1b983b60f",
   "date": "2026-06-12",
-  "ts": "2026-06-12T19:07:19.610404Z",
+  "ts": "2026-06-12T19:07:45.083998Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "What happened to my help?",
+      "role": "user"
+    },
+    {
+      "content": "I apologize for any confusion or delay in getting the help you need. Could you please provide more details about your issue or question? I'm here to assist you right away.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "What happened to my help?"
+      "content": "Look it up from yesterday"
     },
     {
       "role": "assistant",
-      "content": "I apologize for any confusion or delay in getting the help you need. Could you please provide more details about your issue or question? I'm here to assist you right away."
+      "content": "I currently don't have access to past interactions or case history. Could you please provide a brief description of your issue or question? This will help me assist you more effectively."
     }
   ]
 }
