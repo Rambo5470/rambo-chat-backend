@@ -1,12 +1,12 @@
 {
   "session_id": "324089a4-a93c-4160-a779-a2adf71cc275",
   "date": "2026-06-12",
-  "ts": "2026-06-12T20:19:32.862835Z",
+  "ts": "2026-06-12T20:19:59.676632Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 18,
+  "message_count": 20,
   "messages": [
     {
       "content": "I\u2019ve been trying to get help finding a bike shop in the Boise area and no one has gotten back with me. The list you send out no one responds. Last night they said the we\u2019re going to get back in touch with me but never did for the second time. I\u2019ll I want is a Rambo deal to work on my bikes",
@@ -73,12 +73,20 @@
       "role": "assistant"
     },
     {
+      "content": "It does no good to escalate it because they don\u2019t return your calls either",
+      "role": "user"
+    },
+    {
+      "content": "I truly apologize for the ongoing frustration and lack of support you've experienced. I understand how important it is to get your bikes serviced, and I regret that our previous attempts to assist you have not been effective. While I can't make calls, I can help you with any specific issues or parts you need for your bike. If you have any questions or need assistance with something else, please let me know, and I'll do my best to help you directly.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "It does no good to escalate it because they don\u2019t return your calls either"
+      "content": "What a stupid message to send back to me again"
     },
     {
       "role": "assistant",
-      "content": "I truly apologize for the ongoing frustration and lack of support you've experienced. I understand how important it is to get your bikes serviced, and I regret that our previous attempts to assist you have not been effective. While I can't make calls, I can help you with any specific issues or parts you need for your bike. If you have any questions or need assistance with something else, please let me know, and I'll do my best to help you directly."
+      "content": "I genuinely apologize for the frustration and inconvenience you've faced. I understand that this situation is unacceptable. While I can't directly resolve the dealer issue, I can assist you with any specific parts or technical questions you have about your bike. Please let me know how I can help you right now, and I'll do my best to provide immediate assistance."
     }
   ]
 }
