@@ -1,12 +1,12 @@
 {
   "session_id": "c3f4d5ee-6e8d-4713-974f-c53f7d9a4766",
   "date": "2026-06-12",
-  "ts": "2026-06-12T17:41:58.270359Z",
+  "ts": "2026-06-12T17:42:24.387268Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Looking for a Roamer battery",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "I thought it wasa 17.5",
+      "role": "user"
+    },
+    {
+      "content": "The Roamer 2.0 is confirmed to use a 48V 15Ah battery. If you're looking for a higher capacity option, the 20Ah upgrade is available. Would you like to order the 15Ah battery or the 20Ah upgrade?",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "I thought it wasa 17.5"
+      "content": "What\u2019s price"
     },
     {
       "role": "assistant",
-      "content": "The Roamer 2.0 is confirmed to use a 48V 15Ah battery. If you're looking for a higher capacity option, the 20Ah upgrade is available. Would you like to order the 15Ah battery or the 20Ah upgrade?"
+      "content": "The 48V 15Ah battery for the Roamer 2.0 is priced at $699.99. The 48V 20Ah upgrade is priced at $899.99. Just say 'order it' and I'll create a direct secure checkout link for you."
     }
   ]
 }
