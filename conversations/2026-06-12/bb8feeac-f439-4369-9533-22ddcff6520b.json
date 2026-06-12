@@ -1,0 +1,20 @@
+{
+  "session_id": "bb8feeac-f439-4369-9533-22ddcff6520b",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T18:12:40.671811Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Ok. I\u2019ve been talking to one of you !! I want to buy a replacement battery for my Roamer. You have one on sale for 419.  If it fits my bike and you think my charger will work with your battery, I would like to order it ! How long does it take to ship to me ?"
+    },
+    {
+      "role": "assistant",
+      "content": "For the Roamer 2.0, the correct battery is the R129-15AH Rhino 7, priced at $699.99. It is compatible with the standard charger if your Roamer uses the same voltage and connector type. Shipping typically takes 3-7 business days after processing, which usually takes 1-2 business days. If you would like to proceed with the order, just say 'order it' and I'll create a direct secure checkout link for you."
+    }
+  ]
+}
