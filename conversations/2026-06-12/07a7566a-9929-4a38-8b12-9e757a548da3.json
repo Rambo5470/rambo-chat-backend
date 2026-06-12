@@ -1,12 +1,12 @@
 {
   "session_id": "07a7566a-9929-4a38-8b12-9e757a548da3",
   "date": "2026-06-12",
-  "ts": "2026-06-12T17:51:49.487964Z",
+  "ts": "2026-06-12T17:51:58.382167Z",
   "customer_name": "Awesome, thank you!",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "Hello, Are the prices on the demos negotiable?",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "Awesome, thank you!",
+      "role": "user"
+    },
+    {
+      "content": "You're welcome! If you have any more questions or need assistance, feel free to ask.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Awesome, thank you!"
+      "content": "Nope, Just that"
     },
     {
       "role": "assistant",
-      "content": "You're welcome! If you have any more questions or need assistance, feel free to ask."
+      "content": "Thank you for reaching out! If you have any questions in the future, don't hesitate to ask. Have a great day!"
     }
   ]
 }
