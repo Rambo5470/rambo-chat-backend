@@ -1,12 +1,12 @@
 {
   "session_id": "4758cdf6-2cc5-4188-b818-1c936a7f2119",
   "date": "2026-06-12",
-  "ts": "2026-06-12T00:12:09.066006Z",
+  "ts": "2026-06-12T00:14:46.636956Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 16,
+  "message_count": 18,
   "messages": [
     {
       "content": "Looking to get charger for our Rambo bikes",
@@ -65,12 +65,20 @@
       "role": "assistant"
     },
     {
+      "content": "Display bafang C961",
+      "role": "user"
+    },
+    {
+      "content": "To assist you better, could you please confirm the exact model name of your bike? For example, is it a Promax 1.0, 2.0, or another version? This will help me find the correct charger for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Display bafang C961"
+      "content": "8 fun"
     },
     {
       "role": "assistant",
-      "content": "To assist you better, could you please confirm the exact model name of your bike? For example, is it a Promax 1.0, 2.0, or another version? This will help me find the correct charger for you."
+      "content": "Could you please confirm if your Promax bike is a specific model like Promax 1.0, 2.0, or another version? This will help me find the right charger for you."
     }
   ]
 }
