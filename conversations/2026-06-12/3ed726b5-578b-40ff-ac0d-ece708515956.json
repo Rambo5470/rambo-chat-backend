@@ -1,0 +1,20 @@
+{
+  "session_id": "3ed726b5-578b-40ff-ac0d-ece708515956",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T21:34:24.974274Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello. No one ever got back with me."
+    },
+    {
+      "role": "assistant",
+      "content": "I apologize for the delay in getting back to you. How can I assist you today? If you have any specific questions or issues regarding your Rambo bike, please let me know, and I'll do my best to help!"
+    }
+  ]
+}
