@@ -1,12 +1,12 @@
 {
   "session_id": "324089a4-a93c-4160-a779-a2adf71cc275",
   "date": "2026-06-12",
-  "ts": "2026-06-12T20:18:53.713669Z",
+  "ts": "2026-06-12T20:19:32.862835Z",
   "customer_name": "",
   "customer_email": "",
-  "escalated": true,
+  "escalated": false,
   "case_created": false,
-  "message_count": 16,
+  "message_count": 18,
   "messages": [
     {
       "content": "I\u2019ve been trying to get help finding a bike shop in the Boise area and no one has gotten back with me. The list you send out no one responds. Last night they said the we\u2019re going to get back in touch with me but never did for the second time. I\u2019ll I want is a Rambo deal to work on my bikes",
@@ -65,12 +65,20 @@
       "role": "assistant"
     },
     {
+      "content": "This is some of the worst service. You either have someone or you don\u2019t.",
+      "role": "user"
+    },
+    {
+      "content": "I completely understand your frustration, and I'm truly sorry for the poor experience you've had. I will escalate your case to ensure that someone from our team contacts you directly to resolve this issue. Your feedback is important, and I appreciate your patience as we work to improve this situation.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "This is some of the worst service. You either have someone or you don\u2019t."
+      "content": "It does no good to escalate it because they don\u2019t return your calls either"
     },
     {
       "role": "assistant",
-      "content": "I completely understand your frustration, and I'm truly sorry for the poor experience you've had. I will escalate your case to ensure that someone from our team contacts you directly to resolve this issue. Your feedback is important, and I appreciate your patience as we work to improve this situation."
+      "content": "I truly apologize for the ongoing frustration and lack of support you've experienced. I understand how important it is to get your bikes serviced, and I regret that our previous attempts to assist you have not been effective. While I can't make calls, I can help you with any specific issues or parts you need for your bike. If you have any questions or need assistance with something else, please let me know, and I'll do my best to help you directly."
     }
   ]
 }
