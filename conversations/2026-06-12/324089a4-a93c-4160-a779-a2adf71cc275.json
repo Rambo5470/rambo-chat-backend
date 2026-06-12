@@ -1,12 +1,12 @@
 {
   "session_id": "324089a4-a93c-4160-a779-a2adf71cc275",
   "date": "2026-06-12",
-  "ts": "2026-06-12T20:13:45.026482Z",
+  "ts": "2026-06-12T20:15:23.714742Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 10,
+  "message_count": 12,
   "messages": [
     {
       "content": "I\u2019ve been trying to get help finding a bike shop in the Boise area and no one has gotten back with me. The list you send out no one responds. Last night they said the we\u2019re going to get back in touch with me but never did for the second time. I\u2019ll I want is a Rambo deal to work on my bikes",
@@ -41,12 +41,20 @@
       "role": "assistant"
     },
     {
+      "content": "None of your contacts work",
+      "role": "user"
+    },
+    {
+      "content": "I apologize for the continued frustration. Let me escalate this issue to our team to ensure you get the support you need. I'm connecting you with our team now, and they will follow up shortly to assist you in finding a reliable Rambo dealer in your area.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "None of your contacts work"
+      "content": "They never get back with you"
     },
     {
       "role": "assistant",
-      "content": "I apologize for the continued frustration. Let me escalate this issue to our team to ensure you get the support you need. I'm connecting you with our team now, and they will follow up shortly to assist you in finding a reliable Rambo dealer in your area."
+      "content": "I understand your frustration, and I'm sorry for the inconvenience. I will escalate this issue to our team to ensure you receive the support you need. Our team will follow up with you shortly to assist you in finding a reliable Rambo dealer in your area. Thank you for your patience."
     }
   ]
 }
