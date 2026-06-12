@@ -1,20 +1,28 @@
 {
   "session_id": "1b597c5f-d7ac-47f6-bfa9-a46b3ddc5916",
   "date": "2026-06-12",
-  "ts": "2026-06-12T02:10:45.507254Z",
+  "ts": "2026-06-12T02:43:38.972538Z",
   "customer_name": "",
   "customer_email": "",
-  "escalated": false,
+  "escalated": true,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "This is Ken mortensen I have never heard anything back from you about finding someone in the Boise area to work on my bikes",
+      "role": "user"
+    },
+    {
+      "content": "To find your nearest authorized Rambo dealer in the Boise area, please use our dealer locator: \ud83d\uddfa\ufe0f [rambobikes.com/pages/store-locator](https://rambobikes.com/pages/store-locator). Enter your zip code to find the closest authorized dealers who can assist you with your bikes.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "This is Ken mortensen I have never heard anything back from you about finding someone in the Boise area to work on my bikes"
+      "content": "It doesn\u2019t work you guys were supposed to find someone you were supposed to let me know and again no response from you guys"
     },
     {
       "role": "assistant",
-      "content": "To find your nearest authorized Rambo dealer in the Boise area, please use our dealer locator: \ud83d\uddfa\ufe0f [rambobikes.com/pages/store-locator](https://rambobikes.com/pages/store-locator). Enter your zip code to find the closest authorized dealers who can assist you with your bikes."
+      "content": "I'm connecting you with our team now to ensure we find a solution for you. Please hold on for a moment while I escalate this case."
     }
   ]
 }
