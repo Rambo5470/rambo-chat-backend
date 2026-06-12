@@ -1,0 +1,20 @@
+{
+  "session_id": "324089a4-a93c-4160-a779-a2adf71cc275",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T20:08:37.452829Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "I\u2019ve been trying to get help finding a bike shop in the Boise area and no one has gotten back with me. The list you send out no one responds. Last night they said the we\u2019re going to get back in touch with me but never did for the second time. I\u2019ll I want is a Rambo deal to work on my bikes"
+    },
+    {
+      "role": "assistant",
+      "content": "To find your nearest authorized Rambo dealer in the Boise area, please use our dealer locator: \ud83d\uddfa\ufe0f [rambobikes.com/pages/store-locator](https://rambobikes.com/pages/store-locator). Enter your zip code to find the closest authorized dealers. If you continue to have trouble, please let me know, and I can assist further."
+    }
+  ]
+}
