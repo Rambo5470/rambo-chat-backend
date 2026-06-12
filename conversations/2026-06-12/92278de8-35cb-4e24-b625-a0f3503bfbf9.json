@@ -1,0 +1,20 @@
+{
+  "session_id": "92278de8-35cb-4e24-b625-a0f3503bfbf9",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T17:49:46.793184Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Are the prices on the demos negotiable?"
+    },
+    {
+      "role": "assistant",
+      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly."
+    }
+  ]
+}
