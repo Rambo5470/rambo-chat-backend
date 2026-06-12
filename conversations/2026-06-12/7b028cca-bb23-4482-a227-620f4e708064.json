@@ -1,0 +1,20 @@
+{
+  "session_id": "7b028cca-bb23-4482-a227-620f4e708064",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T05:22:52.212781Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Need to change billing address"
+    },
+    {
+      "role": "assistant",
+      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly."
+    }
+  ]
+}
