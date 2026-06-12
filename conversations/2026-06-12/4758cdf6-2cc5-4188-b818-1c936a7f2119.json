@@ -1,12 +1,12 @@
 {
   "session_id": "4758cdf6-2cc5-4188-b818-1c936a7f2119",
   "date": "2026-06-12",
-  "ts": "2026-06-12T00:10:57.909034Z",
+  "ts": "2026-06-12T00:11:18.880811Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 12,
+  "message_count": 14,
   "messages": [
     {
       "content": "Looking to get charger for our Rambo bikes",
@@ -49,12 +49,20 @@
       "role": "assistant"
     },
     {
+      "content": "Promax",
+      "role": "user"
+    },
+    {
+      "content": "Could you please confirm the year of your Promax bike? This will help me ensure I provide the correct charger information.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Promax"
+      "content": "We bought them used"
     },
     {
       "role": "assistant",
-      "content": "Could you please confirm the year of your Promax bike? This will help me ensure I provide the correct charger information."
+      "content": "To help you find the right charger, could you describe any specific features of your Promax bike or any other identifiers? For example, does it have a display type or any unique characteristics? This will help narrow it down."
     }
   ]
 }
