@@ -1,12 +1,12 @@
 {
   "session_id": "07a7566a-9929-4a38-8b12-9e757a548da3",
   "date": "2026-06-12",
-  "ts": "2026-06-12T17:56:32.395464Z",
+  "ts": "2026-06-12T17:56:45.382663Z",
   "customer_name": "Awesome, thank you!",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 8,
+  "message_count": 10,
   "messages": [
     {
       "content": "Hello, Are the prices on the demos negotiable?",
@@ -33,12 +33,20 @@
       "role": "assistant"
     },
     {
+      "content": "Is someone else going to enter the chat to answer my question?",
+      "role": "user"
+    },
+    {
+      "content": "Yes, I'm connecting you with our team now. They'll be able to provide you with the information regarding demo prices.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Is someone else going to enter the chat to answer my question?"
+      "content": "Ok great. I didnt know what to expect. Lol"
     },
     {
       "role": "assistant",
-      "content": "Yes, I'm connecting you with our team now. They'll be able to provide you with the information regarding demo prices."
+      "content": "No problem at all! It's completely normal to have questions about the process. Our team will reach out shortly to assist you with your inquiry about demo prices. Thank you for your patience!"
     }
   ]
 }
