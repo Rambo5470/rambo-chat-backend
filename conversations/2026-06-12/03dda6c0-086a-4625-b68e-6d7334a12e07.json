@@ -1,0 +1,20 @@
+{
+  "session_id": "03dda6c0-086a-4625-b68e-6d7334a12e07",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T21:10:21.129341Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "My new Rambo Range has a loud squeak right out of the box.  Seems to come from the back brake"
+    },
+    {
+      "role": "assistant",
+      "content": "Thank you for reaching out about the squeaking noise from your Ranger's back brake. This can happen due to a few reasons, often related to brake adjustment. Here are some steps you can take to troubleshoot:\n\n1. **Check Brake Alignment:** Ensure that the brake pads are properly aligned with the rim. Misalignment can cause squeaking.\n2. **Inspect Brake Pads:** Look for any debris or dirt on the brake pads that may be causing the noise. Clean them if necessary.\n3. **Brake Adjustment:** If the pads are too close to the rim or not making proper contact, you may need to adjust the brake tension. \n4. **Lubrication:** Sometimes, a little lubrication on the brake pivot points can help reduce noise, but avoid getting any on the pads or rim.\n\nIf these steps do not resolve the issue, it may be best to take the bike to an authorized dealer for a thorough inspection. If you need help finding a dealer, let me know!\n\nFeel free to reach out if you have any further questions or need assistance!"
+    }
+  ]
+}
