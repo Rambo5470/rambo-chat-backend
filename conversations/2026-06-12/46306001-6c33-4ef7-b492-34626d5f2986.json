@@ -1,0 +1,20 @@
+{
+  "session_id": "46306001-6c33-4ef7-b492-34626d5f2986",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T17:47:15.261012Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "It shows the 48w battery on sale 419.  Instead of 699"
+    },
+    {
+      "role": "assistant",
+      "content": "The 48V battery is currently on sale for $419.99, down from the regular price of $699.99. This is a great opportunity to purchase it at a reduced price! If you're interested, let me know and I can assist you further."
+    }
+  ]
+}
