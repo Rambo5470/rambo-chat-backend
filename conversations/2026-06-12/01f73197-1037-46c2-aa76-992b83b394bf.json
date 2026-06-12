@@ -1,12 +1,12 @@
 {
   "session_id": "01f73197-1037-46c2-aa76-992b83b394bf",
   "date": "2026-06-12",
-  "ts": "2026-06-12T22:37:28.458397Z",
+  "ts": "2026-06-12T22:38:37.411521Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "Do you have any fat tire bikes in a 29\" size?",
@@ -25,12 +25,20 @@
       "role": "assistant"
     },
     {
+      "content": "Will your bike frames accept a 29\" tire?",
+      "role": "user"
+    },
+    {
+      "content": "Rambo Bikes are designed specifically for 24-inch and 26-inch fat tires, and our current models do not support 29-inch tires. If you have a specific model in mind, I can provide more details on its specifications.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Will your bike frames accept a 29\" tire?"
+      "content": "I am 6'6\" tall and have a 38\" inseam. What is your largest framed bike?"
     },
     {
       "role": "assistant",
-      "content": "Rambo Bikes are designed specifically for 24-inch and 26-inch fat tires, and our current models do not support 29-inch tires. If you have a specific model in mind, I can provide more details on its specifications."
+      "content": "The Megatron 4.0 is Rambo's largest framed bike, designed to accommodate taller riders. It features a robust build and is equipped with dual 1,000W hub motors for excellent performance. If you're interested, you can check it out here: \ud83d\udd17 rambobikes.com/products/megatron-4-0-all-wheel-drive."
     }
   ]
 }
