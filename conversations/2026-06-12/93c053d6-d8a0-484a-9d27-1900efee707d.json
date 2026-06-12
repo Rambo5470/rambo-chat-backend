@@ -1,0 +1,20 @@
+{
+  "session_id": "93c053d6-d8a0-484a-9d27-1900efee707d",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T11:10:20.710625Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Biniti tanti"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today with your Rambo bike? If you have any questions or need support, feel free to ask!"
+    }
+  ]
+}
