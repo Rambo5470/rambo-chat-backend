@@ -1,0 +1,20 @@
+{
+  "session_id": "5d08a1f4-f00f-48af-931f-43ff9d0ace07",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T19:16:17.962089Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "I need to order a derailleur hanger for a Savage 2.0."
+    },
+    {
+      "role": "assistant",
+      "content": "The derailleur hanger for the Savage 2.0 is RP-23-02 at $29.99. Just say 'order it' and I'll create a direct secure checkout link for you."
+    }
+  ]
+}
