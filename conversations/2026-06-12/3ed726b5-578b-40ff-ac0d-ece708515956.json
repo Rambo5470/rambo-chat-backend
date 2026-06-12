@@ -1,20 +1,28 @@
 {
   "session_id": "3ed726b5-578b-40ff-ac0d-ece708515956",
   "date": "2026-06-12",
-  "ts": "2026-06-12T21:34:24.974274Z",
+  "ts": "2026-06-12T21:34:31.119292Z",
   "customer_name": "",
   "customer_email": "",
-  "escalated": false,
+  "escalated": true,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Hello. No one ever got back with me.",
+      "role": "user"
+    },
+    {
+      "content": "I apologize for the delay in getting back to you. How can I assist you today? If you have any specific questions or issues regarding your Rambo bike, please let me know, and I'll do my best to help!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Hello. No one ever got back with me."
+      "content": "Are the prices on the demos negotiable?"
     },
     {
       "role": "assistant",
-      "content": "I apologize for the delay in getting back to you. How can I assist you today? If you have any specific questions or issues regarding your Rambo bike, please let me know, and I'll do my best to help!"
+      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly."
     }
   ]
 }
