@@ -1,0 +1,20 @@
+{
+  "session_id": "f247d5da-b38d-4108-aacf-54b08f4ce4b2",
+  "date": "2026-06-12",
+  "ts": "2026-06-12T18:22:56.479699Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Chain for kids 20in trail breaker bike"
+    },
+    {
+      "role": "assistant",
+      "content": "The Trailbreaker 3.0 uses a specific chain part number. Unfortunately, I don't have the exact part number for the chain in my current data. I recommend checking with our customer service team for the precise chain needed for your bike. You can reach them at (952) 283-0777 or email cs@rambobikes.com."
+    }
+  ]
+}
