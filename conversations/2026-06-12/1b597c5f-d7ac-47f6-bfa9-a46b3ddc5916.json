@@ -1,12 +1,12 @@
 {
   "session_id": "1b597c5f-d7ac-47f6-bfa9-a46b3ddc5916",
   "date": "2026-06-12",
-  "ts": "2026-06-12T02:43:38.972538Z",
+  "ts": "2026-06-12T02:45:37.908802Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 4,
+  "message_count": 6,
   "messages": [
     {
       "content": "This is Ken mortensen I have never heard anything back from you about finding someone in the Boise area to work on my bikes",
@@ -17,12 +17,20 @@
       "role": "assistant"
     },
     {
+      "content": "It doesn\u2019t work you guys were supposed to find someone you were supposed to let me know and again no response from you guys",
+      "role": "user"
+    },
+    {
+      "content": "I'm connecting you with our team now to ensure we find a solution for you. Please hold on for a moment while I escalate this case.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "It doesn\u2019t work you guys were supposed to find someone you were supposed to let me know and again no response from you guys"
+      "content": "This is the exact same thing you did to me a few days ago. Why can\u2019t Rambo take care of there clients."
     },
     {
       "role": "assistant",
-      "content": "I'm connecting you with our team now to ensure we find a solution for you. Please hold on for a moment while I escalate this case."
+      "content": "I understand your frustration, and I'm sorry for the inconvenience you've experienced. I'm escalating your case to ensure our team addresses your request promptly. We will follow up with you shortly to provide the assistance you need."
     }
   ]
 }
