@@ -1,20 +1,28 @@
 {
   "session_id": "3c7a72a4-8bc2-4194-a1db-3ee94da94d9d",
   "date": "2026-06-13",
-  "ts": "2026-06-13T15:09:06.239837Z",
+  "ts": "2026-06-13T15:11:26.479695Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Need the charger to",
+      "role": "user"
+    },
+    {
+      "content": "Could you please provide the exact model of your bike? This will help me find the right charger for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Need the charger to"
+      "content": "Feii-JY"
     },
     {
       "role": "assistant",
-      "content": "Could you please provide the exact model of your bike? This will help me find the right charger for you."
+      "content": "Could you please confirm the exact model name and version of your bike? This will help me assist you better in finding the correct charger."
     }
   ]
 }
