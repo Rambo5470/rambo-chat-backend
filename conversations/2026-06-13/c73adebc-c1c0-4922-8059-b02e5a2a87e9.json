@@ -1,0 +1,20 @@
+{
+  "session_id": "c73adebc-c1c0-4922-8059-b02e5a2a87e9",
+  "date": "2026-06-13",
+  "ts": "2026-06-13T00:47:49.481898Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Mithilesh Kumar"
+    },
+    {
+      "role": "assistant",
+      "content": "Hi Mithilesh, how can I assist you today? If you have a question about a Rambo bike, parts, or anything else, please let me know!"
+    }
+  ]
+}
