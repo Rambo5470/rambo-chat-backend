@@ -1,12 +1,12 @@
 {
   "session_id": "adc02fec-a027-462d-8fdc-1d3b663b1289",
   "date": "2026-06-13",
-  "ts": "2026-06-13T21:26:11.967652Z",
+  "ts": "2026-06-13T21:27:46.349065Z",
   "customer_name": "are we still waiting?",
   "customer_email": "summertime1262@yahoo.com",
   "escalated": true,
-  "case_created": true,
-  "message_count": 10,
+  "case_created": false,
+  "message_count": 12,
   "messages": [
     {
       "content": "hello I'm trying to see how I am paying my  payments onautopay   which card I am using",
@@ -41,12 +41,20 @@
       "role": "assistant"
     },
     {
+      "content": "I must leave soon...my email is summertime1262@yahoo.com",
+      "role": "user"
+    },
+    {
+      "content": "I'm connecting you with our team now. They will reach out to you at your email, summertime1262@yahoo.com, with the information you need. Thank you for your patience!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "I must leave soon...my email is summertime1262@yahoo.com"
+      "content": "ok ty good evening"
     },
     {
       "role": "assistant",
-      "content": "I'm connecting you with our team now. They will reach out to you at your email, summertime1262@yahoo.com, with the information you need. Thank you for your patience!"
+      "content": "You're welcome! Good evening to you too. If you have any more questions, feel free to reach out. Have a great night!"
     }
   ]
 }
