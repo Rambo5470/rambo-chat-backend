@@ -1,16 +1,24 @@
 {
   "session_id": "283eba4b-29dd-4cac-9f83-0166781795a1",
   "date": "2026-06-13",
-  "ts": "2026-06-13T22:24:37.258732Z",
-  "customer_name": "",
+  "ts": "2026-06-13T22:24:50.219056Z",
+  "customer_name": "Law enforcement discount",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Do you offer a first responder discount",
+      "role": "user"
+    },
+    {
+      "content": "That's something our team will need to review \u2014 let me get the right person involved and they'll follow up with you shortly.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Do you offer a first responder discount"
+      "content": "Law enforcement discount"
     },
     {
       "role": "assistant",
