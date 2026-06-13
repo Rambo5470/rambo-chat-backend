@@ -1,12 +1,12 @@
 {
   "session_id": "3c7a72a4-8bc2-4194-a1db-3ee94da94d9d",
   "date": "2026-06-13",
-  "ts": "2026-06-13T15:14:17.649474Z",
+  "ts": "2026-06-13T15:16:16.742035Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 10,
+  "message_count": 12,
   "messages": [
     {
       "content": "Need the charger to",
@@ -41,12 +41,20 @@
       "role": "assistant"
     },
     {
+      "content": "2022?",
+      "role": "user"
+    },
+    {
+      "content": "The 2022 True Timber Viper uses the RP-11-02-07 charger, which is a standard 48V 2A charger. Just say 'order it' and I'll create a direct secure checkout link for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "2022?"
+      "content": "The old charger isSANS model ssl0300v55"
     },
     {
       "role": "assistant",
-      "content": "The 2022 True Timber Viper uses the RP-11-02-07 charger, which is a standard 48V 2A charger. Just say 'order it' and I'll create a direct secure checkout link for you."
+      "content": "The 2022 True Timber Viper typically uses the RP-11-02-07 charger. However, since your old charger is a SANS model (SSL0300V55), I recommend confirming compatibility. If you're ready to proceed with the RP-11-02-07, just say 'order it' and I'll create a direct secure checkout link for you."
     }
   ]
 }
