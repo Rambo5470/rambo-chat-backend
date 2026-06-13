@@ -1,12 +1,12 @@
 {
   "session_id": "adc02fec-a027-462d-8fdc-1d3b663b1289",
   "date": "2026-06-13",
-  "ts": "2026-06-13T21:23:23.896064Z",
+  "ts": "2026-06-13T21:26:11.967652Z",
   "customer_name": "are we still waiting?",
-  "customer_email": "",
+  "customer_email": "summertime1262@yahoo.com",
   "escalated": true,
-  "case_created": false,
-  "message_count": 8,
+  "case_created": true,
+  "message_count": 10,
   "messages": [
     {
       "content": "hello I'm trying to see how I am paying my  payments onautopay   which card I am using",
@@ -33,12 +33,20 @@
       "role": "assistant"
     },
     {
+      "content": "How long do I wait",
+      "role": "user"
+    },
+    {
+      "content": "I'm connecting you with our team now. They will provide you with the information you need as soon as possible. Thank you for your patience!",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "How long do I wait"
+      "content": "I must leave soon...my email is summertime1262@yahoo.com"
     },
     {
       "role": "assistant",
-      "content": "I'm connecting you with our team now. They will provide you with the information you need as soon as possible. Thank you for your patience!"
+      "content": "I'm connecting you with our team now. They will reach out to you at your email, summertime1262@yahoo.com, with the information you need. Thank you for your patience!"
     }
   ]
 }
