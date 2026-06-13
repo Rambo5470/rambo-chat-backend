@@ -1,0 +1,20 @@
+{
+  "session_id": "3c7a72a4-8bc2-4194-a1db-3ee94da94d9d",
+  "date": "2026-06-13",
+  "ts": "2026-06-13T15:09:06.239837Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Need the charger to"
+    },
+    {
+      "role": "assistant",
+      "content": "Could you please provide the exact model of your bike? This will help me find the right charger for you."
+    }
+  ]
+}
