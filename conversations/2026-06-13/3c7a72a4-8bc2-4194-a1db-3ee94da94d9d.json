@@ -1,12 +1,12 @@
 {
   "session_id": "3c7a72a4-8bc2-4194-a1db-3ee94da94d9d",
   "date": "2026-06-13",
-  "ts": "2026-06-13T15:12:31.089822Z",
+  "ts": "2026-06-13T15:13:41.636460Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "Need the charger to",
@@ -25,12 +25,20 @@
       "role": "assistant"
     },
     {
+      "content": "Viper",
+      "role": "user"
+    },
+    {
+      "content": "Could you please specify which version of the Viper you have? This will help me find the correct charger for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Viper"
+      "content": "True Timber viper"
     },
     {
       "role": "assistant",
-      "content": "Could you please specify which version of the Viper you have? This will help me find the correct charger for you."
+      "content": "Could you please provide the year of your True Timber Viper? This will help me find the correct charger for you."
     }
   ]
 }
