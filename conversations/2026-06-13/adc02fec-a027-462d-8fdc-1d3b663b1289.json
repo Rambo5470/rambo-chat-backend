@@ -1,12 +1,12 @@
 {
   "session_id": "adc02fec-a027-462d-8fdc-1d3b663b1289",
   "date": "2026-06-13",
-  "ts": "2026-06-13T21:22:52.711779Z",
+  "ts": "2026-06-13T21:23:23.896064Z",
   "customer_name": "are we still waiting?",
   "customer_email": "",
   "escalated": true,
   "case_created": false,
-  "message_count": 6,
+  "message_count": 8,
   "messages": [
     {
       "content": "hello I'm trying to see how I am paying my  payments onautopay   which card I am using",
@@ -25,12 +25,20 @@
       "role": "assistant"
     },
     {
+      "content": "are we still waiting?",
+      "role": "user"
+    },
+    {
+      "content": "I'm connecting you with our team now. They will provide you with an update regarding your request.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "are we still waiting?"
+      "content": "How long do I wait"
     },
     {
       "role": "assistant",
-      "content": "I'm connecting you with our team now. They will provide you with an update regarding your request."
+      "content": "I'm connecting you with our team now. They will provide you with the information you need as soon as possible. Thank you for your patience!"
     }
   ]
 }
