@@ -1,20 +1,28 @@
 {
   "session_id": "6f26413e-fb3d-4e83-8157-b8b4d6548e86",
   "date": "2026-06-13",
-  "ts": "2026-06-13T15:52:38.051184Z",
+  "ts": "2026-06-13T15:52:59.414775Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 2,
+  "message_count": 4,
   "messages": [
     {
+      "content": "Kickstand",
+      "role": "user"
+    },
+    {
+      "content": "The kickstand part number is RP-20-01. Just say 'order it' and I'll create a direct secure checkout link for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "Kickstand"
+      "content": "Order it"
     },
     {
       "role": "assistant",
-      "content": "The kickstand part number is RP-20-01. Just say 'order it' and I'll create a direct secure checkout link for you."
+      "content": "I've created a secure order link for you. Click the link to review and complete your purchase: [Order Kickstand](https://www.rambobikes.com/57696747655/invoices/38c55d2f7edf249030535d2cd17b56b2)."
     }
   ]
 }
