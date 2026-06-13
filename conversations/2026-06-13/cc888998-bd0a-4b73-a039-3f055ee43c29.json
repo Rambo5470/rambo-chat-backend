@@ -1,0 +1,20 @@
+{
+  "session_id": "cc888998-bd0a-4b73-a039-3f055ee43c29",
+  "date": "2026-06-13",
+  "ts": "2026-06-13T22:23:56.147391Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "How do I sign up for a discount code"
+    },
+    {
+      "role": "assistant",
+      "content": "Currently, we don't have a specific sign-up process for discount codes. However, you can check our website for any ongoing promotions or special offers. If you have any further questions, feel free to reach out!"
+    }
+  ]
+}
