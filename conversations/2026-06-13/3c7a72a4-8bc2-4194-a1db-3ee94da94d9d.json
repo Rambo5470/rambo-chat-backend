@@ -1,12 +1,12 @@
 {
   "session_id": "3c7a72a4-8bc2-4194-a1db-3ee94da94d9d",
   "date": "2026-06-13",
-  "ts": "2026-06-13T15:13:41.636460Z",
+  "ts": "2026-06-13T15:14:17.649474Z",
   "customer_name": "",
   "customer_email": "",
   "escalated": false,
   "case_created": false,
-  "message_count": 8,
+  "message_count": 10,
   "messages": [
     {
       "content": "Need the charger to",
@@ -33,12 +33,20 @@
       "role": "assistant"
     },
     {
+      "content": "True Timber viper",
+      "role": "user"
+    },
+    {
+      "content": "Could you please provide the year of your True Timber Viper? This will help me find the correct charger for you.",
+      "role": "assistant"
+    },
+    {
       "role": "user",
-      "content": "True Timber viper"
+      "content": "2022?"
     },
     {
       "role": "assistant",
-      "content": "Could you please provide the year of your True Timber Viper? This will help me find the correct charger for you."
+      "content": "The 2022 True Timber Viper uses the RP-11-02-07 charger, which is a standard 48V 2A charger. Just say 'order it' and I'll create a direct secure checkout link for you."
     }
   ]
 }
