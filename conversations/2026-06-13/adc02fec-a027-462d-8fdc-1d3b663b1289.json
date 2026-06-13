@@ -1,0 +1,20 @@
+{
+  "session_id": "adc02fec-a027-462d-8fdc-1d3b663b1289",
+  "date": "2026-06-13",
+  "ts": "2026-06-13T21:18:32.347888Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": true,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello I'm trying to see how I am paying my  payments onautopay   which card I am using"
+    },
+    {
+      "role": "assistant",
+      "content": "I'm connecting you with our team now. They will be able to assist you with your autopay payment method and card details."
+    }
+  ]
+}
