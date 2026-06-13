@@ -1,0 +1,20 @@
+{
+  "session_id": "84565271-0a21-4382-87c8-83a79e0f896e",
+  "date": "2026-06-13",
+  "ts": "2026-06-13T13:02:24.305578Z",
+  "customer_name": "",
+  "customer_email": "",
+  "escalated": false,
+  "case_created": false,
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Is Nathan Stieren available?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'm here to help with any questions you have about Rambo Bikes! If you need assistance with a specific issue or inquiry, feel free to ask."
+    }
+  ]
+}
